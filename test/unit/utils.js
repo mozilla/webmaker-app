@@ -9,13 +9,13 @@ var testArray = [
 ];
 
 describe('utils', function () {
-    describe('findInArray', function () {
+    describe('findIndexInArray', function () {
         it('should find the index of an obj in an array', function () {
-            assert.equal(utils.findInArray(testArray, 'name', 'kate'), 0);
+            assert.equal(utils.findIndexInArray(testArray, 'name', 'kate'), 0);
         });
         it('should return undefined if obj not found', function () {
-            var a = utils.findInArray(testArray, 'name', 'bobby');
-            var b = utils.findInArray(testArray, 'NAME', 'andrew');
+            var a = utils.findIndexInArray(testArray, 'name', 'bobby');
+            var b = utils.findIndexInArray(testArray, 'NAME', 'andrew');
             assert.equal(a, undefined);
             assert.equal(b, undefined);
         });

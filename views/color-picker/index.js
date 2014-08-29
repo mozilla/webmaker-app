@@ -9,6 +9,7 @@ var colorGroups = [
     '#1CB0B4',
     '#31ABDF'
 ];
+var make;
 
 module.exports = view.extend({
     id: 'color-picker',
@@ -19,9 +20,9 @@ module.exports = view.extend({
         var id = self.$parent.$data.params.id;
         make = new Make(id);
         $data.blockIndex = self.$parent.$data.params.index;
-        $data.block = make.meta.blocks[$data.blockIndex];
+        $data.block = make.app.blocks[$data.blockIndex];
         var attrs = $data.block.attributes;
-        $data.colorIndex = utils.findInArray(attrs, 'id', 'color');
+        $data.colorIndex = utils.findIndexInArray(attrs, 'id', 'color');
         $data.selectedColor = $data.block.attributes[$data.colorIndex].value;
         $data.colors.forEach(function (arr, i) {
             arr.forEach(function (color) {
@@ -40,7 +41,6 @@ module.exports = view.extend({
             var attrs = $data.block.attributes;
             $data.selectedColor = color;
             attrs[$data.colorIndex].value = $data.selectedColor;
-            make.update($data.blockIndex, attrs);
         },
         onGroupSelect: function (i) {
             this.$data.selectedGroup = i;

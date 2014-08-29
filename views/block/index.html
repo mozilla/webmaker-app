@@ -1,6 +1,6 @@
 <div v-component="navigationBar"></div>
 <form id="attributes">
-    <div class="form-group" v-repeat="attributes" v-component="{{ getEditor(type) }}"></div>
+    <div class="form-group" v-repeat="block.attributes" v-component="{{ getEditor(type) }}"></div>
     <div class="form-group">
       <button v-on="click: remove" class="btn btn-block btn-remove">{{ 'Remove' | i18n }}</button>
     </div>

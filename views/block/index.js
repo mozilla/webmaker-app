@@ -25,9 +25,9 @@ module.exports = view.extend({
         id = self.$parent.$data.params.id;
         index = self.$parent.$data.params.index;
         target = new Make(id);
-        block = target.meta.blocks[index];
+        block = target.app.blocks[index];
         // Bind app
-        self.$data = block;
+        self.$data.block = block;
         self.$data.index = index;
         self.$data.getEditor = function (type) {
             var editorKey = type + '-editor';
@@ -43,9 +43,5 @@ module.exports = view.extend({
             target.remove(index);
             global.history.back();
         };
-    },
-    detached: function () {
-        var self = this;
-        target.update(index, self.$data.attributes);
     }
 });

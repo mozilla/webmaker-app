@@ -10,12 +10,10 @@ module.exports = view.extend({
 
         // Fetch app
         var id = self.$parent.$data.params.id;
-        var target = new Make(id);
+        var target = new Make(id).app;
+        console.log(target);
 
         // Bind app
-        self.$data = target.meta;
-        self.$data.updateName = function (name) {
-            target.updateName(name);
-        };
+        self.$data.app = target;
     }
 });

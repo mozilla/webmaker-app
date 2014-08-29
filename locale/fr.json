@@ -118,5 +118,9 @@
     "Select Color": {
       "message": "Choisissez une couleur",
       "description": "Title for the color picker"
+    },
+    "Untitled App": {
+      "message": "Applis sans titre",
+      "description": ""
     }
 }
