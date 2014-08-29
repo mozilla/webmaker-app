@@ -1,7 +1,7 @@
 <div v-component="makeBar"></div>
-<input id="name-input" v-on="keyup: updateName(name)" type="text" v-model="name">
+<input id="name-input" type="text" v-model="app.name">
 
-<a class="add" href="/make/{{id}}/add">+</a>
+<a class="add" href="/make/{{app.id}}/add">+</a>
 <div id="blocks">
-    <a v-component="{{id}}" v-repeat="blocks" href="/make/{{$parent.id}}/block/{{$index}}"></a>
+    <a v-component="{{id}}" v-repeat="app.blocks" href="/make/{{$parent.app.id}}/block/{{$index}}"></a>
 </div>

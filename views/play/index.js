@@ -10,10 +10,10 @@ module.exports = view.extend({
 
         // Fetch app
         var id = self.$parent.$data.params.id;
-        var target = new Make(id).meta;
+        var target = new Make(id).app;
 
         // Bind app
-        self.$data = target;
+        self.$data.app = target;
         self.title = target.name;
     }
 });

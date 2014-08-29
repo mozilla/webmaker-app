@@ -1,11 +1,10 @@
-var model = require('../../lib/model');
+var Make = require('../../lib/make');
 var templates = require('../../lib/templates.json');
-var utils = require('../../lib/utils');
 var view = require('../../lib/view');
 
 var id = null;
 var index = null;
-var app = null;
+var target = null;
 var block = null;
 
 module.exports = view.extend({
@@ -25,8 +24,8 @@ module.exports = view.extend({
         // Fetch app
         id = self.$parent.$data.params.id;
         index = self.$parent.$data.params.index;
-        app = utils.findInArray(model.apps, 'id', id);
-        block = app.blocks[index];
+        target = new Make(id);
+        block = target.app.blocks[index];
         // Bind app
         self.$data.block = block;
         self.$data.index = index;
@@ -41,7 +40,7 @@ module.exports = view.extend({
         };
         self.$data.remove = function (e) {
             e.preventDefault();
-            // app.remove(index); todo
+            target.remove(index);
             global.history.back();
         };
     }

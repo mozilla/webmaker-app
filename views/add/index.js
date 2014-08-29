@@ -13,7 +13,7 @@ module.exports = view.extend({
 
         // Fetch app
         id = self.$parent.$data.params.id;
-        target = new Make(id).meta;
+        target = new Make(id).app;
 
         // Bind app
         self.$data = target;
