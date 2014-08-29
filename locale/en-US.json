@@ -126,5 +126,9 @@
     "Select Color": {
       "message": "Select Color",
       "description": "Title for the color picker"
+    },
+    "Untitled App": {
+      "message": "Untitled App",
+      "description": ""
     }
 }

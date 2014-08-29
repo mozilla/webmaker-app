@@ -3,9 +3,9 @@
         <a href="/apps">&lt;</a>
     </li>
     <li v-class="active:params.mode === 'play'">
-        <a href="/make/{{id}}/play">Play</a>
+        <a href="/make/{{id}}/play">{{ 'Play' | i18n }}</a>
     </li>
     <li v-class="active:params.mode === 'edit'">
-        <a href="/make/{{id}}/edit">Edit</a>
+        <a href="/make/{{id}}/edit">{{ 'Edit' | i18n }}</a>
     </li>
 </ul>

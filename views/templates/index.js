@@ -2,6 +2,7 @@ var model = require('../../lib/model');
 var templates = require('../../lib/templates.json');
 var uuid = require('../../lib/uuid');
 var view = require('../../lib/view');
+var i18n = require('../../lib/i18n');
 
 module.exports = view.extend({
     id: 'templates',
@@ -31,7 +32,7 @@ module.exports = view.extend({
 
             // Prepare the clone for use
             clone.id = uuid();
-            clone.name = 'Untitled App';
+            clone.name = i18n.get('Untitled App');
             clone.author = model.user;
 
             // Add to model & redirect to editor

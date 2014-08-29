@@ -9,7 +9,7 @@ var testArray = [
 ];
 
 describe('utils', function () {
-    describe('findInArray', function () {
+    describe('findIndexInArray', function () {
         it('should find the index of an obj in an array', function () {
             assert.equal(utils.findInArray(testArray, 'name', 'kate'), 0);
         });
