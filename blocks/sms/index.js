@@ -10,6 +10,11 @@ module.exports = {
                 type: 'string',
                 value: '+18005555555'
             },
+            'data-message-body': {
+              label: 'Message',
+              type: 'string',
+              value: '',
+            },
             innerHTML: {
                 label: 'Label',
                 type: 'string',
@@ -28,7 +33,8 @@ module.exports = {
                 name: 'new',
                 data: {
                     type: 'websms/sms',
-                    number: e.target.getAttribute('value')
+                    number: e.target.getAttribute('value'),
+                    body: e.target.getAttribute('data-message-body'),
                 }
             });
         });
