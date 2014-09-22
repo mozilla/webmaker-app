@@ -130,5 +130,9 @@
     "Message": {
       "message": "Message",
       "description": "Message you want to send"
+    },
+    "Place call": {
+      "message": "Place call",
+      "description": ""
     }
 }
