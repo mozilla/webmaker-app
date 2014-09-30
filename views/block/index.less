@@ -1,5 +1,23 @@
 #block {
     .header-space;
 
-    #attributes {}
+    #attributes {
+        #list-editor {
+            //@TODO: add better styling for list editor
+
+            ul {
+                list-style: none inside;
+                margin: 0;
+                padding: 0;
+            }
+
+            .add {
+                color: @darkGrey;
+            }
+
+            .remove {
+                color: @red;
+            }
+        }
+    }
 }

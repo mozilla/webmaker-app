@@ -1,0 +1,10 @@
+<label for="{{id}}">{{ label | i18n }}</label>
+
+<ul>
+	<li v-repeat="items" class="item-{{$index}}">
+		<input type="text" v-model="$value" v-on="input: items.$set($index, $value)">
+		<span class="remove" v-on="click: items.$remove($index)">{{ "remove" | i18n }}</span>
+	</li>
+</ul>
+
+<span class="add" v-on="click: items.push('')">{{ "add Value" | i18n }}</span>
