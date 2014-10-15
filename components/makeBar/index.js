@@ -11,7 +11,7 @@ module.exports = {
             } else {
                 this.$el.className = '';
             }
-        }
+        },
         goBack: function (e) {
             e.preventDefault();
             global.history.back();

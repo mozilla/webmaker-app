@@ -37,7 +37,7 @@ module.exports = {
                         p.textContent = chunk;
                     }
                     else {
-                        p.innerHTML = "&nbsp;"
+                        p.innerHTML = "&nbsp;";
                     }
                     this.$el.appendChild(p);
                 }.bind(this));
