@@ -1,6 +1,7 @@
 <ul>
+	<li class="button">
+     <a v-on="click: goBack" href="#">&lt;</a>
     <li>
-    <button class="back" v-if="back" v-on="click: goBack">&lt;</button>
     </li>
     <li v-class="active:params.mode === 'play'">
         <a href="/make/{{id}}/play">{{ 'Play' | i18n }}</a>
