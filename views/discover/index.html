@@ -1,2 +1,24 @@
 <div v-component="navigationBar"></div>
+
+<!--
+TODO: Restore this toggle when we have implemented 'nearby' view.
+<div v-component="slideToggle"
+    model="mode"
+    left="featured"
+    left-label='Featured'
+    right="nearby"
+    right-label="Near Me"
+    >
+    </div>
+ -->
+
+    <ul class="list-cell" v-show="mode === 'featured'">
+        <lh>{{ "Featured" | i18n }}</lh>
+        <li v-component="appCell" v-repeat="apps.featured"></li>
+    </ul>
+
+    <ul class="list-cell" v-show="mode === 'nearby'">
+        <li v-component="appCell" v-repeat="apps.nearby"></li>
+    </ul>
+
 <div v-component="tabBar"></div>

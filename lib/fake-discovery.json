@@ -1,0 +1,1206 @@
+{
+    "featured": [
+        {
+            "id":"d5c3ee43-5bbf-483c-8e70-0ac035c5f990",
+            "name":"Journalist",
+            "icon":"/images/placeholder_journalist.png",
+            "author":{
+                "username":"Rafid Daoud",
+                "location":"",
+                "avatar":""
+            },
+            "blocks":[
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"News / Greater Toronto Area"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#0000FF"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"The Air Show at the CNE"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#000000"
+                        },
+                        "font-size":{
+                            "label":"Font Size",
+                            "type":"font-size",
+                            "value":"40"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"A fascinating and thrilling show at the Canadian National Exhibition"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#AAAAAA"
+                        }
+                    }
+                },
+                {
+                    "id":"image",
+                    "attributes":{
+                        "src":{
+                            "id":"src",
+                            "label":"Image URL",
+                            "type":"string",
+                            "value":"/content/newspaper_planes.jpg"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Photo by Rafid Daoud"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#AAAAAA"
+                        },
+                        "font-size":{
+                            "label":"Font Size",
+                            "type":"font-size",
+                            "value":"12"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Canadian forces snowbirds pilots taking formation for their next performance"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#AAAAAA"
+                        },
+                        "font-size":{
+                            "label":"Font Size",
+                            "type":"font-size",
+                            "value":"12"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"By: Rafid / Seneca College, Published on Fri Oct 17, 2014"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#000000"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"The air show at Canada National Exhibition in Toronto Ontario. It took place on August 30th 2014 through September 1st 2014. The show had two types of air crafts do their tricks. First, were fighter jets that were very fast almost the speed of sound. Then came the planes pictured above and they performed many tricks and had many different formations."
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#000000"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "id":"000d1745-5d3c-4997-ac0c-15df68bbbecb",
+            "name":"Vendor",
+            "icon":"/images/placeholder_vendor.png",
+            "author":{
+                "username":"Yousuf",
+                "location":"",
+                "avatar":"/images/avatar_vendor.png"
+            },
+            "blocks":[
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Yousuf's Tea Shop"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#000000"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Niketon Housing Society, 1219 Dhaka, Bangladesh"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#000000"
+                        }
+                    }
+                },
+                {
+                    "id":"image",
+                    "attributes":{
+                        "src":{
+                            "id":"src",
+                            "label":"Image URL",
+                            "type":"string",
+                            "value":"/content/vendor_mirzapore.jpg"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Mirzapore - Tk210.35"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#333444"
+                        }
+                    }
+                },
+                {
+                    "id":"image",
+                    "attributes":{
+                        "src":{
+                            "id":"src",
+                            "label":"Image URL",
+                            "type":"string",
+                            "value":"/content/vendor_assam.jpg"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Assam - Tk240.10"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#333444"
+                        }
+                    }
+                },
+                {
+                    "id":"sms",
+                    "attributes":{
+                        "value":{
+                            "id":"value",
+                            "label":"Phone #",
+                            "type":"string",
+                            "value":"+18005555555"
+                        },
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Label",
+                            "type":"string",
+                            "value":"Place Order"
+                        },
+                        "messageBody":{
+                            "id":"messageBody",
+                            "label":"Message body",
+                            "type":"string",
+                            "value":"I would like to place an order"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "id":"000d1745-5d3c-4997-ac0c-15df68bbbecb",
+            "name":"Medic",
+            "icon":"/images/placeholder_medic.png",
+            "author":{
+                "username":"Aya",
+                "location":"",
+                "avatar":"/images/avatar_medic.png"
+            },
+            "blocks":[
+
+            ]
+        },
+        {
+            "id":"a7ac2775-bd9d-40b5-a26c-43e8452da768",
+            "name":"Teacher",
+            "icon":"/images/placeholder_teacher.png",
+            "author":{
+                "username":"Deepa",
+                "location":"",
+                "avatar":"/images/avatar_teacher.png"
+            },
+            "blocks":[
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Lesson Plan: Build an App"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#000000"
+                        },
+                        "font-size":{
+                            "label":"Font Size",
+                            "type":"font-size",
+                            "value":"22"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"This Webmaker template can help you make a lesson plan. The lesson in this template describes how to make an app. Edit the details below to make a lesson on your own topic. Share your new app to spread the learning."
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#999999"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"*Time*: 30 minutes\n*Materials*: FirefoxOS phone\n *Objective*: This lesson will teach students to make an app for their mobile phone. Students will gain a stronger understanding of what mobile apps are and what they can do. Students will also build confidence in their ability to make apps for themselves, their family and community.\n*Intro*: Mobile apps can be fun and useful. An app made by you can be even more fun and useful!"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#333444"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Activity"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#333444"
+                        },
+                        "font-size":{
+                            "label":"Font Size",
+                            "type":"font-size",
+                            "value":"22"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Step 1 - Install Mobile Webmaker"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#333444"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":" - Go to mobile.webmaker.org [coming soon] on your mobile device.\n  - Tap the install button and follow the instructions on your screen."
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#999999"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Step 2 - Browse Mobile Webmaker"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#333444"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":" - Read the welcome screens to learn about webmaker.\n  - Use the first and the third button on the main menu to:  - Browse Discover to see the Apps made with Webmaker.\n   - Enter your profile."
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#999999"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Step 3 - Open a Template"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#333444"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":" - Browse and choose a template.\n  - Tap to open and preview the template.\n  - Tap 'Edit' to make a new app from this template."
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#999999"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Step 4 - Examine the Bricks"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#333444"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"An app is made of bricks. Each brick does one thing, like display text or show an image for example. Your template includes several bricks already. You can tap a brick to edit it, or tap the plus sign to add another one."
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#999999"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Step 5 - Add a Brick"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#333444"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":" - Tap the plus sign to add a brick to your app.\n  - Browse the options and then tap Text to add a text brick."
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#999999"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Step 6 - Edit a Brick"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#333444"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":" - Tap your new text brick.\n  - Change the text, its size and color.\n  - Tap the back arrow at the top of the screen when you are done, or tap remove to delete the brick."
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#999999"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Step 7 - Name &amp; View Your App"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#333444"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":" - Tap 'Untitled App' at the top of your screen. Give your app a unique name.\n  - Tap 'Play' at the top of the screen to preview your app."
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#999999"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Congratulations!\nYou made an app."
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#ff00ff"
+                        },
+                        "font-size":{
+                            "label":"Font Size",
+                            "type":"font-size",
+                            "value":"22"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Going Further"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#333444"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Now that you know how to make a basic app, what kind of apps would you like to make? Are there popular apps that you would like to make more personal? Are there fun things you could share with your friends? Are there small problems you could help solve for your family or community?"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#999999"
+                        }
+                    }
+                },
+                {
+                    "id":"sms",
+                    "attributes":{
+                        "value":{
+                            "id":"value",
+                            "label":"Phone #",
+                            "type":"string",
+                            "value":"+18005555555"
+                        },
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Label",
+                            "type":"string",
+                            "value":"Share Lesson"
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "nearby": [
+        {
+            "id":"a7ac2775-bd9d-40b5-a26c-43e847777777",
+            "name":"How To",
+            "icon":"/images/placeholder_howto.png",
+            "author":{
+                "username":"Deepa",
+                "location":"",
+                "avatar":"/images/avatar_teacher.png"
+            },
+            "blocks":[
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"HOW TO GUIDE"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#4d4e53"
+                        },
+                        "font-size":{
+                            "label":"Font Size",
+                            "type":"font-size",
+                            "value":"12"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"How to Make a Box Guitar"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#328F70"
+                        },
+                        "font-size":{
+                            "label":"Font Size",
+                            "type":"font-size",
+                            "value":"22"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Whether making this fun toy for yourself or for your child, a homemade guitar is an easy and creative way to make music from household items."
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#333444"
+                        }
+                    }
+                },
+                {
+                    "id":"image",
+                    "attributes":{
+                        "src":{
+                            "id":"src",
+                            "label":"Image URL",
+                            "type":"string",
+                            "value":"/content/howto_guitar_1.jpg"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Part 1 - Find a carboard box, cut a large hole in the middle of one side, and then 5 smaller holes to the left and the right of the large one."
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#333444"
+                        }
+                    }
+                },
+                {
+                    "id":"image",
+                    "attributes":{
+                        "src":{
+                            "id":"src",
+                            "label":"Image URL",
+                            "type":"string",
+                            "value":"/content/howto_guitar_2.jpg"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Part 2 - Take 5 rubber bands and cut them open.\n\nTie a knot on one end of a rubber band. Push the other end through the first small hole and then stretch it across the big hole to the other side. Push it down through this hole and tie another knot.\n\nRepeat this for the other 4 rubber bands."
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#333444"
+                        }
+                    }
+                },
+                {
+                    "id":"image",
+                    "attributes":{
+                        "src":{
+                            "id":"src",
+                            "label":"Image URL",
+                            "type":"string",
+                            "value":"/content/howto_guitar_3.jpg"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Part 3 - Create your guitar neck with a stick or cardboard tube."
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#333444"
+                        }
+                    }
+                },
+                {
+                    "id":"image",
+                    "attributes":{
+                        "src":{
+                            "id":"src",
+                            "label":"Image URL",
+                            "type":"string",
+                            "value":"/content/howto_guitar_4.jpg"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Ta-da! Now play a song!"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#328F70"
+                        },
+                        "font-size":{
+                            "label":"Font Size",
+                            "type":"font-size",
+                            "value":"22"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"CREATIVE COMMONS"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#4d4e53"
+                        },
+                        "font-size":{
+                            "label":"Font Size",
+                            "type":"font-size",
+                            "value":"12"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Article based on http://www.wikihow.com/Make-a-Rubber-Band-Guitar.\n\nShared under a Creative Commons License http://creativecommons.org/licenses/by-nc-sa/3.0/."
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#333444"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "id":"229abeb3-aa7d-453d-8082-96f8f1b0bfd8",
+            "name":"Family",
+            "icon":"/images/placeholder_family.png",
+            "author":{
+                "username":"Sita",
+                "location":"",
+                "avatar":"/images/avatar_family.png"
+            },
+            "blocks":[
+
+            ]
+        },
+        {
+            "id":"5c22ae09-eeb5-4faf-aeb2-756da98790bf",
+            "name":"Scientist",
+            "icon":"/images/placeholder_scientist.png",
+            "author":{
+                "username":"Paola",
+                "location":"",
+                "avatar":"/images/avatar_scientist.png"
+            },
+            "blocks":[
+
+            ]
+        },
+        {
+            "id":"b9483c11-077e-4396-84e2-c0454c36a741",
+            "name":"Blogger",
+            "icon":"/images/placeholder_blogger.png",
+            "author":{
+                "username":"Emma",
+                "location":"",
+                "avatar":"/images/avatar_blogger.png"
+            },
+            "blocks":[
+
+            ]
+        },
+        {
+            "id":"41e8be7e-4381-4afd-82ac-861171c55555",
+            "name":"Club",
+            "icon":"/images/placeholder_student.png",
+            "author":{
+                "username":"Pedro",
+                "location":"",
+                "avatar":"/images/avatar_student.png"
+            },
+            "blocks":[
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Salsa Saturdays"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#c03731"
+                        },
+                        "font-size":{
+                            "label":"Font Size",
+                            "type":"font-size",
+                            "value":"24"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"NEXT EVENT"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#c03731"
+                        },
+                        "font-size":{
+                            "label":"Font Size",
+                            "type":"font-size",
+                            "value":"12"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"When: Saturday, 20 December 2014 at 8pm.\n\nWhere: The Student Lounge"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#333333"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"PREVIOUS EVENTS"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#c03731"
+                        },
+                        "font-size":{
+                            "label":"Font Size",
+                            "type":"font-size",
+                            "value":"12"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"**27 September 2014**"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#333333"
+                        }
+                    }
+                },
+                {
+                    "id":"image",
+                    "attributes":{
+                        "src":{
+                            "id":"src",
+                            "label":"Image URL",
+                            "type":"string",
+                            "value":"/content/club_by-nc-sa_trey_ratcliff.jpg"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Photo by Trey Ratcliff\n\n(CC BY-NC-SA) http://creativecommons.org/licenses/by-nc-sa/4.0/"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#999999"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"**23 August 2014**"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#333333"
+                        }
+                    }
+                },
+                {
+                    "id":"image",
+                    "attributes":{
+                        "src":{
+                            "id":"src",
+                            "label":"Image URL",
+                            "type":"string",
+                            "value":"/content/club_by_vincent_jarousseau.jpg"
+                        }
+                    }
+                },
+                {
+                    "id":"text",
+                    "attributes":{
+                        "innerHTML":{
+                            "id":"innerHTML",
+                            "label":"Text Value",
+                            "type":"string",
+                            "value":"Photo by Vincent Jarousseau\n\n(CC BY) http://creativecommons.org/licenses/by/4.0/"
+                        },
+                        "color":{
+                            "id":"color",
+                            "label":"Text Color",
+                            "type":"color",
+                            "value":"#999999"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "id":"41e8be7e-4381-4afd-82ac-861171cd1111",
+            "name":"Safety",
+            "icon":"/images/placeholder_safety.png",
+            "author":{
+                "username":"Pedro",
+                "location":"",
+                "avatar":"/images/avatar_student.png"
+            },
+            "blocks":[
+                {
+                    "id":"phone",
+                    "attributes":{
+                        "number":{
+                            "label":"Phone #",
+                            "type":"string",
+                            "value":"+18005555555"
+                        },
+                        "innerHTML":{
+                            "label":"Label",
+                            "type":"string",
+                            "value":"Call Campus Safety"
+                        }
+                    }
+                },
+                {
+                    "id":"image",
+                    "attributes":{
+                        "src":{
+                            "id":"src",
+                            "label":"Image URL",
+                            "type":"string",
+                            "value":"/content/campus_safety.gif"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "id":"3617a58c-3103-47dd-a767-60cd84ed7ef7",
+            "name":"Activist",
+            "icon":"/images/placeholder_activist.png",
+            "author":{
+                "username":"Richard",
+                "location":"",
+                "avatar":"/images/avatar_activist.png"
+            },
+            "blocks":[
+
+            ]
+        }
+    ]
+}

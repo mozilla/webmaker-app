@@ -258,6 +258,13 @@
     "No Apps Message": {
       "message": "You don't have any apps yet.",
       "description": "Message that is displayed in the profile when current user has no apps"
+    },
+    "Featured": {
+      "message": "Featured",
+      "description": "Featured apps (title for Discover page)"
+    },
+    "Near Me": {
+      "message": "Near Me",
+      "description": "Apps made near the user (title for Discover page)"
     }
-
 }
