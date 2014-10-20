@@ -1,0 +1,22 @@
+<div v-component="navigationBar"></div>
+<div class="form-group">
+    <label for="Appname">App name</label>
+    <input type="text" id="appname" v-model="app.name">
+</div>
+<div class="icon-chooser">
+    <div class="button" v-on="click: prevIcon">
+        <span>&lt;</span>
+    </div>
+    <div class="icon-container">
+        <img class="app-icon" src="{{app.icon}}">
+    </div>
+    <div class="button" v-on="click: nextIcon">
+        <span>&gt;</span>
+    </div>
+</div>
+<ul class="swatches">
+    <li v-repeat="color: iconColors" style="background-color:{{color}};"
+        v-class="selected: selectedColor === color"
+    v-on="click: onSelect(color)"></li>
+</ul>
+<div v-component="tabBar"></div>

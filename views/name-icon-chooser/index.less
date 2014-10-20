@@ -1,0 +1,67 @@
+#name-icon-chooser {
+    .icon-chooser {
+        width: 100%;
+        height: 30%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+        .button {
+            padding: 0 5%;
+            float: left;
+            height: 100%;
+        }
+
+        span {
+            display: block;
+            font-size: 16pt;
+            font-weight: normal;
+
+            position: relative;
+            top: 50%;
+            -webkit-transform: tranlateY(-50%);
+            -ms-transform: tranlateY(-50%);
+            transform: translateY(-50%);
+        }
+
+        .icon-container {
+            float: left;
+            width: auto;
+            height: 100%;
+        }
+
+        .app-icon {
+            position: relative;
+            top: 50%;
+            -webkit-transform: tranlateY(-50%);
+            -ms-transform: tranlateY(-50%);
+            transform: translateY(-50%);
+            width: auto;
+            height: 70%;
+        }
+    }
+
+    .swatches {
+        &.primary {
+            border-bottom: 1px solid @lightGrey;
+        }
+        .clearfix;
+        list-style: none;
+        padding: 0 5% 5% 5%;
+        margin: 0;
+        li {
+            float: left;
+            margin: 5% 0 0 5%;
+            width: 14%;
+            height: 0;
+            padding-bottom: 14%;
+            transition: box-shadow 0.1s ease-in;
+            border-radius: 50%;
+            &.selected {
+                box-shadow: 0 0 0 4px @turquoise;
+            }
+        }
+    }
+}
