@@ -26,6 +26,7 @@ module.exports = view.extend({
         var app = new App(id);
 
         self.$data.app = app.data;
+        self.$data.selectedColor = iconColors[0];
 
         // Temp: Save app name only
         self.$data.onDone = function() {
