@@ -1,4 +1,17 @@
 <p>{{ 'You can create your own app. Just open a template and edit!' | i18n }}</p>
 <img src="/images/ftu_3.png" alt="">
-<button v-if="!offline" class="btn-next" v-on="click: login">{{ 'Login' | i18n }}</button>
-<a v-if="offline" class="btn-next" href="/templates">{{ 'Next' | i18n }}</a>
+<div class="sign-in">
+    <div v-if="!offline" >
+        <button class="btn-next" v-on="click: login">{{ 'Sign In' | i18n }}</button>
+        <a class="btn-next btn-guest" href="/templates">{{ 'Try as Guest' | i18n }}</a>
+        <p>
+            {{ 'Guest Explanation' | i18n }}
+        </p>
+    </div>
+    <div v-if="offline" >
+        <a class="btn-next" href="/templates">{{ 'Try in Offline Mode' | i18n }}</a>
+        <p>
+            {{ 'Offline Mode Explanation' | i18n }}
+        </p>
+    </div>
+</div>

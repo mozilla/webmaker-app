@@ -179,9 +179,25 @@
       "message": "Place call",
       "description": "Button for placing a call"
     },
-    "Login": {
-      "message": "Login",
-      "description": "Login button (logs user into Webmaker Mobile)"
+    "Sign In": {
+      "message": "Sign In",
+      "description": "Sign In button label (logs user into Webmaker Mobile)"
+    },
+    "Try as Guest": {
+      "message": "Try as Guest",
+      "description": "Label for action that allows a user to use the app without signing in."
+    },
+    "Guest Explanation": {
+      "message": "Guests can build, but not publish apps.",
+      "description": "Explains the effect of using the app as a not signed in guest."
+    },
+    "Try in Offline Mode": {
+      "message": "Try in Offline Mode",
+      "description": "Label for action that allows a user to use the app without signing in when the device is not connected to the internet."
+    },
+    "Offline Mode Explanation": {
+      "message": "This device isn't connected to the internet, so you won't be able to publish any apps.",
+      "description": "Explains effect of using the app without an internet connection"
     },
     "Sign Out": {
       "message": "Sign Out",
