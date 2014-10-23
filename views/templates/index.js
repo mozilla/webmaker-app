@@ -31,7 +31,7 @@ module.exports = view.extend({
 
             // Prepare the clone for use
             clone.id = uuid();
-            clone.name = i18n.get('Untitled App');
+            clone.name = i18n.get('My') + " " + clone.name + " "  +  i18n.get('App');
             clone.author = self.model.data.user;
 
             // Add to model & redirect to editor
