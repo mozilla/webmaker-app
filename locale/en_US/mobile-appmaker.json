@@ -267,6 +267,10 @@
       "message": "Check out the app \"{{app.name}}\" I made with Mozilla Webmaker",
       "description": "Message that gets sent when a published app is shared to friends"
     },
+    "My": {
+      "message": "My",
+      "description": "Added to the name of newly created apps to make it seem personalized"
+    },
     "App": {
       "message": "App",
       "description": "Title for app detail page"
