@@ -75,6 +75,10 @@
         "message": "students",
         "description": "To be replaced in the sentence: Apps made by students"
     },
+    "Share": {
+        "message": "Share",
+        "description": "Label for action to share an app after publishing"
+    },
     "Create and share app templates with people all around the world": {
         "message": "Create and share app templates with people all around the world",
         "description": "Description for first time experience"

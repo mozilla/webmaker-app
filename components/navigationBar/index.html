@@ -2,5 +2,5 @@
 <button v-if="cancel === true" v-on="click: goBack">{{'Cancel' | i18n}}</button>
 <a v-if="typeof cancel === 'string'" href="{{cancel}}">{{'Cancel' | i18n}}</a>
 <h1>{{title | i18n}}</h1>
-<button v-if="typeof onDone === 'function'" v-on="click: onDone">{{'Save' | i18n}}</button>
-<a v-if="typeof onDone === 'string'" href="{{onDone}}">{{'Save' | i18n}}</a>
+<button v-if="typeof onDone === 'function'" v-on="click: onDone">{{ confirmLabel }}</button>
+<a v-if="typeof onDone === 'string'" href="{{onDone}}">{{ confirmLabel }}</a>

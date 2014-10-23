@@ -10,7 +10,7 @@ module.exports = view.extend({
     template: require('./index.html'),
     data: {
         title: 'Share',
-        cancel: true,
+        cancel: true
     },
     methods: {
         login: function (e) {
