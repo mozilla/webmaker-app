@@ -43,6 +43,7 @@
     "phantomjs": "1.9.7-15",
     "request": "2.44.0",
     "tv4": "^1.1.4",
-    "webmaker-download-locales": "0.2.4"
+    "webmaker-download-locales": "0.2.4",
+    "stellar-wallet-login": "1.0.1"
   }
 }
