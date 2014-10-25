@@ -27,7 +27,7 @@
                         "id": "innerHTML",
                         "label": "Text Value",
                         "type": "string",
-                        "value": "News / Greater Toronto Area"
+                        "value": "This is news about my dog!"
                     },
                     "color": {
                         "id": "color",
