@@ -1,0 +1,23 @@
+<div class="loggedIn hidden">
+  <p>Balance: <span class="balance"></span></p>
+  <form v-on="submit: onSend">
+    <label for="stellarSendTo{{$index}}">Send To</label>
+    <input id="stellarSendTo{{$index}}" type="text" name="sendTo" required>
+    <label for="stellarSendAmount{{$index}}">Amount</label>
+    <input id="stellarSendAmount{{$index}}" type="number" name="sendAmount" required>
+    <button type="submit">Send Stellars</button>
+  </form>
+  <button v-on="click: onLogout">Logout</button>
+</div>
+
+<div class="loggedOut">
+  <p class="loginError hidden">Invalid username or password</p>
+
+  <form v-on="submit: onLogin">
+    <label for="stellarUsername{{$index}}">Username</label>
+    <input id="stellarUsername{{$index}}" type="text" name="username" required>
+    <label for="stellarPassword{{$index}}">Password</label>
+    <input id="stellarPassword{{$index}}" type="password" name="password" required>
+    <button type="submit">Login</button>
+  </form>
+</div>
