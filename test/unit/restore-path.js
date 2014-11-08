@@ -26,12 +26,11 @@ describe('restorePath', function () {
         restorePath({pathname: appPath, history: '/profile'});
         assert.equal(appPath, '/discover');
     });
-    it('should redirect /sign-in or /sign-up to history or default /templates', function () {
-        ['/sign-in', '/sign-up'].map(function (path) {
-            restorePath({pathname: path, history: '/profile'});
-            assert.equal(appPath, '/profile');
-            restorePath({pathname: path});
-            assert.equal(appPath, '/templates');
-        });
+    it('should redirect /sign-in to history or default /templates', function () {
+        var path = '/sign-in'
+        restorePath({pathname: path, history: '/profile'});
+        assert.equal(appPath, '/profile');
+        restorePath({pathname: path});
+        assert.equal(appPath, '/templates');
     });
 });

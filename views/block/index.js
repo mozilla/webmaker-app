@@ -1,7 +1,9 @@
 var App = require('../../lib/app');
 var view = require('../../lib/view');
 var bulk = require('bulk-require');
-var editorModels = bulk(__dirname + '/../../components/block-editors', '**/*.js');
+var editorModels = bulk(
+    __dirname + '/../../components/block-editors',
+    '**/*.js');
 
 var app = null;
 var index = null;
@@ -10,7 +12,7 @@ var id = null;
 
 // Rename editor components
 for (id in editorModels) {
-    if(editorModels.hasOwnProperty(id)) {
+    if (editorModels.hasOwnProperty(id)) {
         editorModels[id + '-editor'] = editorModels[id];
         delete editorModels[id];
     }

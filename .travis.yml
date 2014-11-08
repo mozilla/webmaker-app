@@ -2,6 +2,9 @@ language: node_js
 node_js:
 - '0.10'
 env:
+  matrix:
+  - NODE_ENV=NPM
+  - NODE_ENV=STAGING
   - NODE_ENV=MOFODEV
 before_deploy:
 - ./node_modules/.bin/gulp build
@@ -15,6 +18,19 @@ deploy:
       tags: true
       repo: mozillafordevelopment/webmaker-app
       all_branches: true
+      condition: $NODE_ENV = NPM
+  - provider: s3
+    skip_cleanup: true
+    access_key_id: AKIAJPR2NZFHZBHKSDAQ
+    secret_access_key:
+      secure: AUmOFvnG0aTxXu+GUpe54RWmpg9W/1aws7+9TPNPVuYZW9v4pOC+51rhsIkPAVY6llm6GgoOv90/EhfgWyeypJ+M/jG/ptnd30MaDVqyitNTHhPmX8feTzTaHZcNmM0lUPEKTE8MICDsWlj7zQ/Trj5j8Ae2mcWSTM588d9cqdU=
+    bucket: webmaker-app-staging
+    local-dir: build
+    on:
+      all_branches: true
+      tags: true
+      repo: mozillafordevelopment/webmaker-app
+      condition: $NODE_ENV = STAGING
   - provider: s3
     skip_cleanup: true
     access_key_id: AKIAJKJTAESA5KSRVZHQ
@@ -25,4 +41,4 @@ deploy:
     on:
       branch: master
       repo: mozillafordevelopment/webmaker-app
-
+      condition: $NODE_ENV = MOFODEV

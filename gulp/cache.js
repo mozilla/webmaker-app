@@ -4,8 +4,8 @@ var gulp = require('gulp');
 
 module.exports = function (callback) {
     var cache = new Appcache.Generator(
-        null, 
-        ['*', 'http://*' ,'https://*'], 
+        null,
+        ['*', 'http://*' ,'https://*'],
         ['/', 'fallback.html'],
         null
     );
