@@ -13,7 +13,7 @@ module.exports = {
             messageBody: {
                 label: 'Message',
                 type: 'string',
-                value: '',
+                value: ''
             },
             innerHTML: {
                 label: 'Label',

@@ -1,6 +1,5 @@
 var view = require('../../lib/view');
 var page = require('page');
-var auth = require('../../lib/auth');
 
 module.exports = view.extend({
     id: 'profile',
@@ -25,18 +24,18 @@ module.exports = view.extend({
     methods: {
         logout: function (e) {
             e.preventDefault();
-            auth.logout();
+            this.model.auth.logout();
         },
         clean: function (e) {
             var self = this;
 
             var username = this.model.data.user.username;
             this.model.data.apps.forEach(function (app, index) {
-                if(app.author.username === username) {
+                if (app.author.username === username) {
                     delete self.model.data.apps[index];
                 }
             });
-            self.model.save(function() {
+            self.model.save(function () {
                 page('/sign-in');
             });
         }

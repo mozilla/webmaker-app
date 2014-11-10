@@ -5,7 +5,7 @@ module.exports = {
     template: require('./index.html'),
     paramAttributes: ['mode'],
     computed: {
-        guestKey: function() {
+        guestKey: function () {
             return i18n.get('Guest');
         }
     }

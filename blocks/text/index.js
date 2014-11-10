@@ -24,20 +24,19 @@ module.exports = {
     },
     // If we have multi-line text content, split it over several
     // paragraphs, preserving the user-intended line breaks.
-    attached: function() {
+    attached: function () {
         var data = this.$data.attributes.innerHTML.value;
         if (!!data) {
             data = data.trim();
-            if(data.indexOf("\n") > -1) {
-                var chunks = data.split("\n");
-                this.$el.innerHTML = "";
-                chunks.forEach(function(chunk) {
-                    var p = document.createElement("p");
+            if (data.indexOf('\n') > -1) {
+                var chunks = data.split('\n');
+                this.$el.innerHTML = '';
+                chunks.forEach(function (chunk) {
+                    var p = document.createElement('p');
                     if (!!chunk) {
                         p.textContent = chunk;
-                    }
-                    else {
-                        p.innerHTML = "&nbsp;";
+                    } else {
+                        p.innerHTML = '&nbsp;';
                     }
                     this.$el.appendChild(p);
                 }.bind(this));

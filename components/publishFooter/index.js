@@ -40,12 +40,13 @@ module.exports = {
                 installLocFind.onsuccess = function (data) {
                     self.$data.showInstall = false;
                 };
-                installLocFind.onerror = function() {
-                    alert('Sorry, we could not install this app: ' + installLocFind.error.name);
+                installLocFind.onerror = function () {
+                    alert('Sorry, we could not install this app: ' +
+                        installLocFind.error.name);
                 };
             };
             var installCheck = navigator.mozApps.checkInstalled(manifestUrl);
-            installCheck.onsuccess = function() {
+            installCheck.onsuccess = function () {
                 if (installCheck.result) {
                     self.$data.showInstall = false;
                 } else {
