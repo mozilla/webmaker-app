@@ -7,38 +7,56 @@
     padding: 10px 32px;
     border-top: solid 1px #E1ECF1;
 
-    .slideToggle {
-        overflow: auto;
+    &.loaded .toggle {
+        transition: left ease-out .2s;
+    }
 
-        a {
+    .slideToggle {
+
+        .label, .toggle {
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+            -o-user-select: none;
             width: 50%;
             box-sizing: border-box;
-            float: left;
             text-align: center;
+        }
+
+        .label {
+            float: left;
             padding: 12px 0;
             color: white;
             opacity: .5;
+            cursor: pointer;
+            display: block;
+        }
 
-            &.active {
-                cursor: pointer;
+        .toggle {
+            position: absolute;
+            top: 0;
+            padding: 11px 0;
+            background: white;
+            border: solid 1px @turquoise;
+            border-radius: 30px;
+            color: @highlight;
+            opacity: 1;
+
+            &.left {
+                left: 0;
+            }
+
+            &.right {
+                left: 50%;
             }
         }
 
         .wrapper {
             position: relative;
             background: @turquoise;
-            margin: 0 auto;
-            border-radius: 30px;
             overflow: auto;
-            width: 100%;
-        }
-
-        .active {
-            background: white;
-            border: solid 1px @turquoise;
             border-radius: 30px;
-            color: @highlight;
-            opacity: 1;
+            width: 100%;
         }
     }
 }
