@@ -346,5 +346,9 @@
     "Publish": {
       "message": "Publish",
       "description": "Button label for publishing the current app"
+    },
+    "Join Webmaker": {
+      "message": "Join Webmaker",
+      "description": "Button label for creating an account"
     }
 }

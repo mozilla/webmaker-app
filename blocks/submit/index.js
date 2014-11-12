@@ -3,7 +3,7 @@ module.exports = {
     template: require('./index.html'),
     data: {
         name: 'Submit',
-        icon: '/images/blocks_text.png',
+        icon: '/images/blocks_submit.png',
         attributes: {
 			innerHTML: {
 				label: 'Button Text',

@@ -1,0 +1,239 @@
+/*********************************************************
+* Modal
+*/
+.fade {
+    transition: opacity .15s linear;
+    opacity: 0;
+    &.in {
+        opacity: 1;
+    }
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: #000;
+    &.in {
+       opacity: 0.5;
+    }
+}
+
+.modal-open {
+  overflow: hidden;
+  .modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+.modal {
+  display: none;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+  &.fade .modal-dialog {
+    transition: transform 0.3s ease-out;
+  }
+  &.in .modal-dialog {
+    transform: translate(0, 0);
+  }
+}
+
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 10px;
+    @media (min-width: 768px) {
+        width: 600px;
+        margin: 30px auto;
+    }
+}
+.modal-content {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #999999;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  background-clip: padding-box;
+  outline: 0;
+    @media (min-width: 768px) {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.modal-header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+  min-height: 16.42857143px;
+  .close {
+    margin-top: -2px;
+  }
+}
+
+.modal-title {
+  margin: 0;
+  line-height: 1.42857143;
+  font-weight: normal;
+}
+
+.modal-body {
+  position: relative;
+  padding: 15px;
+}
+.modal-footer {
+  padding: 15px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+  .btn + .btn {
+    margin-left: 5px;
+    margin-bottom: 0;
+  }
+  .btn-group .btn + .btn {
+    margin-left: -1px;
+  }
+  .btn-block + .btn-block {
+    margin-left: 0;
+  }
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.modal-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+
+@media (min-width: 768px) {
+  .modal-sm {
+    width: 300px;
+  }
+}
+@media (min-width: 992px) {
+  .modal-lg {
+    width: 900px;
+  }
+}
+
+.modal {
+    color: @darkGrey;
+    .alert {
+        display: block;
+        margin: 0;
+        padding: 12px;
+    }
+    .clearfix:before,
+    .clearfix:after {
+      content: " ";
+      display: table;
+    }
+    .clearfix:after {
+      clear: both;
+    }
+    .center-block {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .pull-right {
+      float: right !important;
+    }
+    .pull-left {
+      float: left !important;
+    }
+    .hide {
+      display: none !important;
+    }
+    .show {
+      display: block !important;
+    }
+    .invisible {
+      visibility: hidden;
+    }
+    .text-hide {
+      font: 0/0 a;
+      color: transparent;
+      text-shadow: none;
+      background-color: transparent;
+      border: 0;
+    }
+    .hidden {
+      display: none !important;
+      visibility: hidden !important;
+    }
+    .affix {
+      position: fixed;
+    }
+    p {
+        margin-top: 0;
+    }
+    .form-group,
+    .checkbox {
+        padding: 0;
+        margin-bottom: 10px;
+    }
+    hr {
+        display: none;
+    }
+    input {
+        color: @black;
+    }
+}
+
+/*********************************************************
+* Buttons
+*/
+.btn-link {
+    background: none;
+    border: 0;
+}
+.btn[disabled] {
+    opacity: 0.5;
+}
+
+@import "../../node_modules/webmaker-login-ux/src/less/webmakerLogin";
+@screen-xs-min: 2000px;
+@screen-xs-max: 1999px;
+@green: @turquoise;
+
+.modal-dialog {
+  width: 100%;
+}
+
+.cta-links {
+    font-size: 14px;
+    margin-top: -8px;
+    .help-block;
+}
+
+.help-footer p {
+    font-size: 13px;
+    .help-block;
+}
+
+.modal-content .modal-body {
+    .password-label {
+        margin-bottom: 10px;
+    }
+    ul.password-strength li {
+        color: @darkGrey;
+        font-size: 13px;
+    }
+}

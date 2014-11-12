@@ -1,9 +1,11 @@
 var view = require('../../lib/view');
-var auth = require('../../lib/auth');
 
 module.exports = view.extend({
     id: 'sign-in',
     template: require('./index.html'),
+    data: {
+        loginError: false
+    },
     computed: {
         username: function () {
             return this.model.data.user.username;
@@ -16,12 +18,23 @@ module.exports = view.extend({
     methods: {
         login: function (e) {
             e.preventDefault();
-            auth.login();
+            this.model.auth.login();
+        },
+        create: function (e) {
+            e.preventDefault();
+            this.model.auth.create();
         },
         goOffline: function (e) {
             e.preventDefault();
             this.model.offlineConnect();
             this.page('/templates');
         }
+    },
+    created: function () {
+        var self = this;
+        self.model.auth.on('error', function (err) {
+            console.log('Login error', err);
+            self.$data.loginError = 'Oops, there was a problem logging in.';
+        });
     }
 });

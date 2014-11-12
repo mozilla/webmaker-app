@@ -18,6 +18,9 @@ module.exports = view.extend({
         }
     },
     created: function () {
-       console.error('Error ' + this.$root.params.code + ': ' + global.location.pathname);
+        console.error('Error ' +
+            this.$root.params.code +
+            ': ' +
+            global.location.pathname);
     }
 });

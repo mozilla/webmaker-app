@@ -4,7 +4,7 @@ module.exports = {
 	lazy: false,
     data: {
         name: 'Input',
-        icon: '/images/blocks_text.png',
+        icon: '/images/blocks_input.png',
         attributes: {
             inputType: {
                 label: 'Input Type',
