@@ -1,32 +1,31 @@
 var Hammer = require('hammerjs');
 var i18n = require('../../lib/i18n');
+var page = require('page');
 
 module.exports = {
     id: 'makeBar',
     template: require('./index.html'),
     initialized: false,
     data: {
-        label: "",
-        direction: ""
+        label: '',
+        direction: ''
     },
     ready: function () {
         var that = this;
 
         this.toggle = new Hammer(this.$el.querySelector('.toggle'));
-        this.toggle.on('swipe', function(ev) {
+        this.toggle.on('swipe', function (ev) {
             that.toggleSwiped(ev);
         });
 
         this.previewLink = new Hammer(this.$el.querySelector('.preview'));
         this.previewLink.on('tap', function (ev) {
-            that.changeToggle("left");
-            that.navigate();
+            that.changeToggle('left');
         });
 
         this.editLink = new Hammer(this.$el.querySelector('.edit'));
         this.editLink.on('tap', function (ev) {
             that.changeToggle('right');
-            that.navigate();
         });
 
         this.mode = this.$root.params.mode;
@@ -44,7 +43,7 @@ module.exports = {
             this.$el.classList.add('loaded');
             this.initialized = true;
         },
-        changeToggle: function(direction){
+        changeToggle: function (direction) {
             //Moves the toggle to the correct position and changes the label.
             //Navigates to correct page if initialized.
             this.direction = direction;
@@ -54,7 +53,6 @@ module.exports = {
             } else {
                 this.label = i18n.get('Preview');
             }
-            var mode = this.$data.app.params;
             if (this.initialized) {
                 this.navigate();
             }
@@ -64,11 +62,11 @@ module.exports = {
             var that = this;
             setTimeout(function () {
                 if (that.direction === 'left') {
-                    document.location.href = "/make/" + that.$data.app.id + "/play";
+                    page('/make/' + that.$data.app.id + '/play');
                 } else {
-                    document.location.href = "/make/" + that.$data.app.id + "/edit";
+                    page('/make/' + that.$data.app.id + '/edit');
                 }
-            },250);
+            }, 250);
         },
         toggleSwiped: function (ev) {
             var swipeDirection = ev.offsetDirection === 4 ? 'left' : 'right';
