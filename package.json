@@ -33,6 +33,7 @@
     "gulp-plumber": "^0.6.6",
     "gulp-webserver": "0.8.0",
     "gulp-sourcemaps": "1.2.4",
+    "hammerjs": "2.0.4",
     "habitat": "3.0.0",
     "mockrequire": "0.0.3",
     "node-appcache-generator": "k88hudson/node-appcache-generator",
