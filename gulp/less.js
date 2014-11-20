@@ -10,8 +10,8 @@ module.exports = function() {
     var stream = src
         .pipe(handleErrors())
         .pipe(sourcemaps.init())
-		.pipe(less())
-		.pipe(minifyCSS({keepBreaks:false}))
+	.pipe(less())
+	.pipe(minifyCSS({keepBreaks:false}))
         .pipe(sourcemaps.write())
         .pipe(dest)
         .pipe(gulp.dest('./build/publish-assets'));
