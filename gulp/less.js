@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var less = require('gulp-less');
 var sourcemaps = require('gulp-sourcemaps');
+var minifyCSS = require('gulp-minify-css');
 var handleErrors = require('./error');
 
 module.exports = function() {
@@ -9,7 +10,8 @@ module.exports = function() {
     var stream = src
         .pipe(handleErrors())
         .pipe(sourcemaps.init())
-        .pipe(less())
+		.pipe(less())
+		.pipe(minifyCSS({keepBreaks:false}))
         .pipe(sourcemaps.write())
         .pipe(dest)
         .pipe(gulp.dest('./build/publish-assets'));
