@@ -17,6 +17,6 @@ module.exports = function () {
         .pipe(handleErrors())
         .pipe(source('index.js'))
         .pipe(buffer())
-		.pipe(uglify())
+        .pipe(uglify())
         .pipe(dest);
 };

@@ -11,7 +11,7 @@ module.exports = function() {
         .pipe(handleErrors())
         .pipe(sourcemaps.init())
 	.pipe(less())
-	.pipe(minifyCSS({keepBreaks:false}))
+        .pipe(minifyCSS({keepBreaks:false}))
         .pipe(sourcemaps.write())
         .pipe(dest)
         .pipe(gulp.dest('./build/publish-assets'));
