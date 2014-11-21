@@ -18,5 +18,6 @@
     "installs_allowed_from": [
         "*"
     ],
-    "permissions": {}
+    "permissions": {},
+    "appcache_path": "/manifest.appcache"
 }
