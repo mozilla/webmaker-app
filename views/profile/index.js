@@ -41,7 +41,6 @@ module.exports = view.extend({
             });
             
             self.model.save(function () {
-                alert(apps_del);
                 if (apps_del >0) {
                     alert("We deleted your apps."); 
                 }
