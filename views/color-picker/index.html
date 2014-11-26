@@ -2,14 +2,14 @@
 <ul class="swatches primary">
     <li v-repeat="color: colorGroups"
         style="background-color:{{color}};"
-        v-class="selected: selectedGroup === $index, greyscale: color === '#333444'"
+        v-class="selected: (selectedGroup === $index && mainColorSelected), greyscale: color === '#333444'"
         v-on="click: onGroupSelect($index)"></li>
 </ul>
 
 <ul class="swatches" v-repeat="colorSet: colors" v-show="$index === selectedGroup">
     <li v-repeat="color: colorSet" style="background-color:{{color}};"
-        v-class="selected: selectedColor === color"
-        v-on="click: onSelect(color)"></li>
+        v-class="selected: (selectedColor === color && !mainColorSelected)"
+        v-on="click: onSelect(color, false)"><i class="fa fa-check fa-2x color-picker-check" v-show="selectedColor === color && !mainColorSelected"></i></li>
 
 </ul>
 <div v-component="tabBar"></div>
