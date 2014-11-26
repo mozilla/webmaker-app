@@ -16,7 +16,9 @@ module.exports = view.extend({
             // temporary hack to only show current user's data
             var username = this.model.data.user.username;
             var myApps = this.model.data.apps.filter(function (app) {
-                return app.author.username === username;
+                if(app) {
+                    return app.author.username === username;
+                }
             });
             return myApps;
         }
@@ -30,14 +32,20 @@ module.exports = view.extend({
             var self = this;
 
             var username = this.model.data.user.username;
+            var apps_del = 0;
             this.model.data.apps.forEach(function (app, index) {
-                if (app.author.username === username) {
-                    delete self.model.data.apps[index];
-                }
+                if (app && app.author.username === username) {
+                    delete self.model.data.apps[index]; 
+                    apps_del++;               
+                }                
             });
+            
             self.model.save(function () {
-                page('/sign-in');
-            });
+                if (apps_del >0) {
+                    alert("We deleted your apps."); 
+                }
+                location.reload();
+            }); 
         }
     }
 });
