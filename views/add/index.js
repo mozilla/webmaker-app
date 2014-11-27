@@ -59,8 +59,9 @@ module.exports = view.extend({
             // Add block to make
             app.insert(blockId);
 
-            // Add to model & redirect to editor
-            self.page('/make/' + id + '/edit');
+            // Add to model & redirect to block edit page.
+            // Newly added block always in index 0.
+            self.page('/make/' + id + '/block/0');
         }
 
         // Apply click handler to each cell
