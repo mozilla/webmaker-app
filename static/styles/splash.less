@@ -1,0 +1,100 @@
+#splash {
+    @splashbreak: 600px;
+    background-color: @turquoise;
+    background-image: url(/images/background.gif);
+    background-size: 400px;
+    background-position: 0px -20px;
+    color: @white;
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+    overflow-y: auto;
+    @media (min-width: 450px) {
+        font-size: 20px;
+    }
+    @media (min-width: @splashbreak) {
+        text-align: left;
+        padding: 40px;
+        display: flex;
+        align-items: center;
+    }
+
+
+    h1 {
+        font-size: 1.8em;
+        @media (min-width: @splashbreak) {
+            font-size: 2em;
+        }
+        @media (min-width: 960px) {
+            font-size: 2.5em;
+        }
+        font-weight: normal;
+        line-height: 1.2;
+        margin: 0;
+    }
+    p {
+        line-height: 1.6;
+        margin: 1em 0 1.2em;
+        color: fade(@white, 80%);
+        strong {
+            font-weight: normal;
+            color: @white;
+        }
+    }
+    .splash-phone {
+        width: 150px;
+        @media (min-width: @splashbreak) {
+            width: 100%;
+        }
+    }
+    .btn {
+        padding: 15px 25px;
+        font-size: inherit;
+        background: @white;
+        color: @turquoise;
+        border: none;
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
+        @media (min-width: @splashbreak) {
+            padding: 10px 25px;
+            display: inline-block;
+            width: auto;
+            margin-right: 5px;
+        }
+        &.link {
+            background: fade(@white, 30%);
+            color: @white;
+            .fa {
+                margin-right: 5px;
+            }
+        }
+    }
+
+    .left {
+        margin-bottom: 1em;
+    }
+
+    .right {
+        background: @turquoise;
+    }
+
+    @media (min-width: @splashbreak) {
+        .row {
+            margin: 0 auto;
+            max-width: 900px;
+            display: flex;
+            align-items: center;
+            .left {
+                margin-bottom: 0;
+                height: auto;
+                width: 33%;
+                margin-right: 40px;
+            }
+            .right {
+                width: 66%;
+            }
+        }
+    }
+}
