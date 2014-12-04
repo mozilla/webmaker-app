@@ -1,4 +1,6 @@
 var map = null;
+var L = require('leaflet');
+L.Icon.Default.imagePath = '../../node_modules/leaflet/dist/images';
 
 module.exports = {
     className: 'map',
@@ -12,6 +14,11 @@ module.exports = {
                 type: 'string',
                 value: 'Mozilla'
             },
+            address: {
+                label: 'Address',
+                type: 'string',
+                value: '321 E Evelyn Ave, Mountain View, CA, 94041'
+            },
             latitude: {
                 label: 'Latitude',
                 type: 'number',
@@ -22,49 +29,53 @@ module.exports = {
                 type: 'number',
                 value: '-122.061019'
             },
-            address: {
-                label: 'Address',
-                type: 'string',
-                value: '321 E Evelyn Ave, Mountain View, CA, 94041',
-            },
         }
     },
     attached: function () {
-        
-
-        //Grab bindings
         self = this;
-        var L = require('leaflet');
-        L.Icon.Default.imagePath = "../../node_modules/leaflet/dist/images";
 
-
-        //Grab location
+        //Convert to latitude/longitude
         var loc = new L.latLng(parseFloat(self.$data.attributes.latitude.value), parseFloat(self.$data.attributes.longitude.value));
 
-        //Remove map if it's already drawn
+        //Reset map
         if(map != null)
+        {
             map.remove();
+        }
 
+        //Create map canvas with location and zoom
+        map = L.map('map', {zoom: 11, zoomControl: false}).setView(loc, 11);
+
+        //Create tiles for map
+        //NOTE: OSM IS FOR TESTING PURPOSES ONLY - it is against their terms of use to use in the application
+        //OSM - Do no not use in app - http://{s}.tile.osm.org/{z}/{x}/{y}.png
+        //MapQuest OSM - Free to use in applications - http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpg
+        
+        var tiles = new L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.jpeg', {
+                attribution: "Tiles Courtesy of <a href='http://www.mapquest.com/' target='_blank'>MapQuest</a> <img src='http://developer.mapquest.com/content/osm/mq_logo.png'>",
+                updateWhenIdle: true,
+                reuseTiles: true,
+                subdomains: '1234'
+            });
+        
+        /*
+        var tiles = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpeg', {
+            attribution: 'Tiles by <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            subdomains: '1234'
+        }); 
+        */
+        map.addLayer(tiles);
+
+        //Create marker and popup
+        var marker = L.marker(loc);
+        marker.bindPopup('<p> <strong>' + self.$data.attributes.locationName.value + '</strong> <br />' + self.$data.attributes.address.value + '</p>'
+        ).openPopup();
+        map.addLayer(marker);
 
         //Set map view
-        map = L.map('map').setView(loc, 16);
-
-        //Center when popup marker is placed
-        map.on('popupopen', function(e) {
-            var px = map.project(e.popup._latlng);
-            px.y -= e.popup._container.clientHeight/2 
-            map.panTo(map.unproject(px),{animate: true}); 
-        });
-
-        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-        
-        //Create popup marker
-        var marker = L.marker(loc).addTo(map);
-        marker.bindPopup("<p> <strong>" + self.$data.attributes.locationName.value + "</strong> <br />" + self.$data.attributes.address.value + "</p>"
-                        ).openPopup();
-
+        map.invalidateSize();
+        map.panTo(loc, { animate: true, duration: 1});
+        map.setZoom(20, { animate:true })
 
     }
 };
