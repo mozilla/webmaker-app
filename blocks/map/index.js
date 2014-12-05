@@ -1,7 +1,4 @@
-var map = null;
 var L = require('leaflet');
-//L.Icon.Default.imagePath = '../../node_modules/leaflet/dist/images';
-L.Icon.Default.imagePath = 'http://api.tiles.mapbox.com/mapbox.js/v1.0.0beta0.0/images';
 
 module.exports = {
     className: 'map',
@@ -9,6 +6,7 @@ module.exports = {
     data: {
         name: 'Map',
         icon: '/images/blocks_map.png',
+        map: null,
         attributes: {
             locationName: {
                 label: 'Location Name',
@@ -34,6 +32,9 @@ module.exports = {
     },
     attached: function () {
         self = this;
+        var map = self.$data.map;
+
+        L.Icon.Default.imagePath = '../../node_modules/leaflet/dist/images';
 
         //Convert to latitude/longitude
         var loc = new L.latLng(parseFloat(self.$data.attributes.latitude.value), parseFloat(self.$data.attributes.longitude.value));
@@ -43,9 +44,8 @@ module.exports = {
         {
             map.remove();
         }
-
         //Create map canvas with location and zoom
-        map = L.map('map', {zoom: 11, zoomControl: false}).setView(loc, 11);
+        map = L.map('map_' + self.$index, {zoom: 11, zoomControl: false}).setView(loc, 11);
 
         //Create tiles for map
         //NOTE: OSM IS FOR TESTING PURPOSES ONLY - it is against their terms of use to use in the application
@@ -56,21 +56,21 @@ module.exports = {
                 attribution: "Tiles Courtesy of <a href='http://www.mapquest.com/' target='_blank'>MapQuest</a> <img src='http://developer.mapquest.com/content/osm/mq_logo.png'>",
                 updateWhenIdle: true,
                 reuseTiles: true,
-                subdomains: '1234'
+                subdomains: '1234',
             });
         
         map.addLayer(tiles);
 
         //Create marker and popup
         var marker = L.marker(loc, {icon: new L.Icon.Default()});
-        marker.bindPopup('<p> <strong>' + self.$data.attributes.locationName.value + '</strong> <br />' + self.$data.attributes.address.value + '</p>'
-        ).openPopup();
+        marker.bindPopup('<p> <strong>' + self.$data.attributes.locationName.value + '</strong> <br />' + self.$data.attributes.address.value + '</p>').openPopup();
         map.addLayer(marker);
 
         //Set map view
         map.invalidateSize();
         map.panTo(loc, { animate: true, duration: 1});
-        map.setZoom(20, { animate:true })
+        map.setZoom(20, { animate:true });
 
     }
+
 };
