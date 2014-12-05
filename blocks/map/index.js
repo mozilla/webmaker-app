@@ -1,6 +1,7 @@
 var map = null;
 var L = require('leaflet');
-L.Icon.Default.imagePath = '../../node_modules/leaflet/dist/images';
+//L.Icon.Default.imagePath = '../../node_modules/leaflet/dist/images';
+L.Icon.Default.imagePath = 'http://api.tiles.mapbox.com/mapbox.js/v1.0.0beta0.0/images';
 
 module.exports = {
     className: 'map',
@@ -58,16 +59,10 @@ module.exports = {
                 subdomains: '1234'
             });
         
-        /*
-        var tiles = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpeg', {
-            attribution: 'Tiles by <a href="http://www.mapquest.com/">MapQuest</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-            subdomains: '1234'
-        }); 
-        */
         map.addLayer(tiles);
 
         //Create marker and popup
-        var marker = L.marker(loc);
+        var marker = L.marker(loc, {icon: new L.Icon.Default()});
         marker.bindPopup('<p> <strong>' + self.$data.attributes.locationName.value + '</strong> <br />' + self.$data.attributes.address.value + '</p>'
         ).openPopup();
         map.addLayer(marker);
