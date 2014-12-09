@@ -11,7 +11,6 @@ module.exports = view.extend({
     template: require('./index.html'),
     data: {
         // Provide a specific sort order
-        app: {},
         blocks: [
             blocks.text,
             blocks.image,
@@ -32,19 +31,12 @@ module.exports = view.extend({
         var self = this;
 
         // Fetch app
-        id = self.$root.$data.params.id;
+        id = self.$parent.$data.params.id;
         app = new App(id);
 
         // Bind app
-        app.storage.on('value', function (snapshot) {
-            self.$root.isReady = true;
-            if (!snapshot.val()) return;
-            self.$data.app = snapshot.val() || {};
-            self.$data.app.id = snapshot.key();
-
-            self.title = snapshot.val().name;
-        });
-        self.$data.onDone = '/make/' + id + '/share?publish=true';
+        self.$data.app = app.data;
+        self.title = app.data.name;
     },
     ready: function () {
         var self = this;
@@ -55,12 +47,13 @@ module.exports = view.extend({
 
             // Attributes
             var blockId = e.currentTarget.getAttribute('data-block');
+            var href = e.currentTarget.getAttribute('href');
 
             // Add block to make
             app.insert(blockId);
 
             // Add to model & redirect to editor
-            self.page('/make/' + id + '/edit');
+            self.page(href);
         }
 
         // Apply click handler to each cell

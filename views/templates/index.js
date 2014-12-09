@@ -6,23 +6,25 @@ module.exports = view.extend({
     id: 'templates',
     template: require('./index.html'),
     data: {
-        title: 'Create an App',
+        title: 'Make',
         templates: templates
     },
-    methods: {
-        onClick: function (e) {
-            var self = this;
+    ready: function () {
+        var self = this;
+
+        // Click handler
+        function clickHandler (e) {
+            e.preventDefault();
             var id = e.currentTarget.getAttribute('data-id');
-            if (id === 'blank') {
-                e.preventDefault();
-                var app = App.createApp({template: id});
-                self.$root.$data.enteredEditorFrom = '/templates';
-                self.$root.isReady = false;
-                setTimeout(function () {
-                    self.$root.isReady = true;
-                    self.page('/make/' + app.id + '/edit');
-                }, 1000);
-            }
+            var app = App.createApp({template: id});
+            app.data.enteredEditorFrom = '/templates';
+            self.page('/make/' + app.id + '/edit');
+        }
+
+        // Apply click handler to each cell
+        var targets = self.$el.getElementsByClassName('cell');
+        for (var i = 0; i < targets.length; i++) {
+            targets[i].addEventListener('click', clickHandler);
         }
     }
 });

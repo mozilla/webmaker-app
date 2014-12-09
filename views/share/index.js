@@ -13,6 +13,7 @@ module.exports = view.extend({
         title: 'Share',
         cancel: true,
         error: false,
+        isPublishing: true,
         doneDisabled: true
     },
     methods: {
@@ -29,79 +30,66 @@ module.exports = view.extend({
             page('/make/' + self.$parent.$data.params.id + '/detail');
         }
     },
-    created: function () {
-        this.$root.isReady = false;
-    },
     ready: function () {
         var self = this;
+
+        // Fetch app
         var id = self.$parent.$data.params.id;
         var app = new App(id);
 
+        // Bind app
+        self.$data.app = app.data;
+
         // Bind user
-        self.$data.user = self.model.data.session.user;
+        self.$data.user = self.model.data.user;
 
-        var message;
+        // Share message
+        var message = i18n
+            .get('share_message')
+            .replace('{{app.name}}', app.data.name);
+        self.$data.shareMessage = message + ': ' + app.data.url;
 
-        var offlineError = 'We couldn\'t reach the publishing server. Sorry!';
+        if (!global.location.search.match('publish=true') && app.data.url) {
+            self.$data.isPublishing = false;
+            return;
+        }
 
-        function startPublish() {
-            var publishUrl = global.location.search.match('publish=true');
-            if (!publishUrl && self.$data.app.url) {
-                self.$root.isReady = true;
-                return;
-            }
+        // Publish
+        console.log('Starting publish...');
+        self.$data.doneDisabled = true;
 
-            // Publish
-            console.log('Starting publish...');
-            self.$data.doneDisabled = true;
+        var sync = self.model._sync;
+        var syncTimeout;
 
-            var syncTimeout = global.setTimeout(function () {
-                console.log('timed out');
-                self.$root.isReady = true;
-                self.$data.error = 'Oops! Your publish is taking too long';
-            }, PUBLISH_TIMEOUT);
-
-            publish(id, self.$data.user, function (err, data) {
+        function onSynced() {
+            publish(id, self.$data.user.username, function (err, data) {
                 global.clearTimeout(syncTimeout);
-                self.$root.isReady = true;
+                self.$data.isPublishing = false;
                 if (err) {
                     console.error(err);
-                    if (err.status === 0) {
-                        self.$data.error = offlineError;
-                    } else {
-                        self.$data.error = (err.status || 'Error') +
-                            ': ' + err.message;
-                    }
+                    self.$data.error = (err.status || 'Error') +
+                        ': ' + err.message;
                     return;
                 }
                 console.log('Published!');
                 self.$data.error = false;
                 self.$data.doneDisabled = false;
-                app.update({
-                    url: data.url
-                });
+                app.data.url = data.url;
                 self.$data.shareMessage = message + ': ' + data.url;
             });
         }
 
-        // Bind app
-        app.storage.once('value', function (snapshot) {
-            var val = snapshot.val();
-            if (!val) {
-                self.$root.isReady = true;
-                return;
-            }
-            self.$data.app = val;
-            // Share message
-            message = i18n
-                .get('share_message')
-                .replace('{{app.name}}', val.name);
+        syncTimeout = global.setTimeout(function () {
+            console.log('timed out');
+            self.$data.isPublishing = false;
+            self.$data.error = 'Oops! Your publish is taking too long';
+        }, PUBLISH_TIMEOUT);
 
-            if (val.url) {
-                self.$data.shareMessage = message + ': ' + val.url;
-            }
-            startPublish();
-        });
+        if (self.model._dirty) {
+            sync.once('completed', onSynced);
+        } else {
+            onSynced();
+        }
 
     }
 });

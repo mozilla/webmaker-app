@@ -1,5 +1,5 @@
 var view = require('../../lib/view');
-var fakeDiscovery = require('../../lib/fake-discovery');
+var fakeDiscovery  = require('../../lib/fake-discovery');
 
 module.exports = view.extend({
     id: 'discover',
@@ -8,5 +8,8 @@ module.exports = view.extend({
         title: 'Discover',
         apps: fakeDiscovery,
         mode: 'featured'
+    },
+    created: function () {
+        this.$data.created = this.model.data.apps;
     }
 });

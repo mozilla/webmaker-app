@@ -4,10 +4,10 @@ var bulk = require('bulk-require');
 var editorModels = bulk(
     __dirname + '/../../components/block-editors',
     '**/*.js');
-var throttle = require('lodash.throttle');
 
 var app = null;
 var index = null;
+var block = null;
 var id = null;
 
 // Rename editor components
@@ -28,22 +28,6 @@ module.exports = view.extend({
         title: 'Edit',
         back: true
     },
-    methods: {
-        remove: function (e) {
-            e.preventDefault();
-            app.remove(index);
-            global.history.back();
-        },
-        getEditor: function (type) {
-            var editorKey = type + '-editor';
-            var defaultEditor = 'string-editor';
-            var legalComponents = this.$compiler.options.components;
-            if (legalComponents[editorKey]) {
-                return editorKey;
-            }
-            return defaultEditor;
-        }
-    },
     created: function () {
         var self = this;
 
@@ -51,20 +35,23 @@ module.exports = view.extend({
         id = self.$parent.$data.params.id;
         index = self.$parent.$data.params.index;
         app = new App(id);
-        app.storage.once('value', function (snapshot) {
-            var app = snapshot.val();
-            self.$root.isReady = true;
-            if (!app || !app.blocks) return;
-            self.$data.block = snapshot.val().blocks[index];
-        });
+        block = app.data.blocks[index];
+        // Bind app
+        self.$data = block;
         self.$data.index = index;
-
-        self.$watch('block.attributes', throttle(function (newVal) {
-            if (!newVal) return;
-            var clone = JSON.parse(JSON.stringify(newVal));
-            app.updateBlock(index, {
-                attributes: clone
-            });
-        }, 3000));
+        self.$data.getEditor = function (type) {
+            var editorKey = type + '-editor';
+            var defaultEditor = 'string-editor';
+            var legalComponents = this.$compiler.options.components;
+            if (legalComponents[editorKey]) {
+                return editorKey;
+            }
+            return defaultEditor;
+        };
+        self.$data.remove = function (e) {
+            e.preventDefault();
+            app.remove(index);
+            global.history.back();
+        };
     }
 });

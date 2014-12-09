@@ -5,7 +5,6 @@ var config = require('./gulp/config');
 var clean = require('./gulp/clean');
 var downloadLocales = require('./gulp/download-locales');
 var locale = require('./gulp/locale');
-var template = require('./gulp/template');
 var browserify = require('./gulp/browserify');
 var less = require('./gulp/less');
 var cache = require('./gulp/cache');
@@ -22,27 +21,16 @@ gulp.task('config', config);
 gulp.task('clean', ['config'], clean);
 gulp.task('download-locales', ['clean'], downloadLocales);
 gulp.task('locale', ['download-locales'], locale);
-gulp.task('template', ['config', 'clean'], template);
 
 gulp.task('less', ['clean'], less);
 gulp.task('browserify', ['clean', 'locale'], browserify);
 gulp.task('publish', ['less', 'locale'], publish);
-gulp.task('build', [
-    'less',
-    'browserify',
-    'publish',
-    'template'
-], cache);
+gulp.task('build', ['less', 'browserify', 'publish'], cache);
 
 gulp.task('re-locale', ['clean'], locale);
 gulp.task('re-browserify', ['clean', 're-locale'], browserify);
 gulp.task('re-publish', ['less', 're-locale'], publish);
-gulp.task('re-build', [
-    'less',
-    're-browserify',
-    're-publish',
-    'template'
-], cache);
+gulp.task('re-build', ['less', 're-browserify', 're-publish'], cache);
 
 // Test
 gulp.task('jshint', jshint);

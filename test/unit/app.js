@@ -3,32 +3,20 @@ var assert = require('assert');
 
 var templates = require('../../lib/templates.json');
 var mockId = '000d1745-5d3c-4997-ac0c-15df68bbbecz';
-var mockId2 = '123123123';
-
-function Fb(id) {
-    this._id = id;
-};
-Fb.prototype.key = function () {
-    return this._id;
-};
-Fb.prototype.on = function () {};
-Fb.prototype.update = function () {};
-Fb.prototype.remove = function () {};
-Fb.prototype.push = function (data) {
-   var fb = new Fb(mockId2);
-   fb._val = data;
-   return fb;
-};
-Fb.prototype.child = function () {
-    return new Fb();
-};
-
 var mockModelInstance = {
-    data: { session: { user: {
-        id: 1,
-        username: 'kate'
-    } } },
-    firebase: new Fb()
+    data: { apps: [
+        {
+            id: mockId,
+            name: 'Sample App',
+            icon: '/images/placeholder_puppy.png',
+            author: {
+                username: 'Andrew',
+                location: 'Portland',
+                avatar: '/images/avatar_puppy.png'
+            },
+            blocks: []
+        }
+    ] }
 };
 var mockModel = function() {
     return mockModelInstance;
@@ -76,16 +64,13 @@ describe('App instance', function () {
     describe('interface', function () {
         it('should have expected properties', function () {
             assert.equal(app.id, mockId);
-            assert.equal(typeof app.data, 'object');
-            assert(app.storage instanceof Fb);
+            assert.equal(app.index, 0);
+            assert.equal(app.data, mockModelInstance.data.apps[0]);
         });
 
         it('should have expected functions', function () {
             assert.equal(typeof app.insert, 'function');
             assert.equal(typeof app.remove, 'function');
-            assert.equal(typeof app.update, 'function');
-            assert.equal(typeof app.updateBlock, 'function');
-            assert.equal(typeof app.removeApp, 'function');
         });
     });
 
@@ -118,7 +103,7 @@ describe('App instance', function () {
 describe('App', function () {
     describe('#createApp', function () {
         it('should be a function', function () {
-            assert.equal(typeof App.createApp, 'function');
+            assert.equal(typeof App, 'function');
         });
         it('should return undefined when no template or data is passed in', function () {
             assert.equal(typeof App.createApp(), 'undefined');
@@ -129,7 +114,7 @@ describe('App', function () {
             var app = App.createApp({template: template.id, name: 'Bob is my cat'});
             assert.ok(app instanceof App);
             assert.ok(app.id && app.id !== template.id);
-            assert.equal(app.storage._val.name, 'Bob is my cat');
+            assert.equal(app.data.name, 'Bob is my cat');
         });
     });
 });

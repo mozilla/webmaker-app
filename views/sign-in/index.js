@@ -8,7 +8,7 @@ module.exports = view.extend({
     },
     computed: {
         username: function () {
-            return this.model.data.session.user.username;
+            return this.model.data.user.username;
         },
         offline: function () {
             // Todo: detect internet connection

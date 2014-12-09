@@ -13,19 +13,13 @@ module.exports = view.extend({
         var self = this;
 
         // Fetch app
-        var id = self.$root.$data.params.id;
-
+        var id = self.$parent.$data.params.id;
         var app = new App(id);
 
-        app.storage.on('value', function (snapshot) {
-            self.$root.isReady = true;
-            if (!snapshot.val()) return;
-            console.log(JSON.stringify(snapshot.val()));
-            self.$data.app = snapshot.val() || {};
-            self.$data.app.id = snapshot.key();
-        });
+        // Bind app
+        self.$data.app = app.data || {};
+
         self.$data.onDone = '/make/' + id + '/share?publish=true';
-        self.$data.offlineUser = this.model.data.session.offline;
 
         // Listen for Data Submitted by the User
         var data = new Data(id);
@@ -40,6 +34,5 @@ module.exports = view.extend({
                 self.$broadcast('dataSaveSuccess');
             }
         });
-
     }
 });

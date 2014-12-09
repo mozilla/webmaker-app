@@ -1,16 +1,24 @@
 var view = require('../../lib/view');
+var page = require('page');
 
 module.exports = view.extend({
     id: 'profile',
     template: require('./index.html'),
     data: {
         title: 'My Profile',
-        back: false,
-        myApps: []
+        back: false
     },
     computed: {
         user: function () {
-            return this.model.data.session.user;
+            return this.model.data.user;
+        },
+        myApps: function () {
+            // temporary hack to only show current user's data
+            var username = this.model.data.user.username;
+            var myApps = this.model.data.apps.filter(function (app) {
+                return app.author.username === username;
+            });
+            return myApps;
         }
     },
     methods: {
@@ -20,60 +28,16 @@ module.exports = view.extend({
         },
         clean: function (e) {
             var self = this;
-            self.$data.myApps.forEach(function (app) {
-                self.model.firebase.child(app.id).remove();
-            });
-            self.$data.myApps = [];
-        }
-    },
-    created: function () {
-        var self = this;
-        var user = self.model.data.session.user;
 
-        self.$data.myApps = [];
-
-        function onRemoved(snapshot) {
-            var key = snapshot.key();
-            var index;
-            self.$data.myApps.forEach(function (app, i) {
-                if (app.id === key) index = i;
-            });
-            if (index) self.$data.myApps.splice(index, 1);
-        }
-
-        function onChanged(snapshot) {
-            var key = snapshot.key();
-            var val = snapshot.val();
-            if (!val) return;
-            val.id = key;
-            self.$data.myApps.forEach(function (app, i) {
-                if (app.id === key) {
-                    self.$data.myApps[i] = val;
+            var username = this.model.data.user.username;
+            this.model.data.apps.forEach(function (app, index) {
+                if (app.author.username === username) {
+                    delete self.model.data.apps[index];
                 }
             });
-        }
-
-        function onAdded(snapshot) {
-            self.$root.isReady = true;
-            var data = snapshot.val();
-            var dupe;
-            if (!data) return;
-            data.id = snapshot.key();
-            // Duplicates
-            self.$data.myApps.forEach(function (app) {
-                if (app.id === data.id) dupe = true;
+            self.model.save(function () {
+                page('/sign-in');
             });
-            if (!dupe) self.$data.myApps.push(data);
-        }
-
-        if (user && user.id) {
-            var query = self.model.firebase
-                .orderByChild('userId')
-                .equalTo(user.id);
-
-            query.on('child_added', onAdded);
-            query.on('child_changed', onChanged);
-            query.on('child_removed', onRemoved);
         }
     }
 });
