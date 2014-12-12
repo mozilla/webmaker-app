@@ -31,6 +31,7 @@ module.exports = view.extend({
             self.$root.isReady = true;
             if (!val) return;
             $data.selectedColor = val;
+            $data.mainColorSelected = false;
             $data.colors.forEach(function (arr, i) {
                 arr.forEach(function (color) {
                     if (color === val) {
@@ -44,13 +45,14 @@ module.exports = view.extend({
     },
     data: {
         title: 'Select Color',
-        onSelect: function (color) {
+        onSelect: function (color, isMainColor) {
             this.$data.selectedColor = color;
+            this.$data.mainColorSelected = isMainColor;
             ref.set(color);
         },
         onGroupSelect: function (i) {
             this.$data.selectedGroup = i;
-            this.onSelect(colorGroups[i]);
+            this.onSelect(colorGroups[i], true);
         },
         colorGroups: colorGroups,
         colors: colorGroups.map(function (base) {
