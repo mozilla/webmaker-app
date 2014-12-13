@@ -1,6 +1,6 @@
 <div class="top">		
 	<h1><span>{{ 'Make &amp; share the web' | i18n }}</span></h1>
-    <!--<h1>{{ 'Make &amp; share my' | i18n }}</br>{{ 'the web' | i18n }}</h1>-->
+
 </div>
 
 <div class="bottom">
@@ -15,9 +15,7 @@
         <p>
             {{ 'Guest Explanation' | i18n }}
         </p>
-		<p>
-		this &NewLine; &#x0000A;is a test
-		</p>
+		
     </div>
     <div v-if="offline" >
         <a href="#" class="btn-next" v-on="click: goOffline">{{ 'Try in Offline Mode' | i18n }}</a>
