@@ -319,11 +319,11 @@
       "message": "Discover",
       "description": "Title for the Discover page (a listing of apps users can choose from)"
     },
-    "Make &amp; share": {
-      "message": "Make &amp; share",
-      "description": "Part 1 of 2 for sign-in view headline"
+  "Make &amp; share the web" : {
+        "message": "Make &amp; share the web",
+        "description": "sign-in view headline"
     },
-    "the web": {
+    "the web ok": {
       "message": "the web",
       "description": "Part 2 of 2 for sign-in view headline"
     },
