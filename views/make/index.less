@@ -34,13 +34,83 @@
             margin: 0;
         }
     }
+
+    .icon-chooser {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+
+        .button {
+            padding: 20px;
+            cursor: pointer;
+        }
+
+        span {
+            display: block;
+            color: @mediumGrey;
+            font-size: 18px;
+            position: relative;
+            top: ~"calc(50% - 8px)";
+        }
+
+        .icon-container {
+            vertical-align: middle;
+            margin: 0 20px;
+        }
+
+        .app-icon {
+            position: relative;
+            top: 50px;
+            -webkit-transform: tranlateY(-50%);
+            -ms-transform: tranlateY(-50%);
+            transform: translateY(-50%);
+            height: 100px;
+            width: 100px;
+            background: orange;
+            border-radius: 100px;
+
+            .icon-image {
+                height: 80px;
+                width: 80px;
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                background-position: center;
+                background-size: 100%;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+
+    .swatches {
+        margin-top: 25px;
+        list-style: none;
+        padding: 0 15px;
+        overflow: auto;
+        width: 100%;
+
+        li {
+            float: left;
+            margin: 5% 0 0 5%;
+            cursor: pointer;
+            width: 14%;
+            height: 0;
+            padding-bottom: 14%;
+            transition: box-shadow 0.1s ease-in;
+            border-radius: 50%;
+            &.selected {
+                box-shadow: 0 0 0 4px @turquoise;
+            }
+        }
+    }
 }
 
 #blocks {
     .list-reset;
     width: 100%;
-    //transform: scale(0.95, 0.95);
-    //transform-origin: 50% top;
 
     > li {
         display: block;
@@ -55,11 +125,13 @@
 
         // Editable state
         transition: margin 0.2s ease-in-out,
-            padding 0.2s ease-in-out,
-            border-color 0.2s ease-in-out;
+        padding 0.2s ease-in-out,
+        border-color 0.2s ease-in-out;
+
         &[draggable=true] {
             transition: none;
         }
+
         &.editable {
             padding: 15px 70px 15px 10px;
             user-select: none;
@@ -102,27 +174,27 @@
         }
 
     }
-}
 
-[draggable=true] {
-    background: #f6f7f7;
-    opacity: 1;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    &::before {
-        top: 0px !important;
-        width: 100%;
-        height: 100% !important;
+    [draggable=true] {
+        background: #f6f7f7;
+        opacity: 1;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        &::before {
+            top: 0px !important;
+            width: 100%;
+            height: 100% !important;
+        }
     }
-}
 
-.sortable-ghost {
-   height: 25px;
-   padding: 0px !important;
-   background: #32b2d2;
-   margin: 5px 0;
+    .sortable-ghost {
+       height: 25px;
+       padding: 0px !important;
+       background: #32b2d2;
+       margin: 5px 0;
 
-   * {
-       opacity: 0;
-   }
+       * {
+           opacity: 0;
+       }
+    }
 }

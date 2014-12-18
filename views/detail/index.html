@@ -2,7 +2,9 @@
 <div v-if="!app.id" v-component="alert" type="error" message="errorAppNotFound"></div>
 <div v-if="app.id">
     <header>
-        <img class="app-icon" src="{{app.icon}}" alt="{{app.name}}">
+        <div class="app-icon" style="background-color: {{app.iconColor}}">
+            <div class="app-icon-image" style="background-image: url('/images/{{app.iconImage}}')"></div>
+        </div>
         <hgroup>
             <h3>{{app.name}}</h3>
             <p class="text-light" v-bind-html="'by _'" v-with="name: app.author.username"></p>

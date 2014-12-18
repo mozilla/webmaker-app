@@ -87,6 +87,13 @@ var singleTemplateSchema = {
 			type: 'string',
 			pattern: '^/images/.*'
 		},
+		iconColor: {
+			type: 'string',
+			pattern: '#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})'
+		},
+		iconImage: {
+			type: 'string'
+		},
 		author: authorSchema,
 		blocks: blocksSchema
 	},

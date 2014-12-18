@@ -6,6 +6,33 @@ var Sortable = require('sortable');
 var sort;
 var app;
 
+var iconColors = [
+    '#333444',
+    '#1e79da',
+    '#1F9CDF',
+    '#18dea6',
+    '#39d91f',
+    '#e7ce17',
+    '#ea6517',
+    '#e71a18',
+    '#ec1a6e',
+    '#d91fd6'
+];
+
+var iconImages = [
+    'activist.png',
+    'blogger.png',
+    'howto.png',
+    'journalist.png',
+    'puppy.png',
+    'safety.png',
+    'scientist.png',
+    'music.png',
+    'teacher.png',
+    'vendor.png',
+    'family.png'
+];
+
 module.exports = view.extend({
     id: 'make',
     template: require('./index.html'),
@@ -27,6 +54,33 @@ module.exports = view.extend({
                 name: newVal
             });
         }, 3000),
+        previousIconImage: function () {
+            this.selectIconImage('previous');
+        },
+        nextIconImage: function () {
+            this.selectIconImage('next');
+        },
+        selectIconImage: function (direction) {
+
+            var data = this.$data;
+            var index = data.iconImages.indexOf(data.app.iconImage) || 0;
+            var maxIndex = data.iconImages.length - 1;
+
+            direction === 'next' ? index++ : index--;
+            if (index < 0) { index = maxIndex; }
+            if (index > maxIndex) { index = 0; }
+
+            app.update({
+                iconImage: data.iconImages[index]
+            });
+
+            this.$data.currentIconIndex = index;
+        },
+        onSelectIconColor: function (color) {
+            app.update({
+                iconColor: color
+            });
+        },
         removeApp: function () {
             app.removeApp();
             this.page('/profile');
@@ -39,6 +93,9 @@ module.exports = view.extend({
         var isDragging = false;
 
         app = storage.getApp(id);
+
+        self.$data.iconColors = iconColors;
+        self.$data.iconImages = iconImages;
 
         var list = self.$el.querySelector('#blocks');
 
@@ -55,6 +112,7 @@ module.exports = view.extend({
 
         function onValue(val) {
             console.log('onValue');
+
             self.$root.isReady = true;
 
             if (isDragging) return;

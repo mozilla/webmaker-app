@@ -2,6 +2,29 @@
     <label for="name">App Name</label>
     <input id="name" type="text" v-model="app.name" v-on="keyup: updateName(app.name)">
 </div>
+
+
+<div class="icon-chooser">
+    <div class="button" v-on="click: previousIconImage()">
+        <span class="fa fa-chevron-left"></span>
+    </div>
+    <div class="icon-container">
+        <div style="background: {{app.iconColor}}"class="app-icon">
+          <div class="icon-image" style="background-image:url(/images/{{app.iconImage}})"></div>
+        </div>
+
+    </div>
+    <div class="button" v-on="click: nextIconImage()">
+        <span class="fa fa-chevron-right"></span>
+    </div>
+</div>
+
+<ul class="swatches">
+    <li v-repeat="color: iconColors" style="background-color:{{color}};"
+        v-class="selected: selectedColor === color"
+    v-on="click: onSelectIconColor(color)"></li>
+</ul>
+
 <div class="form-group" v-if="app.url">
     <label for="url">URL</label>
     <p id="url" class="url">{{app.url}}</p>

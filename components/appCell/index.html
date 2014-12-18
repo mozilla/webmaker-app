@@ -7,6 +7,8 @@
         <span v-if="author" class="description" v-bind-html="'by _'" v-with="{name: author.username|| guestKey}"></span>
     </div>
     <div class="right">
-        <img class="app-icon" src="{{icon}}">
+        <div class="app-icon" style="background:{{iconColor}};">
+          <div class="app-icon-image" style="background-image:url(/images/{{iconImage}});"></div>
+        </div>
     </div>
 </a>

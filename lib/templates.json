@@ -3,6 +3,8 @@
         "id": "blank",
         "name": "From Scratch",
         "icon": "/images/placeholder_blank.png",
+        "iconImage": "blogger.png",
+        "iconColor" : "#1F9CDF",
         "author": {
             "username": "",
             "location": "",
@@ -14,6 +16,8 @@
         "id": "d5c3ee43-5bbf-483c-8e70-0ac035c5f990",
         "name": "Journalist",
         "icon": "/images/placeholder_journalist.png",
+        "iconImage": "journalist.png",
+        "iconColor" : "#d91fd6",
         "author": {
             "username": "Rafid Daoud",
             "location": "",
@@ -137,6 +141,8 @@
         "id": "000d1745-5d3c-4997-ac0c-15df68bbbecc",
         "name": "Vendor",
         "icon": "/images/placeholder_vendor.png",
+        "iconImage": "vendor.png",
+        "iconColor" : "#1F9CDF",
         "author": {
             "username": "Yousuf",
             "location": "",
@@ -262,6 +268,8 @@
         "id": "000d1745-5d3c-4997-ac0c-15df68bbbecb",
         "name": "Medic",
         "icon": "/images/placeholder_medic.png",
+        "iconImage": "medic.png",
+        "iconColor" : "#e71a18",
         "author": {
             "username": "Aya",
             "location": "",
@@ -273,6 +281,8 @@
         "id": "a7ac2775-bd9d-40b5-a26c-43e8452da768",
         "name": "Teacher",
         "icon": "/images/placeholder_teacher.png",
+        "iconImage": "teacher.png",
+        "iconColor" : "#1e79da",
         "author": {
             "username": "Deepa",
             "location": "",
@@ -674,6 +684,8 @@
         "id": "a7ac2775-bd9d-40b5-a26c-43e847777777",
         "name": "How To",
         "icon": "/images/placeholder_howto.png",
+        "iconImage": "howto.png",
+        "iconColor" : "#e7ce17",
         "author": {
             "username": "Deepa",
             "location": "",
@@ -903,6 +915,8 @@
         "id": "5c22ae09-eeb5-4faf-aeb2-756da98790bf",
         "name": "Scientist",
         "icon": "/images/placeholder_scientist.png",
+        "iconImage": "scientist.png",
+        "iconColor" : "#e7ce17",
         "author": {
             "username": "Paola",
             "location": "",
@@ -914,6 +928,8 @@
         "id": "229abeb3-aa7d-453d-8082-96f8f1b0bfd8",
         "name": "Family",
         "icon": "/images/placeholder_family.png",
+        "iconImage": "family.png",
+        "iconColor" : "#1F9CDF",
         "author": {
             "username": "Sita",
             "location": "",
@@ -925,6 +941,8 @@
         "id": "b9483c11-077e-4396-84e2-c0454c36a741",
         "name": "Blogger",
         "icon": "/images/placeholder_blogger.png",
+        "iconImage": "blogger.png",
+        "iconColor" : "#1F9CDF",
         "author": {
             "username": "Emma",
             "location": "",
@@ -1016,6 +1034,8 @@
         "id": "41e8be7e-4381-4afd-82ac-861171c55555",
         "name": "Club",
         "icon": "/images/placeholder_student.png",
+        "iconImage": "music.png",
+        "iconColor" : "#1e79da",
         "author": {
             "username": "Pedro",
             "location": "",
@@ -1201,6 +1221,8 @@
         "id": "41e8be7e-4381-4afd-82ac-861171cd1111",
         "name": "Safety",
         "icon": "/images/placeholder_safety.png",
+        "iconImage": "safety.png",
+        "iconColor" : "#1e79da",
         "author": {
             "username": "Pedro",
             "location": "",
@@ -1239,6 +1261,8 @@
         "id": "3617a58c-3103-47dd-a767-60cd84ed7ef7",
         "name": "Activist",
         "icon": "/images/placeholder_activist.png",
+        "iconImage": "activist.png",
+        "iconColor" : "#e71a18",
         "author": {
             "username": "Richard",
             "location": "",

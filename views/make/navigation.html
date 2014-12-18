@@ -1,7 +1,7 @@
 <a class="nav-btn" v-on="click: goBack">{{ 'Done' | i18n}}</a>
 
 <h1>
-    <span v-if="mode === 'settings'">{{ 'App Settings' | i18n}}</span>
+    <span v-if="mode === 'settings'">{{ 'App Name & Icon' | i18n}}</span>
     <a class="edit-app-name" v-if="mode === 'edit'" v-on="click: changeMode('settings')" v-if="mode !== 'settings'">
       {{app.name}}
       <span class="fa fa-pencil"></span>
