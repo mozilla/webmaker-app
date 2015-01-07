@@ -1,9 +1,7 @@
 <nav id="navigationBar">
     <a href="{{back}}" class="nav-btn">{{ 'Cancel' | i18n}}</a>
     <h1>{{title | i18n}}</h1>
-    <button v-class="disabled: saveDisabled" class="save-btn" v-on="click: onSave">
-        <span class="fa fa-check"></span> {{ 'Save' | i18n}}
-    </a>
+    <button v-class="disabled: saveDisabled" class="save-btn" v-on="click: onSave">{{ 'Done' | i18n}}</button>
 </nav>
 <form id="attributes">
     <div class="form-group" v-repeat="block.attributes" v-component="{{ getEditor(type) }}"></div>
