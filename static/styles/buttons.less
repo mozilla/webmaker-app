@@ -22,11 +22,6 @@
         border-color: @turquoise;
         color: white;
     }
-    &.btn-remove {
-        border: none;
-        color: @white;
-        background-color: @red;
-    }
     &.btn-add {
         .btn-dark;
     }
@@ -51,6 +46,27 @@
     background-color: #FFF;
     text-align: center;
     text-decoration: none;
+}
+
+.btn-delete {
+    border-top: solid 1px #c1cdd5;
+    margin-top: 10px;
+    padding-top: 18px;
+    text-align: center;
+    cursor: pointer;
+    button {
+        font-size: 16px;
+        background: transparent;
+        padding: 0px;
+        margin: 0px;
+        color: @turquoise;
+        border: none;
+        display: inline-block;
+        span {
+            position: relative;
+            top: -1px;
+        }
+    }
 }
 
 /*********************************************************

@@ -19,9 +19,12 @@
                 v-class="editable: mode === 'edit'">
             </li>
         </ul>
-        <button class="btn btn-remove btn-block" v-if="mode === 'edit'" v-on="click: removeApp">
-            {{'Delete App' | i18n}}
-        </button>
+        <div class="btn-delete">
+            <button v-on="click: removeApp">
+                <span class="fa fa-trash"></span>
+                {{ 'Delete' | i18n }}
+            </button>
+        </div>
     </div>
 
     <div v-show="mode === 'data'"

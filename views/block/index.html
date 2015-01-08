@@ -7,7 +7,7 @@
 </nav>
 <form id="attributes">
     <div class="form-group" v-repeat="block.attributes" v-component="{{ getEditor(type) }}"></div>
-    <div class="delete-brick">
+    <div class="btn-delete">
       <button v-on="click: remove">
         <span class="fa fa-trash"></span>
         {{ 'Delete' | i18n }}
