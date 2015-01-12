@@ -1,4 +1,6 @@
-<a class="nav-btn" v-on="click: goBack">{{ 'Done' | i18n}}</a>
+<div>
+    <a class="nav-btn" v-on="click: goBack">{{ 'Done' | i18n}}</a>
+</div>
 
 <h1>
     <span v-if="mode === 'settings'">{{ 'App Name & Icon' | i18n}}</span>
@@ -11,6 +13,8 @@
     </span>
 </h1>
 
-<a v-if="mode !== 'settings' && !offlineUser" class="nav-btn" href="{{onDone}}">
-    {{ 'Publish' | i18n}}
-</a>
+<div>
+    <a v-if="mode !== 'settings' && !offlineUser" class="nav-btn" href="{{onDone}}">
+        {{ 'Publish' | i18n}}
+    </a>
+</div>
