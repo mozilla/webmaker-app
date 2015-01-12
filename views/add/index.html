@@ -1,8 +1,4 @@
-<div class="header">
-    <button class="glyph back" v-on="click: goBack" class="back">&lt;</button>
-    <h1>{{ 'Add a Brick' | i18n }}</h1>
-    <div class="glyph spacer"></div>
-</div>
+<div v-component="navigationBar" class="nav-alt"></div>
 <div class="list-wrapper">
     <ul>
         <li v-repeat="block: blocks">

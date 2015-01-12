@@ -1,7 +1,7 @@
 <div v-show="!app.id" v-component="alert" type="error" message="errorAppNotFound"></div>
 <div v-show="app.id">
 
-    <div id="navigationBar">{{ >navigation }}</div>
+    <div id="navigationBar" class="nav-default">{{ >navigation }}</div>
 
     <div v-show="mode === 'settings'">{{ >settings }}</div>
 

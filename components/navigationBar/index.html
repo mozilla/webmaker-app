@@ -1,11 +1,14 @@
-<button v-if="back === true" class="back nav-btn" v-on="click: goBack">&lt;</button>
-<a v-if="typeof back === 'string'" class="back nav-btn" href="{{back}}">&lt;</a>
+<div>
+    <button v-if="back === true" class="back nav-btn" v-on="click: goBack">&lt;</button>
+    <a v-if="typeof back === 'string'" class="back nav-btn" href="{{back}}">&lt;</a>
 
-<button v-if="cancel === true" v-on="click: goBack" class="nav-btn">{{'Cancel' | i18n}}</button>
-<a v-if="typeof cancel === 'string'" href="{{cancel}}" class="nav-btn">{{'Cancel' | i18n}}</a>
+    <button v-if="cancel === true" v-on="click: goBack" class="nav-btn">{{'Cancel' | i18n}}</button>
+    <a v-if="typeof cancel === 'string'" href="{{cancel}}" class="nav-btn">{{'Cancel' | i18n}}</a>
+</div>
 
 <h1>{{title | i18n}}</h1>
 
-<button v-if="typeof onDone === 'function'" v-on="click: onDone" v-class="disabled: doneDisabled" class="nav-btn">{{doneLabel || 'Done' | i18n}}
-</button>
-<a v-show="!offlineUser" v-if="typeof onDone === 'string'" href="{{onDone}}" v-class="disabled: doneDisabled" class="nav-btn">{{doneLabel || 'Done' | i18n}}</a>
+<div>
+    <button v-if="typeof onDone === 'function'" v-on="click: onDone" v-class="disabled: doneDisabled" class="nav-btn">{{doneLabel || 'Done' | i18n}}</button>
+    <a v-show="!offlineUser" v-if="typeof onDone === 'string'" href="{{onDone}}" v-class="disabled: doneDisabled" class="nav-btn">{{doneLabel || 'Done' | i18n}}</a>
+</div>

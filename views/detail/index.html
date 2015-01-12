@@ -1,4 +1,4 @@
-<div v-component="navigationBar"></div>
+<nav v-component="navigationBar" class="nav-default"></nav>
 <div v-if="!app.id" v-component="alert" type="error" message="errorAppNotFound"></div>
 <div v-if="app.id">
     <header>

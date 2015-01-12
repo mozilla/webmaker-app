@@ -4,21 +4,25 @@
     left: 0;
     top: 0;
     z-index: 2;
-
     width: 100%;
     height: @header-height;
-    border-bottom: 1px solid @lightGrey;
-    background-color: @white;
-    text-align: center;
 
+    display: flex;
+    align-items: center;
+
+    & > div {
+        flex: 1;
+    }
+    & > div:nth-child(3) {
+        text-align: right;
+    }
+
+    // Flex property not needed in h1
     h1 {
-        display: inline-block;
-        margin: 13px auto 0 auto;
         color: @highlight;
         text-align: center;
         font-size: 1.1em;
         font-weight: 400;
-        width: 100%;
     }
 
     a {
@@ -49,15 +53,11 @@
     }
 
     .nav-btn {
-        position: absolute;
-        top: 0;
-        min-width: 40px;
-        height: 100%;
         background: none;
         color: @highlight;
         border: none;
         outline: none;
-        padding: 5px 20px 0;
+        padding: 0px 20px 0;
         line-height: (@header-height - 10s);
         text-decoration: none;
         font-size: 13px;
@@ -65,7 +65,6 @@
             font-size: inherit;
             padding-top: 0;
         }
-
         &:first-child {
             left: 0;
         }
@@ -74,10 +73,29 @@
         }
         &.back {
             line-height: @header-height;
-            padding-top: 0;
             font-size: 1.4em;
         }
+    }
 
+    &.nav-default {
+        border-bottom: 1px solid @lightGrey;
+        background-color: @white;
 
+        h1:extend(.navigationBar h1) {
+            color: @highlight;
+        }
+
+        .nav-btn:extend(.navigationBar .nav-btn) {
+            color: @highlight;
+        }
+    }
+
+    &.nav-alt {
+        h1:extend(.navigationBar h1) {
+            color: @white;
+        }
+        .nav-btn:extend(.navigationBar .nav-btn) {
+            color: @white;
+        }
     }
 }
