@@ -5,12 +5,14 @@
         <span class="fa fa-check"></span> {{ 'Save' | i18n}}
     </a>
 </nav>
-<form id="attributes">
-    <div class="form-group" v-repeat="block.attributes" v-component="{{ getEditor(type) }}"></div>
-    <div class="btn-delete">
-      <button v-on="click: remove">
-        <span class="fa fa-trash"></span>
-        {{ 'Delete' | i18n }}
-      </button>
-    </div>
-</form>
+<main class="main-container">
+    <form>
+        <div class="form-group" v-repeat="block.attributes" v-component="{{ getEditor(type) }}"></div>
+        <div class="btn-delete">
+          <button v-on="click: remove">
+            <span class="fa fa-trash"></span>
+            {{ 'Delete' | i18n }}
+          </button>
+        </div>
+    </form>
+</main>

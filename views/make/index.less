@@ -1,8 +1,12 @@
 #make {
     margin-bottom: @editBar-height;
 
-    .edit-inner {
+    .edit-container {
         padding: 10px;
+    }
+
+    .settings-container {
+        padding: 0 15px;
     }
 
     .name-wrapper {
@@ -23,7 +27,7 @@
         .fa {
             position: absolute;
             top: 2px;
-            right: 0px;
+            right: 0;
         }
     }
 
@@ -102,7 +106,7 @@
 
     .swatches {
         list-style: none;
-        padding: 0 15px;
+        padding: 0;
         overflow: auto;
         width: 100%;
         margin: 15px auto 0 auto;
@@ -160,7 +164,7 @@
                 border: dashed 1px blue;
                 border-color: @highlight;
                 top: 5px;
-                left: 0px;
+                left: 0;
                 width: 100%;
                 height: ~"calc(100% - 10px)";
             }
@@ -199,7 +203,7 @@
         padding-top: 10px;
         padding-bottom: 10px;
         &::before {
-            top: 0px !important;
+            top: 0 !important;
             width: 100%;
             height: 100% !important;
         }
