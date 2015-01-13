@@ -3,33 +3,36 @@
 
     <div id="navigationBar">{{ >navigation }}</div>
 
-    <div v-show="mode === 'settings'">{{ >settings }}</div>
+    <main v-class="edit-container: mode === 'edit', settings-container: mode === 'settings'">
+        <div v-show="mode === 'settings'">{{ >settings }}</div>
 
-    <div class="edit-inner" v-show="['play', 'edit'].indexOf(mode) > -1">
-        <a class="add"
-            href="/make/{{app.id}}/add"
-            v-class="off: mode === 'play'">
-            <span class="fa fa-plus"></span>
-        </a>
-        <ul id="blocks">
-            <li v-repeat="app.blocks"
-                v-component="{{type}}"
-                index="{{$index}}"
-                v-on="click: goTo('/make/' + app.id + '/block/' + $index, $event)"
-                v-class="editable: mode === 'edit'">
-            </li>
-        </ul>
-        <div class="btn-delete">
-            <button v-on="click: removeApp">
-                <span class="fa fa-trash"></span>
-                {{ 'Delete' | i18n }}
-            </button>
+        <div v-show="['play', 'edit'].indexOf(mode) > -1">
+            <a class="add"
+                href="/make/{{app.id}}/add"
+                v-class="off: mode === 'play'">
+                <span class="fa fa-plus"></span>
+            </a>
+            <ul id="blocks">
+                <li v-repeat="app.blocks"
+                    v-component="{{type}}"
+                    index="{{$index}}"
+                    v-on="click: goTo('/make/' + app.id + '/block/' + $index, $event)"
+                    v-class="editable: mode === 'edit'">
+                </li>
+            </ul>
+            <div class="btn-delete">
+                <button v-on="click: removeApp">
+                    <span class="fa fa-trash"></span>
+                    {{ 'Delete' | i18n }}
+                </button>
+            </div>
         </div>
-    </div>
 
-    <div v-show="mode === 'data'"
-        v-component="dataRepresentation"
-        v-with="dataSet : currentDataSets, initialDataLoaded : initialDataLoaded"></div>
+        <div v-show="mode === 'data'"
+            v-component="dataRepresentation"
+            v-with="dataSet : currentDataSets, initialDataLoaded : initialDataLoaded">
+        </div>
+    </main>
 
     <div v-if="mode !== 'settings'" v-component="makeBar" v-with="uiMode: mode === 'settings' ? 'edit' : mode, onChange: changeMode"></div>
 
