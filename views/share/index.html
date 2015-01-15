@@ -22,6 +22,17 @@
             </div>
         </div>
     </li>
+    <li>
+        <div class="cell">
+            <div class="left">
+                <span class="title">Webmaker</span>
+                <span class="text-small">Show in Discover Gallery</span>
+            </div>
+            <div class="right">
+                <div v-component="toggle" disabled="false" v-with="checked: isDiscoverable"></div>
+            </div>
+        </div>
+    </li>
 </ul>
 
 <div v-component="tabBar"></div>

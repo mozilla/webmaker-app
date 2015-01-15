@@ -44,8 +44,8 @@
 // Can be an <a> or <div>
 .cell {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    // height: @list-cell-height;
     text-decoration: none;
     color: inherit;
 
@@ -55,11 +55,7 @@
 
     // For left and right sections
     .left, .right {
-      width: 50%;
-      padding: @list-cell-padding;
-    }
-    .right {
-        text-align: right;
+        padding: @list-cell-padding;
     }
 
     // Typography styles

@@ -11,7 +11,8 @@ module.exports = view.extend({
     data: {
         title: 'Share',
         error: false,
-        doneDisabled: true
+        doneDisabled: true,
+        isDiscoverable: false
     },
     methods: {
         login: function (e) {
@@ -26,7 +27,8 @@ module.exports = view.extend({
             window.location = sms;
             page('/make/' + self.$parent.$data.params.id + '/detail');
         },
-        onSMSClick: function () {
+        onSMSClick: function (e) {
+            e.preventDefault();
             this.$broadcast('openContactPicker');
         }
     },
