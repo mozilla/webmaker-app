@@ -3,7 +3,11 @@ module.exports = {
     template: require('./index.html'),
     paramAttributes: ['disabled', 'checked'],
     ready: function () {
-        this.disabled = this.disabled === 'true' ? true : false;
+        // parse non booleans
+        // eg: values passed in as a "disabled" param instead of v-with
+        if (typeof this.disabled === 'string') {
+            this.disabled = this.disabled === 'true' ? true : false;
+        }
     },
     data: {}
 };

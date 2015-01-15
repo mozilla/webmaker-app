@@ -12,7 +12,8 @@ module.exports = view.extend({
         title: 'Share',
         error: false,
         doneDisabled: true,
-        isDiscoverable: false
+        isDiscoverable: false,
+        disableDiscovery: true
     },
     methods: {
         login: function (e) {
@@ -44,6 +45,11 @@ module.exports = view.extend({
 
         // Bind user
         self.$data.user = self.model.data.session.user;
+
+        // Enable discovery for non-guests (users w. email)
+        if (self.$data.user.email) {
+            self.disableDiscovery = false;
+        }
 
         var message;
 
