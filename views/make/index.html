@@ -12,7 +12,7 @@
                 v-class="off: mode === 'play'">
                 <span class="fa fa-plus"></span>
             </a>
-            <ul id="blocks">
+            <ul id="blocks" class="blocks">
                 <li v-repeat="app.blocks"
                     v-component="{{type}}"
                     index="{{$index}}"

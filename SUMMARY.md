@@ -16,6 +16,7 @@
    * [Tutorial: create a phonecall block](_docs/blocks/tutorial_phonecall.md)
 * [Localization](_docs/localization/README.md)
 * [UI](_docs/ui/README.md)
+   * [Displaying apps](_docs/ui/displaying_apps.md)
    * [UI Components](_docs/ui/ui_components.md)
    * [Animations](_docs/ui/animations.md)
 * [Field Testing](_docs/field_testing/README.md)
