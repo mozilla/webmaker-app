@@ -69,10 +69,12 @@ module.exports = view.extend({
 
             setTimeout(function () {
                 if (direction === 'next') {
-                    self.$el.querySelector('#icon-image').classList.add('right');
+                    self.$el.querySelector('#icon-image')
+                        .classList.add('right');
                     index++;
                 } else {
-                    self.$el.querySelector('#icon-image').classList.add('left');
+                    self.$el.querySelector('#icon-image')
+                        .classList.add('left');
                     index--;
                 }
                 if (index < 0) {
