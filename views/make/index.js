@@ -60,36 +60,36 @@ module.exports = view.extend({
             this.selectIconImage('next');
         },
         selectIconImage: function (direction) {
-          var self = this;
-          var data = self.$data;
-          var index = data.iconImages.indexOf(data.app.iconImage) || 0;
-          var maxIndex = data.iconImages.length - 1;
+            var self = this;
+            var data = self.$data;
+            var index = data.iconImages.indexOf(data.app.iconImage) || 0;
+            var maxIndex = data.iconImages.length - 1;
 
-          self.$el.querySelector('#icon-image').className = 'icon-image';
+            self.$el.querySelector('#icon-image').className = 'icon-image';
 
-          setTimeout(function () {
-            if (direction === 'next') {
-              self.$el.querySelector('#icon-image').classList.add('right');
-              index++;
-            } else {
-              self.$el.querySelector('#icon-image').classList.add('left');
-              index--;
-            }
-            if (index < 0) {
-              index = maxIndex;
-            }
-            if (index > maxIndex) {
-              index = 0;
-            }
-          }, 10);
+            setTimeout(function () {
+                if (direction === 'next') {
+                    self.$el.querySelector('#icon-image').classList.add('right');
+                    index++;
+                } else {
+                    self.$el.querySelector('#icon-image').classList.add('left');
+                    index--;
+                }
+                if (index < 0) {
+                    index = maxIndex;
+                }
+                if (index > maxIndex) {
+                    index = 0;
+                }
+            }, 10);
 
-          setTimeout(function () {
-            app.update({
-              iconImage: data.iconImages[index]
-            });
-          }, 100);
+            setTimeout(function () {
+                app.update({
+                    iconImage: data.iconImages[index]
+                });
+            }, 100);
 
-          self.$data.currentIconIndex = index;
+            self.$data.currentIconIndex = index;
         },
         onSelectIconColor: function (color) {
             app.update({
