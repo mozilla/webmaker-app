@@ -92,14 +92,18 @@
             border-radius: 100px;
 
             .icon-image {
-                height: 80px;
-                width: 80px;
-                position: absolute;
-                top: 10px;
-                left: 10px;
+                height: 100%;
+                width: 100%;
+                border-radius: 50%;
                 background-position: center;
                 background-size: 100%;
                 background-repeat: no-repeat;
+                &.left {
+                    animation: icon-switch 200ms ease 0s 1;
+                }
+                &.right {
+                    animation: icon-switch 200ms ease 0s 1 reverse;
+                }
             }
         }
     }
@@ -128,6 +132,39 @@
         color: @white;
         padding-bottom: 0.25em;
     }
+}
+
+@keyframes icon-switch {
+  0% {
+    background-position: center center;
+  }
+  49% {
+    background-position: -100px center;
+  }
+  50% {
+    visibility: hidden;
+  }
+  51% {
+    background-position: 200px center;
+  }
+  52% {
+    visibility: visible;
+  }
+  100% {
+    background-position: center center;
+  }
+}
+
+@keyframes iconRight {
+  0% {
+    background-position: 200px center;
+  }
+  1% {
+    visibility: visible;
+  }
+  100% {
+    background-position: center center;
+  }
 }
 
 .blocks {
