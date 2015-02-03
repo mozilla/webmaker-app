@@ -3,22 +3,11 @@
 <svg version="1.1" id="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 52 52"
 	 enable-background="new 0 0 52 52" xml:space="preserve">
-<title>business</title>
-<g id="Page-1" sketch:type="MSPage">
-	<g id="business_1_" transform="translate(14.000000, 14.000000)" sketch:type="MSLayerGroup">
-		<g id="Main" sketch:type="MSShapeGroup">
-			<g id="Make-7">
-				<g id="Start-from-Scratch-_x2B_-Choosing-this-option-4">
-					<g id="business">
-						<path id="_xF19C_" fill="#F1F1F5" d="M12.3,0.3l12.3,4.9v1.6H23c0,0.2-0.1,0.4-0.3,0.6c-0.2,0.2-0.4,0.2-0.6,0.2H2.5
-							c-0.2,0-0.4-0.1-0.6-0.2C1.7,7.3,1.6,7.1,1.6,6.9H0V5.2L12.3,0.3L12.3,0.3z M3.3,8.5h3.3v9.9h1.6V8.5h3.3v9.9h1.6V8.5h3.3v9.9
-							h1.6V8.5h3.3v9.9h0.8c0.2,0,0.4,0.1,0.6,0.2c0.2,0.2,0.3,0.4,0.3,0.6V20H1.6v-0.8c0-0.2,0.1-0.4,0.3-0.6
-							c0.2-0.2,0.4-0.2,0.6-0.2h0.8V8.5L3.3,8.5z M23.8,20.8c0.2,0,0.4,0.1,0.6,0.2c0.2,0.2,0.3,0.4,0.3,0.6v1.6H0v-1.6
-							c0-0.2,0.1-0.4,0.3-0.6s0.4-0.2,0.6-0.2H23.8L23.8,20.8z"/>
-					</g>
-				</g>
-			</g>
-		</g>
-	</g>
+<g transform="translate(14.000000, 14.000000)">
+  <path id="_xF19C_" fill="#F1F1F5" d="M12.3,0.3l12.3,4.9v1.6H23c0,0.2-0.1,0.4-0.3,0.6c-0.2,0.2-0.4,0.2-0.6,0.2H2.5
+    c-0.2,0-0.4-0.1-0.6-0.2C1.7,7.3,1.6,7.1,1.6,6.9H0V5.2L12.3,0.3L12.3,0.3z M3.3,8.5h3.3v9.9h1.6V8.5h3.3v9.9h1.6V8.5h3.3v9.9
+    h1.6V8.5h3.3v9.9h0.8c0.2,0,0.4,0.1,0.6,0.2c0.2,0.2,0.3,0.4,0.3,0.6V20H1.6v-0.8c0-0.2,0.1-0.4,0.3-0.6
+    c0.2-0.2,0.4-0.2,0.6-0.2h0.8V8.5L3.3,8.5z M23.8,20.8c0.2,0,0.4,0.1,0.6,0.2c0.2,0.2,0.3,0.4,0.3,0.6v1.6H0v-1.6
+    c0-0.2,0.1-0.4,0.3-0.6s0.4-0.2,0.6-0.2H23.8L23.8,20.8z"/>
 </g>
 </svg>
