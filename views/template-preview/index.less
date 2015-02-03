@@ -1,15 +1,8 @@
 #template-preview {
 
     @_button-height: 42px; // Start Building button
-    @_padding: 20px; // General padding around everything
-    @_bottom-clear: 35px; // How much should we clear the tabBar by?
     
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 100%;
     background: #EBEFF7;
-    margin: 0;
     padding: 0 @_padding;
 
     .start-building {
@@ -24,11 +17,6 @@
     }
 
     .app-preview {
-        position: fixed;
-        top: @header-height + @_button-height + (2 * @_padding);
-        left: @_padding;
-        right: @_padding;
-        bottom: @tabBar-height + @_bottom-clear;
         border-radius: 4px;
         background: @white;
         overflow: scroll;
