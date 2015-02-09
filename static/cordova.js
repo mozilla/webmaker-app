@@ -48,28 +48,4 @@
         }
     };
 
-    // http://docs.phonegap.com/en/edge/cordova_camera_camera.md.html
-    navigator.camera = navigator.camera || {
-        getPicture: function (cameraSuccess, cameraError, cameraOptions ) {
-           cameraSuccess(fakeImageUri);
-        }
-    };
-    window.Camera = window.Camera || {
-        DestinationType: {
-            DATA_URL : 0,      // Return image as base64-encoded string
-            FILE_URI : 1,      // Return image file URI
-            NATIVE_URI : 2     // Return image native URI (e.g., assets-library:// on iOS or content:// on Android)
-        },
-        PictureSourceType: {
-            PHOTOLIBRARY : 0,
-            CAMERA : 1,
-            SAVEDPHOTOALBUM : 2
-        },
-        EncodingType: {
-            JPEG : 0,               // Return JPEG encoded image
-            PNG : 1                 // Return PNG encoded image
-        }
-    };
-
-
 })();

@@ -11,6 +11,7 @@
   },
   "main": "export.js",
   "dependencies": {
+    "async": "^0.9.0",
     "clone": "0.1.18",
     "event-emitter": "0.3.1",
     "fastclick": "1.0.3",
@@ -19,6 +20,7 @@
     "localforage": "1.1.1",
     "lodash.throttle": "2.4.1",
     "page": "1.5.0",
+    "rusha": "^0.8.1",
     "sortable": "git://github.com/k88hudson/Sortable#webmaker-app",
     "vue": "git://github.com/k88hudson/vue#csp-10.6",
     "watchjs": "0.0.0",

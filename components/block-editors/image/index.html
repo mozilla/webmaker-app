@@ -1,23 +1,16 @@
 <label for="{{id}}">{{ label | i18n }}</label>
 
-<div class="image-picker-frame" v-class="picked: pickedImageUri"
-    style="background-image: url( {{value}} );">
+<div class="image-picker-frame" v-class="picked: pickedImageUri">
     <div class="image-picker-btns" v-show="editorOpen" v-on="click: cancelEditor">
+        <input name="hiddenfilepicker" type="file" accept="image/*" style="display: none;" v-on="click: stopPropagation($event)">
         <button v-on="click: getImage($event, 'CAMERA')">
             <span class="fa fa-camera fa-fw"></span>
         </button>
         <button v-on="click: getImage($event, 'PHOTOLIBRARY')">
             <span class="fa fa-picture-o fa-fw"></span>
         </button>
-        <button v-on="click: getUrl">
-            <span class="fa fa-code fa-fw"></span>
-        </button>
     </div>
     <button v-show="!editorOpen" class="open-editor" v-on="click: openEditor">
         <span class="fa fa-camera fa-fw"></span>
     </button>
 </div>
-
-<textarea v-show="showUrlInput" v-on="keyup: onUpdateUrl" name="{{id}}" type="text" v-model="imageUrl" placeholder="{{ 'Text' | i18n }}"></textarea>
-
-<div v-show="!value" class="form-error">{{ 'errorNoText' | i18n }}</div>

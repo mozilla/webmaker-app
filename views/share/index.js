@@ -1,10 +1,88 @@
+var async = require('async');
 var view = require('../../lib/view');
 var i18n = require('../../lib/i18n');
 var publish = require('../../lib/publish');
 var page = require('page');
+var config = require('../../config');
+var localforage = require('localforage');
+var xhr = require('xhr');
 var app;
 
 var PUBLISH_TIMEOUT = 20000;
+
+var pre_publish_hooks = [
+    function image_upload(app, user, hook_callback) {
+        var app_data = app.data;
+        var images = app_data.blocks.filter(function(block) {
+            return block.type === 'image' && block.attributes.image.hash;
+        });
+
+        if (images.length === 0) {
+            return hook_callback();
+        }
+
+        var q = async.queue(function(block, q_callback) {
+            localforage.getItem('image/' + block.attributes.image.hash, function(error, file) {
+                if (!file) {
+                    q_callback();
+                    return;
+                }
+
+                // Support dev mode for local publishing
+                var request_body = {};
+                if (config.PUBLISH_DEV_MODE) request_body.user = user;
+
+                xhr({
+                    method: 'POST',
+                    url: config.IMAGE_REQUEST_ENDPOINT,
+                    json: request_body,
+                    withCredentials: true
+                }, function(wp_error, response, data) {
+                    data.starts_with.forEach(function(field) {
+                      if (field === "Content-Type") {
+                        data.fields[field] = file.type;
+                      } else if (field === "key") {
+                        data.fields[field] = data.fields[field] + "/${filename}";
+                      }
+                    });
+                    var form = new FormData();
+
+                    Object.keys(data.fields).forEach(function(field) {
+                      form.append(field, data.fields[field]);
+                    });
+                    form.append("file", file);
+
+                    xhr({
+                        method: 'POST',
+                        url: data.host,
+                        body: form
+                    }, function(s3_error, response, data) {
+                        block.attributes.image.url = decodeURIComponent(response.headers.location);
+                        q_callback();
+                    });
+                });
+            });
+        }, 1);
+        q.drain = hook_callback;
+
+        q.push(images);
+    },
+    function update_firebase(app, user, hook_callback) {
+        app.update({
+            blocks: app_data.blocks
+        }, hook_callback)
+    }
+];
+
+var start_prepublish = function(app_data, user, callback) {
+    async.applyEach(pre_publish_hooks, app_data, user, function(prepublish_error) {
+        if (prepublish_error) {
+            throw prepublish_error;
+        }
+
+        callback();
+    });
+};
 
 module.exports = view.extend({
     id: 'share',
@@ -106,7 +184,6 @@ module.exports = view.extend({
             }, PUBLISH_TIMEOUT);
 
             publish(id, self.$data.user, function (err, data) {
-                console.log(data);
                 global.clearTimeout(syncTimeout);
                 self.$root.isReady = true;
                 if (err) {
@@ -139,7 +216,8 @@ module.exports = view.extend({
             if (val.url) {
                 self.$data.shareMessage = message + ': ' + val.url;
             }
-            startPublish();
+
+            start_prepublish(app, self.$data.user, startPublish);
         }
 
         // Bind app
