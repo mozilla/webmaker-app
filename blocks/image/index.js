@@ -7,8 +7,9 @@ module.exports = {
         name: 'Image',
         icon: 'images/blocks_image.png',
         attributes: {
-            // Because editors are per-attribute, I need to create an unused image
-            // attribute and overload it with the actual attributes I'm using (hash, url)
+            // Because editors are per-attribute, I need to create an unused
+            // image attribute and overload it with the actual attributes I'm
+            // using (hash, url)
             image: {
                 label: 'Image',
                 type: 'image',
@@ -19,21 +20,22 @@ module.exports = {
             }
         }
     },
-    ready: function() {
-        console.log(this.$data.attributes.image);
+    ready: function () {
+        var element = this.$el.querySelector('img');
+
         if (this.$data.attributes.image.hash) {
-            cache.getFile('image/' + this.$data.attributes.image.hash, function(error, url) {
-                // url is always defined and defaults to the placeholder image
+            cache.getFile('image/' + this.$data.attributes.image.hash,
+                function (error, url) {
                 if (!url) {
-                    this.$el.querySelector('img').src = this.$data.attributes.image.url;
+                    element.src = this.$data.attributes.image.url;
                     return;
                 }
 
-                this.$el.querySelector('img').src = url;
+                element.src = url;
             }.bind(this));
             return;
         }
 
-        this.$el.querySelector('img').src = this.$data.attributes.image.url;
+        element.src = this.$data.attributes.image.url;
     }
 };

@@ -3,7 +3,7 @@ var Rusha = require("rusha");
 
 var rusha_hash = new Rusha();
 
-var get_image_from_input = function(callback) {
+var get_image_from_input = function (callback) {
     var input = document.querySelector('input[name="hiddenfilepicker"]');
     input.addEventListener('change', function onChangeFileInput(e) {
         input.removeEventListener('change', onChangeFileInput);
@@ -16,7 +16,7 @@ var get_image_from_input = function(callback) {
     input.click();
 };
 
-var convert_file_to_arraybuffer = function(file, callback) {
+var convert_file_to_arraybuffer = function (file, callback) {
     var fr = new FileReader();
     fr.addEventListener('load', function fileReaderGonnaRead(e) {
         fr.removeEventListener('load', fileReaderGonnaRead);
@@ -26,7 +26,7 @@ var convert_file_to_arraybuffer = function(file, callback) {
     fr.readAsArrayBuffer(file);
 };
 
-var set_image_display = function(element, url) {
+var set_image_display = function (element, url) {
     element.style.backgroundImage = 'url("' + url + '")';
 };
 
@@ -42,19 +42,21 @@ module.exports = {
 
             var self = this;
 
-            get_image_from_input(function(input_error, file) {
+            get_image_from_input(function (input_error, file) {
                 // If the user cancelled the image selection
                 if (!file) {
                     return;
                 }
 
                 // Hash the image and store it in local storage
-                convert_file_to_arraybuffer(file, function(convert_error, arraybuffer) {
+                convert_file_to_arraybuffer(file, function (err, arraybuffer) {
                     var hash = rusha_hash.digest(arraybuffer);
                     var key = 'image/' + hash;
 
-                    cache.putFile(key, file, function(error, blob_url) {
-                        set_image_display(self.$el.querySelector('.image-picker-frame'), blob_url);
+                    cache.putFile(key, file, function (error, blob_url) {
+                        set_image_display(
+                            self.$el.querySelector('.image-picker-frame'),
+                        blob_url);
                         self.$data.hash = hash;
                         self.$data.editorOpen = false;
                     });
@@ -75,7 +77,7 @@ module.exports = {
         var element = this.$el.querySelector('.image-picker-frame');
 
         if (this.$data.hash) {
-            cache.getFile('image/' + this.$data.hash, function(error, url) {
+            cache.getFile('image/' + this.$data.hash, function (error, url) {
                 // url is always defined and defaults to the placeholder image
                 if (!url) {
                     set_image_display(element, this.$data.url);
