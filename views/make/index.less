@@ -90,6 +90,7 @@
             width: 100px;
             background: orange;
             border-radius: 100px;
+            overflow: hidden;
 
             .icon-image {
                 height: 100%;
@@ -98,11 +99,14 @@
                 background-position: center;
                 background-size: 100%;
                 background-repeat: no-repeat;
-                &.left {
-                    animation: icon-switch 200ms ease 0s 1;
+                position: absolute;
+                transition: transform 400ms ease;
+                transform: translateX(0);
+                &.v-enter {
+                    transform: translateX(-100%);
                 }
-                &.right {
-                    animation: icon-switch 200ms ease 0s 1 reverse;
+                &.v-leave {
+                    transform: translateX(100%);
                 }
             }
         }

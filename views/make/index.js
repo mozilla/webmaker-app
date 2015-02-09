@@ -9,20 +9,20 @@ var app;
 var iconColors = utils.baseColors;
 
 var iconImages = [
-    'activist.png',
-    'blogger.png',
-    'howto.png',
-    'journalist.png',
-    'puppy.png',
-    'safety.png',
-    'scientist.png',
-    'music.png',
-    'teacher.png',
-    'vendor.png',
-    'family.png'
+    'activist.svg',
+    'blogger.svg',
+    'howto.svg',
+    'journalist.svg',
+    'puppy.svg',
+    'safety.svg',
+    'scientist.svg',
+    'music.svg',
+    'teacher.svg',
+    'vendor.svg',
+    'family.svg'
 ].map(function (icon) {
-    return 'images/' + icon;
-});
+    return 'images/icons/' + icon;
+  });
 
 module.exports = view.extend({
     id: 'make',
@@ -60,38 +60,23 @@ module.exports = view.extend({
             this.selectIconImage('next');
         },
         selectIconImage: function (direction) {
-            var self = this;
-            var data = self.$data;
+
+            var data = this.$data;
             var index = data.iconImages.indexOf(data.app.iconImage) || 0;
             var maxIndex = data.iconImages.length - 1;
 
-            self.$el.querySelector('#icon-image').className = 'icon-image';
+            direction === 'next' ? index++ : index--;
+            if (index < 0) {
+                index = maxIndex;
+            }
+            if (index > maxIndex) {
+                index = 0;
+            }
+            app.update({
+                iconImage: data.iconImages[index]
+            });
 
-            setTimeout(function () {
-                if (direction === 'next') {
-                    self.$el.querySelector('#icon-image')
-                        .classList.add('right');
-                    index++;
-                } else {
-                    self.$el.querySelector('#icon-image')
-                        .classList.add('left');
-                    index--;
-                }
-                if (index < 0) {
-                    index = maxIndex;
-                }
-                if (index > maxIndex) {
-                    index = 0;
-                }
-            }, 10);
-
-            setTimeout(function () {
-                app.update({
-                    iconImage: data.iconImages[index]
-                });
-            }, 100);
-
-            self.$data.currentIconIndex = index;
+            this.$data.currentIconIndex = index;
         },
         onSelectIconColor: function (color) {
             app.update({
@@ -203,6 +188,7 @@ module.exports = view.extend({
             onValue(app.data);
             self.$data.originalIconImage = self.$data.app.iconImage;
             self.$data.originalIconColor = self.$data.app.iconColor;
+            self.$data.currentIconIndex = self.$data.iconImages.indexOf(self.$data.app.iconImage) !== -1 ? self.$data.iconImages.indexOf(self.$data.app.iconImage) : 0;
         }
 
         self.$on(id, onValue);
