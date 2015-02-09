@@ -22,7 +22,7 @@ var iconImages = [
     'family.svg'
 ].map(function (icon) {
     return 'images/icons/' + icon;
-  });
+});
 
 module.exports = view.extend({
     id: 'make',
@@ -188,7 +188,9 @@ module.exports = view.extend({
             onValue(app.data);
             self.$data.originalIconImage = self.$data.app.iconImage;
             self.$data.originalIconColor = self.$data.app.iconColor;
-            self.$data.currentIconIndex = self.$data.iconImages.indexOf(self.$data.app.iconImage) !== -1 ? self.$data.iconImages.indexOf(self.$data.app.iconImage) : 0;
+            self.$data.currentIconIndex = self.$data.iconImages
+                    .indexOf(self.$data.app.iconImage) !== -1 ?
+                    self.$data.iconImages.indexOf(self.$data.app.iconImage) : 0;
         }
 
         self.$on(id, onValue);
