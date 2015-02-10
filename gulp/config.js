@@ -8,6 +8,7 @@ var expose = [
     'NODE_ENV',
     'LOGIN_URL',
     'PUBLISH_ENDPOINT',
+    'IMAGE_REQUEST_ENDPOINT',
     'PUBLISH_DEV_MODE',
     'FIREBASE_URL',
     'FIREBASE_URL_DATA',
