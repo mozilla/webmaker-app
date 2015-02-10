@@ -3,7 +3,7 @@
 <div v-if="app.id">
     <header style="background-color: {{app.iconColor}}">
         <div class="app-icon">
-            <div class="app-icon-image" style="background-image: url('{{app.iconImage}}')"></div>
+            <div class="app-icon-image" v-style="background-image: 'url(' + app.iconImage + ')'"></div>
         </div>
 
         <div v-show="isAdmin" v-component="switch" v-with="options: ['My App', 'App Data']"></div>

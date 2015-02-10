@@ -130,6 +130,11 @@ module.exports = view.extend({
 
         app = storage.getApp(id);
 
+        self.$data.originalIconImage = app.iconImage;
+        self.$data.originalIconColor = app.iconColor;
+        self.$data.currentIconIndex = Math.max(iconImages
+                .indexOf(app.iconImage), 0);
+
         self.$data.iconColors = iconColors;
         self.$data.iconImages = iconImages;
 
@@ -186,10 +191,6 @@ module.exports = view.extend({
 
         if (app.data) {
             onValue(app.data);
-            self.$data.originalIconImage = self.$data.app.iconImage;
-            self.$data.originalIconColor = self.$data.app.iconColor;
-            self.$data.currentIconIndex = Math.max(iconImages
-                    .indexOf(app.iconImage), 0);
         }
 
         self.$on(id, onValue);
