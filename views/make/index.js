@@ -97,7 +97,7 @@ module.exports = view.extend({
         var self = this;
 
         self.$on('sideMenuDeleteClick', function (event) {
-            self.$dispatch('openModalPrompt');
+            self.$dispatch('openModalPrompt', {type: 'delete'});
         });
 
         self.$on('sideMenuShareClick', function (event) {
