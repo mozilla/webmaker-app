@@ -1,21 +1,20 @@
+<header>
+    <div class="icon">
+        <i class="ion ion-android-delete"></i>
+    </div>
+    <div class="question">
+        <p>Are you sure you want to delete this magnificent creation?</p>
 
-    <header>
-        <div class="icon">
-            <i class="ion ion-android-delete"></i>
+        <div class="buttons">
+            <button v-on="click: onConfirmClick" class="btn btn-delete">Delete</button>
+            <button v-on="click: close" class="btn btn-cancel">Cancel</button>
         </div>
-        <div class="question">
-            <p>Are you sure you want to delete this magnificent creation?</p>
-
-            <div class="buttons">
-                <button v-on="click: onConfirmClick" class="btn btn-delete">Delete</button>
-                <button v-on="click: close" class="btn btn-cancel">Cancel</button>
-            </div>
-        </div>
-        <!-- Duplicate of first child to create equal spacing -->
-        <div class="icon invisible">
-            <i class="ion ion-android-delete"></i>
-        </div>
-    </header>
-    <footer>
-        <p class="warning">This action cannot be undone.</p>
-    </footer>
+    </div>
+    <!-- Duplicate of first child to create equal spacing -->
+    <div class="icon invisible">
+        <i class="ion ion-android-delete"></i>
+    </div>
+</header>
+<footer>
+    <p class="warning">This action cannot be undone.</p>
+</footer>
