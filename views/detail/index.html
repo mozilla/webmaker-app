@@ -15,13 +15,8 @@
 
     <ul v-show="isAdmin" class="list-cell show-in-discover">
         <li>
-            <div class="pull-left">
-                <!--TODO improve this in #865 -->
-                <div v-component="toggle" v-with="checked: isDiscoverable, disabled: disableDiscovery"></div>
-            </div>
-            <p>
-                Show this app in the Discover Gallery
-            </p>
+            <div v-component="toggle" v-with="checked: isDiscoverable, disabled: disableDiscovery"></div>
+            <span>Show this app in the Discover Gallery</span>
         </li>
     </ul>
 

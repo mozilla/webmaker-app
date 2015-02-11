@@ -1,46 +1,14 @@
 .toggle {
-    width: 40px;
-
     .wrapper {
-        position: relative;
-        height: 28px;
-
-        &.checked {
-            label {
-                border: 2px solid @turquoise;
-                left: 100%;
-                transform: translate(-100%, 0);
-            }
-
-            .track {
-                background-color: @turquoise;
-            }
+        align-items: center;
+        color: @turquoise;
+        display: flex;
+        &.disabled {
+            color: @mediumGrey;
         }
     }
-
-    label {
-        background: @white;
-        border-radius: 50%;
-        border: 2px solid @mediumGrey;
-        width: 28px;
-        height: 28px;
-        position: absolute;
-        left: 0;
-        top: 0;
-        z-index: 2;
-        transition: 200ms ease-out;
-    }
-
-    .track {
-        z-index: 1;
-        border-radius: 10px;
-        background-color: @mediumGrey;
-        height: 20px;
-        position: relative;
-        top: 4px;
-    }
-
-    input {
-        display: none;
+    .ion {
+        cursor: pointer;
+        font-size: 24px;
     }
 }
