@@ -6,6 +6,8 @@
         align-items: stretch;
         justify-content: space-between;
 
+        @buttonWidth: 45px;
+
         button {
             font-size: 36px;
             color: @turquoise;
@@ -13,6 +15,7 @@
             border: 1px solid @lightGrey;
             padding: 0 15px;
             margin: 0;
+            width: @buttonWidth;
 
             &:first-of-type {
                 border-radius: 5px 0 0 5px;
@@ -29,6 +32,7 @@
             border-right: none;
             text-align: center;
             color: @turquoise;
+            width: ~"calc(100% - " (2*@buttonWidth) ~")";
         }
 
         label:empty {
