@@ -7,10 +7,17 @@
         .clearfix;
     }
 
-    .list-cell li:first-child {
-        border-top: none;
+    .list-cell {
+        li {
+            border-bottom: 6px solid @lightGrey;
+            &:first-child {
+                border-top: none;
+            }
+            &:last-child {
+                border-bottom: transparent;
+            }
+        }
     }
-
     .template-cell {
         // Spacing
         .cell {
