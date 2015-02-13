@@ -2,6 +2,8 @@
 <!-- Using wrapper div because flexbox + firefox + input = bad times -->
 <div class="wrapper">
   <button type="button" v-on="click: stepDown">-</button>
+  <div>
     <input id="block_{{$index}}" type="number" value="{{attributes.current.value || attributes.min.value}}" min="{{attributes.min.value}}" max="{{attributes.max.value}}" step="{{attributes.step.value}}">
+  </div>
   <button type="button" v-on="click: stepUp">+</button>
 </div>
