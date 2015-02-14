@@ -1,0 +1,20 @@
+[contenteditable=true] {
+    background: @white;
+    color: @darkGrey;
+    padding: 8px 10px;
+    box-shadow: none;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 400;
+    background: none repeat scroll 0 0 @white;
+    border: 1px solid @lightGrey;
+    text-decoration: none;
+    &:empty:before {
+        content: attr(placeholder);
+        display: block;
+    }
+    &:focus {
+        outline: medium none;
+        border-color: #64A8EE;
+    }
+}
