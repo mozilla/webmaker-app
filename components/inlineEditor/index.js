@@ -112,7 +112,7 @@ module.exports = {
         move: function (steps) {
             var self = this;
 
-            self.stopEditing();
+            //self.stopEditing();
 
             // Delay about half the time the shim takes to fade out
             // Delay is also necessary for blockList to measure heights properly
