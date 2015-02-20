@@ -162,7 +162,7 @@ module.exports = view.extend({
                 }
 
                 // Native Sharing (Android / iOS) or dispatch SMS (FirefoxOS)
-                var msg = i18n.get('share_message');
+                var msg = i18n.get('share_message', { "app.name": app.name });
                 var url = data.url;
                 if (typeof window.plugins === 'undefined') return;
                 if (typeof window.plugins.socialsharing === 'undefined') return;
