@@ -29,7 +29,7 @@ gulp.task('build-locales', function (done) {
 gulp.task('template', ['config'], template);
 gulp.task('publish-assets', publish);
 gulp.task('build-static', function (done) {
-    sequence('clean', 'config', ['build-locales', 'publish-assets', 'template'], done);
+    sequence('clean', 'config', ['locale', 'publish-assets', 'template'], done);
 });
 
 // Browserify
