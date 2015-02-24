@@ -71,6 +71,10 @@ module.exports = view.extend({
             }
         },
         goPreviousView: function (e) {
+            if(this.model.data.session.previousId === 'blank') {
+                this.page('/templates');
+                return;
+            }
             global.history.back();
         },
         enableSave: function () {

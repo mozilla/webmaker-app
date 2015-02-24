@@ -32,6 +32,7 @@ module.exports = view.extend({
     created: function () {
         var self = this;
         var id = self.$root.params.id;
+        self.model.data.session.previousId = id;
 
         if (id === 'blank') {
             self.create();
