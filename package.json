@@ -24,7 +24,8 @@
     "vue": "git://github.com/k88hudson/vue#csp-10.6",
     "watchjs": "0.0.0",
     "webmaker-app-icons": "git://github.com/k88hudson/ionicons#webmaker-app",
-    "xhr": "1.16.1"
+    "xhr": "1.16.1",
+    "localq": "git://github.com/thisandagain/localq"
   },
   "devDependencies": {
     "browserify": "6.3.2",
