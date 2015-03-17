@@ -89,17 +89,17 @@ describe('Storage', function () {
             assert.equal(typeof storage._log, 'function');
         });
     });
-    describe('#_processSnapshot', function () {
+    describe('#processSnapshot', function () {
         it('should be a function', function () {
-            assert.equal(typeof storage._processSnapshot, 'function');
+            assert.equal(typeof storage.processSnapshot, 'function');
         });
         it('should return a data object given a Fb snapshot', function () {
             var snapshot = {
                 key: function () { return '123'; },
                 val: function() { return { name: 'Hello world' }; }
             };
-            var result = storage._processSnapshot(snapshot)
-            assert.equal(typeof storage._processSnapshot, 'function');
+            var result = storage.processSnapshot(snapshot)
+            assert.equal(typeof storage.processSnapshot, 'function');
             assert.equal(result.id, 123);
             assert.equal(result.name, 'Hello world');
         });
