@@ -6,11 +6,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.DecelerateInterpolator;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.view.animation.Animation;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.DecelerateInterpolator;
+
 import mozilla.org.webmaker.R;
 
 @SuppressLint("SetJavaScriptEnabled")
