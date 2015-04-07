@@ -7,7 +7,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme"
-        android:name=".WebMakerApplication" >
+        android:name=".WebmakerApplication" >
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
