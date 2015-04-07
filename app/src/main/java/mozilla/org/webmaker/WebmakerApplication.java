@@ -14,7 +14,7 @@ public class WebmakerApplication extends Application {
         super.onCreate();
         singleton = this;
 
-        Log.v("[WebMaker]", "Application created.");
+        Log.v("[Webmaker]", "Application created.");
 
         // @todo Google Analytics
 
