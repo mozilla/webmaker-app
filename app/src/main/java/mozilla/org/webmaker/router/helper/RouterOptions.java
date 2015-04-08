@@ -28,9 +28,7 @@ public class RouterOptions {
         this.clazz = clazz;
     }
 
-    public RouterOptions() {
-
-    }
+    public RouterOptions() {}
 
     public Class<? extends Activity> getOpenClass() {
         return this.clazz;
