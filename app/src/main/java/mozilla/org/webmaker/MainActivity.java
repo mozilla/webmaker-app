@@ -9,6 +9,9 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import mozilla.org.webmaker.adapter.SectionsPagerAdapter;
 
 
@@ -26,6 +29,11 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
         setContentView(R.layout.activity_main);
 
         Log.v("[Webmaker]", "MainActivity created.");
+
+        // Track activity view
+        Tracker t = ((WebmakerApplication) getApplication()).mGaTracker;
+        t.setScreenName("MainActivity");
+        t.send(new HitBuilders.AppViewBuilder().build());
 
         // Set up the action bar.
         final ActionBar actionBar = getActionBar();
@@ -60,6 +68,18 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
              */
             actionBar.addTab(actionBar.newTab().setText(mSectionsPagerAdapter.getPageTitle(i)).setTabListener(this));
         }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        GoogleAnalytics.getInstance(MainActivity.this).reportActivityStart(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        GoogleAnalytics.getInstance(MainActivity.this).reportActivityStop(this);
     }
 
     /**
