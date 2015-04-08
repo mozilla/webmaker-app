@@ -24,6 +24,10 @@ public class WebmakerApplication extends Application {
         router.map("/main", MainActivity.class);
         router.map("/main/:tab", MainActivity.class);
 
+        Router.sharedRouter().setContext(getApplicationContext());
+        Router.sharedRouter().map("/main", MainActivity.class);
+        Router.sharedRouter().map("/main/:tab", MainActivity.class);
+
         // @todo Restore state
     }
 
