@@ -31,11 +31,13 @@ public class WebmakerApplication extends Application {
 
     @Override
     public void onLowMemory() {
+        Log.v("[Webmaker]", "Low memory warning.");
         super.onLowMemory();
     }
 
     @Override
     public void onTerminate() {
+        Log.v("[Webmaker]", "Application terminated.");
         super.onTerminate();
     }
 }
