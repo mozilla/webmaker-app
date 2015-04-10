@@ -8,7 +8,7 @@ for (var i = 0; i < 50; i++) {
 
 var Tile = React.createClass({
   render: function () {
-    return (<div className="project-tile">
+    return (<div className="project-tile" onClick={this.props.onClick}>
       {this.props.text}
     </div>);
   }
@@ -16,18 +16,33 @@ var Tile = React.createClass({
 
 var Three = React.createClass({
   getInitialState: function () {
-    return {};
+    return {
+      zoom: 1
+    };
   },
-  componentDidMount: function () {
+  zoom: function () {
     this.setState({
-      scrollX: window.innerWidth / 2,
-      scrollY: window.innerHeight / 2
+      zoom: this.state.zoom === 1 ? 2 : 1
     });
   },
+  componentDidMount: function () {
+    window.scrollTo(window.innerWidth / 2, window.innerHeight / 2);
+  },
   render: function () {
-    window.scrollTo(this.state.scrollX, this.state.scrollY);
-    return <div className="panner">
-      {fakeBlocks.map(block => <Tile text={block} />)}
+    var gridTransform = {
+      transform: 'scale(' + this.state.zoom + ')',
+      WebkitTransform: 'scale(' + this.state.zoom + ')'
+    }
+    var buttonMenuClass = {
+      'button-menu': true
+    };
+    return <div>
+      <div className="panner" style={gridTransform}>
+        {fakeBlocks.map(block => <Tile text="Hello!" onClick={this.zoom} />)}
+      </div>
+      <div className={buttonMenuClass}>
+        <button>Add</button>
+      </div>
     </div>
   }
 });

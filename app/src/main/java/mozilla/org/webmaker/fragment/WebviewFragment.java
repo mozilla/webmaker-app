@@ -47,6 +47,7 @@ public class WebviewFragment extends Fragment {
         public void logText(String txt){
             Log.v("wm", txt);
         }
+
     }
 
     @Override
@@ -59,8 +60,8 @@ public class WebviewFragment extends Fragment {
 
         mWebView = (WebView) mView.findViewById(R.id.activity_main_webview);
         mWebView.getSettings().setJavaScriptEnabled(true);
-        mWebView.getSettings().setBuiltInZoomControls(true);
-        mWebView.getSettings().setDisplayZoomControls(false);
+        //mWebView.getSettings().setBuiltInZoomControls(true);
+        //mWebView.getSettings().setDisplayZoomControls(false);
         mWebView.setWebViewClient(new WebClient());
         mWebView.loadUrl("file:///android_asset/www/pages/section-" + sectionId + "/index.html");
         mWebView.setBackgroundColor(0x00000000);
