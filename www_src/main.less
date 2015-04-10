@@ -54,5 +54,25 @@ body {
       color: #365364;
     }
   }
+}
 
+.button-menu {
+  position: fixed;
+  bottom: 5px;
+  left: 50%;
+  opacity: 0;
+  pointer-events: none;
+  button {
+    width: 100px;
+    height: 100px;
+    border: none;
+    background: #4580E6;
+    color: white;
+    border-radius: 100px;
+    margin-left: -50px;
+  }
+  &.on {
+    opacity: 1;
+    pointer-events: all;
+  }
 }

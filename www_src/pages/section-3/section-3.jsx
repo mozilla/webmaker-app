@@ -1,5 +1,6 @@
 var React = require('react');
 var render = require('../../lib/render.jsx');
+var classNames = require('classnames');
 
 var fakeBlocks = [];
 for (var i = 0; i < 50; i++) {
@@ -34,13 +35,14 @@ var Three = React.createClass({
       WebkitTransform: 'scale(' + this.state.zoom + ')'
     }
     var buttonMenuClass = {
-      'button-menu': true
+      'button-menu': true,
+      'on': this.state.zoom === 2
     };
     return <div>
       <div className="panner" style={gridTransform}>
         {fakeBlocks.map(block => <Tile text="Hello!" onClick={this.zoom} />)}
       </div>
-      <div className={buttonMenuClass}>
+      <div className={classNames(buttonMenuClass)}>
         <button>Add</button>
       </div>
     </div>
