@@ -7,10 +7,43 @@ for (var i = 0; i < 50; i++) {
   fakeBlocks.push(i);
 }
 
+var CanvasText = React.createClass({
+  getDefaultProps: function () {
+    return {
+      text: 'Hello world',
+      fontSize: 15,
+      fontFamily: 'Fira Sans'
+    };
+  },
+  draw: function () {
+    var c = this.getDOMNode();
+    var ctx = c.getContext('2d');
+    var ratio = window.devicePixelRatio || 1;
+    c.width = 150 * ratio * 2;
+    c.height = 100 * ratio * 2;
+    c.style.width = '150px';
+    c.style.height = '100px';
+    ctx.scale(ratio, ratio);
+    ctx.textAlign = 'center';
+    ctx.font = `normal normal 500 ${this.props.fontSize * 2}pt ${this.props.fontFamily}`;
+    ctx.textBaseline = 'top';
+    ctx.fillText(this.props.text, 150, 1);
+  },
+  componentDidMount: function () {
+   this.draw();
+  },
+  componentDidUpdate: function () {
+    this.draw();
+  },
+  render: function () {
+    return (<canvas className="canvas-text" />);
+  }
+});
+
 var Tile = React.createClass({
   render: function () {
     return (<div className="project-tile" onClick={this.props.onClick}>
-      {this.props.text}
+      <CanvasText text={this.props.text} />
     </div>);
   }
 });
