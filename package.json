@@ -57,6 +57,7 @@
     "classnames": "^1.2.0",
     "react": "^0.13.1",
     "react-draggable": "git://github.com/gvn/react-draggable#master",
-    "react-router": "^0.13.2"
+    "react-router": "^0.13.2",
+    "scroll-to": "0.0.2"
   }
 }

@@ -1,11 +1,32 @@
 var React = require('react');
 var render = require('../../lib/render.jsx');
 var classNames = require('classnames');
+var scrollTo = require('scroll-to');
 
 var fakeBlocks = [];
 for (var i = 0; i < 50; i++) {
   fakeBlocks.push(i);
 }
+
+var rows = [];
+rows[0] = [0, 2];
+rows[1] = [0, 1, 3, 7,8];
+rows[2] = [1, 3];
+
+function makeRow(indexes) {
+  var output = [];
+  var lastIndex = indexes[indexes.length - 1];
+  for (var i = indexes[0] - 1; i <= lastIndex + 1; i++) {
+    if (indexes.indexOf(i) === -1) {
+      output.push('x');
+    } else {
+      output.push(i);
+    }
+  }
+  return output;
+}
+
+console.log(makeRow(rows[1]))
 
 var CanvasText = React.createClass({
   getDefaultProps: function () {
@@ -25,7 +46,7 @@ var CanvasText = React.createClass({
     c.style.height = '100px';
     ctx.scale(ratio, ratio);
     ctx.textAlign = 'center';
-    ctx.font = `normal normal 500 ${this.props.fontSize * 2}pt ${this.props.fontFamily}`;
+    ctx.font = `normal normal 300 ${this.props.fontSize * 2}pt ${this.props.fontFamily}`;
     ctx.textBaseline = 'top';
     ctx.fillText(this.props.text, 150, 1);
   },
@@ -61,7 +82,11 @@ var Three = React.createClass({
       var originLeft = tileEl.offsetLeft + tileEl.clientWidth/2;
       var originTop = tileEl.offsetTop + tileEl.clientHeight/2;
 
-      window.scrollTo(originLeft - window.innerWidth/2, originTop - window.innerHeight/2);
+      //window.scrollTo(originLeft - window.innerWidth/2, originTop - window.innerHeight/2);
+      scrollTo(originLeft - window.innerWidth/2, originTop - window.innerHeight/2, {
+        ease: 'inOutQuad',
+        duration: 200
+      });
       this.setState({
         zoom: this.state.zoom === 1 ? 2 : 1,
         origin: `${originLeft}px ${originTop}px`
