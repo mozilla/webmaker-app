@@ -64,7 +64,7 @@ var CanvasText = React.createClass({
 var Tile = React.createClass({
   render: function () {
     return (<div className="project-tile" onClick={this.props.onClick}>
-      <CanvasText text={this.props.text} />
+      <p>{this.props.text}</p>
     </div>);
   }
 });
@@ -94,7 +94,7 @@ var Three = React.createClass({
     };
   },
   componentWillMount: function () {
-    window.scrollTo(window.innerWidth/2, window.innerHeight/2);
+    scrollTo(window.innerWidth/2, window.innerHeight/2);
   },
   render: function () {
     var gridTransform = {
