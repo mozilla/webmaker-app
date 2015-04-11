@@ -18,29 +18,40 @@ var Tile = React.createClass({
 var Three = React.createClass({
   getInitialState: function () {
     return {
-      zoom: 1
+      zoom: 1,
+      origin: '50% 50%'
     };
   },
-  zoom: function () {
-    this.setState({
-      zoom: this.state.zoom === 1 ? 2 : 1
-    });
+  zoom: function (ref) {
+    return () => {
+      var tileEl = this.refs[ref].getDOMNode();
+      var originLeft = tileEl.offsetLeft + tileEl.clientWidth/2;
+      var originTop = tileEl.offsetTop + tileEl.clientHeight/2;
+
+      window.scrollTo(originLeft - window.innerWidth/2, originTop - window.innerHeight/2);
+      this.setState({
+        zoom: this.state.zoom === 1 ? 2 : 1,
+        origin: `${originLeft}px ${originTop}px`
+      });
+    };
   },
-  componentDidMount: function () {
-    window.scrollTo(window.innerWidth / 2, window.innerHeight / 2);
+  componentWillMount: function () {
+    window.scrollTo(window.innerWidth/2, window.innerHeight/2);
   },
   render: function () {
     var gridTransform = {
       transform: 'scale(' + this.state.zoom + ')',
-      WebkitTransform: 'scale(' + this.state.zoom + ')'
-    }
+      WebkitTransform: 'scale(' + this.state.zoom + ')',
+      transformOrigin: this.state.origin,
+      WebkitTransformOrigin: this.state.origin
+    };
     var buttonMenuClass = {
       'button-menu': true,
       'on': this.state.zoom === 2
     };
     return <div>
       <div className="panner" style={gridTransform}>
-        {fakeBlocks.map(block => <Tile text="Hello!" onClick={this.zoom} />)}
+        {fakeBlocks.map((block, i) => <Tile text={'Hello ' + block} ref={'tile-' + i} onClick={this.zoom('tile-' + i)} />)}
       </div>
       <div className={classNames(buttonMenuClass)}>
         <button>Add</button>
