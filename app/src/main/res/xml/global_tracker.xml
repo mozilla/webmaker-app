@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="ga_sessionTimeout">300</integer>
+    <bool name="ga_autoActivityTracking">true</bool>
+    <bool name="ga_reportUncaughtExceptions">true</bool>
+
+    <!-- Screens -->
+    <screenName name="mozilla.org.webmaker.MainActivity">MainActivity</screenName>
+
+    <!--  Tracking ID -->
+    <string name="ga_trackingId">UA-XXXXXXX-Y</string>
+</resources>
