@@ -35,3 +35,45 @@ body {
     max-width: 300px;
   }
 }
+
+.container {
+  .panner {
+    width: 1600px;
+    height: auto;
+    display: block;
+    transition: transform 0.2s ease-out 0.2s;
+    .project-tile {
+      width: 150px;
+      height: 200px;
+      margin-left: 10px;
+      margin-top: 10px;
+      background: #F2D56D;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #365364;
+    }
+  }
+}
+
+.button-menu {
+  position: fixed;
+  bottom: 5px;
+  left: 50%;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  pointer-events: none;
+  button {
+    width: 60px;
+    height: 60px;
+    border: none;
+    background: #679FFF;
+    color: white;
+    border-radius: 60px;
+    margin-left: -30px;
+  }
+  &.on {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
