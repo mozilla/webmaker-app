@@ -1,0 +1,542 @@
+{
+    "Show this app in the Discover Gallery": {
+        "message": "इस अनुप्रयोग को गैलरी खोज में दिखाएँ",
+        "description": "Option on detail view to share app to Discover gallery"
+    },
+    "Single Line Text": {
+        "message": "एक पंक्ति पाठ ",
+        "description": "Item in the select box"
+    },
+    "Newest": {
+        "message": "नवीनतम",
+        "description": "Newest app tab"
+    },
+    "No data has been stored yet!": {
+        "message": "कोई आंकड़े अभी तक संग्रह नही किया गया !",
+        "description": "No data has been stored yet!"
+    },
+    "Add a Brick": {
+        "message": "एक ईंट जोड़ें |",
+        "description": "Title for the add a brick page"
+    },
+    "Featured": {
+        "message": "विशेष रुप से प्रदर्शित किया गया",
+        "description": "Featured apps tab"
+    },
+    "My App": {
+        "message": "मेरा अनुप्रयोग",
+        "description": "The Mobile app I am viewing"
+    },
+    "Separator": {
+        "message": "विभाजक",
+        "description": "Separator label"
+    },
+    "You haven't created any apps yet.": {
+        "message": "आपने अभी तक कोई अनुप्रयोग नही बनाया है",
+        "description": "Message on profile view if no apps have been created yet"
+    },
+    "Guest Explanation": {
+        "message": "अतिथि निर्माण कर सकते हैं , लेकिन प्रकाशित नहीं कर सकते।",
+        "description": "Explains the effect of using the app as a not signed in guest."
+    },
+    "Send SMS": {
+        "message": "SMS भेजें ",
+        "description": "Send SMS text"
+    },
+    "Publishing...": {
+        "message": "प्रकाशित किया जा रहा",
+        "description": "Shows up below header when the app is being published or a publish is in progress"
+    },
+    "Open": {
+        "message": "खोलें ",
+        "description": "Open an app"
+    },
+    "Create": {
+        "message": "बनायें ",
+        "description": "Create an app"
+    },
+    "My Profile": {
+        "message": "मेरा प्रोफाइल",
+        "description": "Title for profile page"
+    },
+    "An active connection is needed to display the Discover Gallery": {
+        "message": "एक सक्रिय संबंध की जरूरत है डिस्कवर गैलरी को दिखाने के लिए",
+        "description": "Explains the message communicating a lack of connection"
+    },
+    "Start Building": {
+        "message": "बनाना शुरू करे ",
+        "description": "Start Building button for creating an app"
+    },
+    "No Data available": {
+        "message": "कोई डेटा उपलब्ध नहीं",
+        "description": "No Data available"
+    },
+    "Business": {
+        "message": "कारोबार ",
+        "description": "Title for an app for business owners"
+    },
+    "Get Started": {
+        "message": "शुरुआत करो",
+        "description": "Button meaning: Get started making apps"
+    },
+    "Delete App": {
+        "message": "एप्लिकेशन को मिटाना",
+        "description": "Button to delete entire app"
+    },
+    "Share Community News": {
+        "message": "समूह के ख़बर को बाँटे |",
+        "description": "title for template"
+    },
+    "Choose Contacts": {
+        "message": "संबंध चुने",
+        "description": "Prompt to select contacts from mobile phone contact list"
+    },
+    "Back to My Apps": {
+        "message": "मेरे अनुप्रयोग पर वापस जाएँ",
+        "description": "Option on slide-out menu"
+    },
+    "Join Webmaker": {
+        "message": "Webmaker से जुड़े|",
+        "description": "Button label for creating an account"
+    },
+    "Preview": {
+        "message": "पूर्वावलोकन",
+        "description": "Button that, if clicked, shows the end product of the app"
+    },
+    "URL": {
+        "message": "URL",
+        "description": "Label for URL input"
+    },
+    "Text Color": {
+        "message": "पाठ रंग ",
+        "description": "Label for attribute of text block: the colour of the text"
+    },
+    "Minimum Number": {
+        "message": "न्यूनतम नम्बर",
+        "description": "Minimum Number label"
+    },
+    "Increment by": {
+        "message": "से बढ़ाये ",
+        "description": "Increment by label"
+    },
+    "Head over to Make to start creating your very own app.": {
+        "message": "आपके बेहद अपने अनुप्रयोग को बनाने की शुरुआत के लिए  <strong>Make</strong>को दे",
+        "description": "Message encouraging 'make'ing an app when device is offline"
+    },
+    "Maximum Number": {
+        "message": "अधिकतम नम्बर",
+        "description": "Maximum Number label"
+    },
+    "Image": {
+        "message": "चित्र ",
+        "description": "Type of block that can be added to the app"
+    },
+    "Sign In": {
+        "message": "साइन इन",
+        "description": "Sign In button label (logs user into Webmaker Mobile)"
+    },
+    "Safety": {
+        "message": "सुरक्षा ",
+        "description": "Title for a safety app"
+    },
+    "Discover": {
+        "message": "खोजना",
+        "description": "Title for the Discover page (a listing of apps users can choose from)"
+    },
+    "errorAppNotFound": {
+        "message": "क्षमा करें, इस एप्लिकेशन को नहीं पाया गया | वापस अपने <a href='/profile'>प्रोफ़ाइल</a> मेंं जाएँ |",
+        "description": "Error message for app details/editing/play view when the app is not found"
+    },
+    "Name": {
+        "message": "नाम",
+        "description": "Label on the profile page, e.g. Name: Kate, Location: Canada"
+    },
+    "Are you sure you want to delete this magnificent creation": {
+        "message": "क्या आपको यकीन है की आप इस शानदार रचना को रद्द करना चाहतें हैं",
+        "description": "Warning on modal to delete app"
+    },
+    "The Internet fell asleep!": {
+        "message": "सोया हुआ इंटरनेट ",
+        "description": "Message on Discover view when device is online"
+    },
+    "noDataInfoSub": {
+        "message": "अगर आप चाहतें है की उपभोक्ता आंकडें आपके साथ साझा करें,एक गणक और सबमिट बटन को अपने अनुप्रयोग के साथ जोड़ने की कोशिश करें",
+        "description": "If you'd like to let users share data with you, try adding a Counter and a Submit button to your app."
+    },
+    "Title": {
+        "message": "टाइटल",
+        "description": "Title label"
+    },
+    "Choosing this option will allow you to create your own app without a preset template.": {
+        "message": "इस विकल्प को चुने और अपना खुद का एप्लीकेशन बनाएँ बिना किसी पूर्व नमूने के |",
+        "description": "description for template"
+    },
+    "Share App": {
+        "message": "अनुप्रयोग साझा करें",
+        "description": "Text on publish footer"
+    },
+    "Done": {
+        "message": "होगया ",
+        "description": "Done button"
+    },
+    "You need to connect to the Internet.": {
+        "message": "आपको इंटरनेट से जुड़ने की जरूरत है",
+        "description": "Shows up below header when the app can't be published due to connection issues"
+    },
+    "This action cannot be undone": {
+        "message": "इस क्रिया को पूर्ववत नहीं किया जा सकता है।",
+        "description": "Footer in warning if user wants to delete their app"
+    },
+    "Delete": {
+        "message": "हटाना",
+        "description": "Button for removing (deleting) a block or an app"
+    },
+    "Phone": {
+        "message": "फ़ोन ",
+        "description": "Type of block - creates a button that calls a number"
+    },
+    "Initial Number": {
+        "message": "प्रारंभिक संख्या",
+        "description": "Initial Number label"
+    },
+    "Share Via": {
+        "message": "के द्वारा साझा करें",
+        "description": "Title for share view"
+    },
+    "SMS": {
+        "message": "एस एम एस ",
+        "description": "Acronym for text messaging"
+    },
+    "Gather information from your users by creating a survey.": {
+        "message": "अपने उपभोक्ताओं से सूचनाएं जुटाएँ एक सर्वेक्षण तैयार कर के",
+        "description": "description for template"
+    },
+    "Create a Blog": {
+        "message": "एक ब्लॉग बनाएँ |",
+        "description": "title for template"
+    },
+    "App Data": {
+        "message": "अनुप्रयोग आकड़ें",
+        "description": "Form data submitted for my app"
+    },
+    "Source": {
+        "message": "स्त्रोत ",
+        "description": "Source of the image"
+    },
+    "Long Text": {
+        "message": "लम्बा टेक्स्ट ",
+        "description": "Item in the select box"
+    },
+    "I am some text": {
+        "message": "कुछ  पाठ",
+        "description": "Value in the text area"
+    },
+    "share_message": {
+        "message": "अनुप्रयोग जांचे जो मैंने Mozilla Webmaker के साथ बनाया है",
+        "description": "Message that gets sent when a published app is shared to friends"
+    },
+    "Make and share the web": {
+        "message": "Make & वेब साझा करें |",
+        "description": "sign-in view headline"
+    },
+    "Blogger": {
+        "message": "चिट्ठाकार",
+        "description": "Title for an app for bloggers"
+    },
+    "My {{template}} App": {
+        "message": "मेरा {{template}} एप्लीकेशन |",
+        "description": "Title for a newly created app from a template"
+    },
+    "Counter": {
+        "message": "गणक ",
+        "description": "Button for create new block"
+    },
+    "Create a Survey": {
+        "message": "एक सर्वेक्षण बनाए",
+        "description": "title for template"
+    },
+    "Add to Homescreen": {
+        "message": "होमस्क्रीन में जोड़ें",
+        "description": "Install message on publish footer"
+    },
+    "Button Color": {
+        "message": "बटन रंग",
+        "description": "Button Color label"
+    },
+    "name from location": {
+        "message": " <strong>{{name}}</strong><span v-if=\"location\"><br/> from <br/></span><strong>{{location}}</strong>",
+        "description": "E.g. Kate from Canada, sorry for all the html"
+    },
+    "Select all": {
+        "message": "सभी चयन करें",
+        "description": "Select all"
+    },
+    "Tap the plus sign to begin adding content.": {
+        "message": "जोड़ निशान दबा कर विषय वस्तु जोड़ना शुरू करें",
+        "description": "Tap the plus sign to begin adding content."
+    },
+    "Add contacts": {
+        "message": "संबंध जोड़ें",
+        "description": "Title on share view to add contacts from device"
+    },
+    "Teacher": {
+        "message": "शिक्षक",
+        "description": "Title for an app for teachers"
+    },
+    "Start from Scratch": {
+        "message": "शुरू से शुरुआत करें |",
+        "description": "title for template"
+    },
+    "Remix App": {
+        "message": "अनुप्रयोग रीमिक्स",
+        "description": "Option on detail view to remix an app"
+    },
+    "Offline Mode Explanation": {
+        "message": "यह यंत्र इंटरनेट से जुड़ा नहीं है, तो आप किसी भी एप्लीकेशन को प्रकाशित करने में सक्षम नहीं हैं ।",
+        "description": "Explains effect of using the app without an internet connection"
+    },
+    "Message": {
+        "message": "संदेश",
+        "description": "Message you want to send"
+    },
+    "Share photos and write articles and about your local community": {
+        "message": "फ़ोटो साझा करें और लेख लिखें और अपने स्थानीय समूह के बारे में |",
+        "description": "description for template"
+    },
+    "noContactsError": {
+        "message": "सन्देश भेजने के लिए एक या ज्यादा संपर्क चुने ",
+        "description": "Error if user tries to send an SMS without choosing any contacts"
+    },
+    "Open App": {
+        "message": "एप्लिकेशन खोलो",
+        "description": "Option to open/play an app you don't own"
+    },
+    "by _": {
+        "message": "द्वारा {{name}}",
+        "description": "For apps, e.g. My Cool App, by {{name}}"
+    },
+    "Make an App": {
+        "message": "एक एप्लीकेशन बनायें ",
+        "description": "Button label for action to make a new app"
+    },
+    "Sign Out": {
+        "message": "साइन आउट",
+        "description": "Button label for button that logs user out of Webmaker Mobile"
+    },
+    "Delete my Apps": {
+        "message": "मेरे एप्लीकेशनस मिटायें ",
+        "description": "Button to delete all of a user's apps"
+    },
+    "App Name": {
+        "message": "अनुप्रयोग नाम",
+        "description": "Label for app name field"
+    },
+    "Journalist": {
+        "message": "पत्रकार",
+        "description": "Title for an app for journalists"
+    },
+    "Show in Discover Gallery": {
+        "message": "गैलरी खोज में दिखाएँ",
+        "description": "Option to show app within the discover gallery"
+    },
+    "Text Value": {
+        "message": "लेबल",
+        "description": "Label for attribute of text block: the text value"
+    },
+    "My Apps": {
+        "message": "मेरे एप्लीकेशनस ",
+        "description": "Mobile apps I have created"
+    },
+    "Tap the plus sign to add more content.": {
+        "message": "जोड़ निशान दबाकर ज्यादा विषय वस्तुओं को जोड़ें",
+        "description": "Tap the plus sign to add more content."
+    },
+    "Cancel": {
+        "message": "रद्द करना ",
+        "description": "Cancel button"
+    },
+    "Try in Offline Mode": {
+        "message": "ऑफलाइन विधि में प्रयास करें|",
+        "description": "Label for action that allows a user to use the app without signing in when the device is not connected to the internet."
+    },
+    "Guest": {
+        "message": "अतिथि ",
+        "description": "Label for author when the user is in trial mode"
+    },
+    "Try as Guest": {
+        "message": "अतिथि के रूप में कोशिश करें|",
+        "description": "Label for action that allows a user to use the app without signing in."
+    },
+    "Text Box Type": {
+        "message": "बॉक्स प्रकार मूलपाठ",
+        "description": "Text Box Type label"
+    },
+    "No Apps Message": {
+        "message": "आपका अभी तक ऐक भी एप्लीकेशन नहीं है|",
+        "description": "Message that is displayed in the profile when current user has no apps"
+    },
+    "Data": {
+        "message": " आँकड़े",
+        "description": "Look at the data collected by an app"
+    },
+    "errorNoText": {
+        "message": "आप एक मूलपाठ शामिल करें |",
+        "description": "No text in the textarea"
+    },
+    "Select Color": {
+        "message": "कलर चुनो ",
+        "description": "Title for the color picker"
+    },
+    "Edit": {
+        "message": "संपादित करें",
+        "description": "Button for allowing user to edit the app"
+    },
+    "Phone #": {
+        "message": " फ़ोन #",
+        "description": "Label for Phone # attribute on call/sms block"
+    },
+    "Link Text": {
+        "message": "पत्र जोडो",
+        "description": "Label for Link Text input"
+    },
+    "Save": {
+        "message": "सहेजें",
+        "description": "Button label (save changes)"
+    },
+    "Create a Safety App": {
+        "message": "एक सुरक्षित एप्लीकेशन बनाएँ  |",
+        "description": "title for template"
+    },
+    "Publish": {
+        "message": "प्रकाशित करना",
+        "description": "Button label for publishing the current app"
+    },
+    "errorDefault": {
+        "message": "ओह! वहाँ एक ग़लती थी | वापस अपने <a href='/profile'>प्रोफ़ाइल</a> मेंं जाएँ |",
+        "description": "Default error message for alert component"
+    },
+    "Button Text": {
+        "message": "बटन पाठ",
+        "description": "Button Text label"
+    },
+    "Label": {
+        "message": "लेबल",
+        "description": "The label on a button (for sms/calling)"
+    },
+    "Create a How To Guide": {
+        "message": " मार्गदर्शक करने के लिए एक बनाएँ।",
+        "description": "title for template"
+    },
+    "Submit": {
+        "message": "सबमिट करें",
+        "description": "Button for create new block"
+    },
+    "Have something to share with the world? Start a blog, customize to make it yours and start writing!": {
+        "message": "दुनिया के साथ बाँटने  के लिए कुछ है?  एक ब्लॉग शुरू करें , रूचि के अनुसार अपना बनाएँ और लिखें |",
+        "description": "description for template"
+    },
+    "Edit my Profile": {
+        "message": "मेरी प्रोफ़ाइल संपादित करें|",
+        "description": "Button label for action to edit users profile"
+    },
+    "Font Size": {
+        "message": "फ़ॉन्ट का आकार",
+        "description": "Font Size label"
+    },
+    "Make": {
+        "message": "बनाये",
+        "description": "Label for all available make templates"
+    },
+    "Open my app": {
+        "message": "मेरे अनुप्रयोग खोलें",
+        "description": "Option on detail (as admin) view to open app"
+    },
+    "Place call": {
+        "message": " कॉल स्तिथ करें ",
+        "description": "Button for placing a call"
+    },
+    "If you've got unique skills you'd like to share with others, try making a How To guide.": {
+        "message": "अगर आपमें अनोखा कला है तो उसे दूसरों के साथ बाँटे , और दूसरों के लिए मार्गदर्शक बनाने की कोशिश करें |",
+        "description": "description for template"
+    },
+    "Add a map, a emergency call button, and other tips to keep safe in your community": {
+        "message": "अपने समूह को सुरक्षित रखने के लिए एक नक्शा, एक आपातकालीन कॉल बटन, और अन्य सुझाव जोड़ें |",
+        "description": "description for template"
+    },
+    "App": {
+        "message": "एप्लिकेशन",
+        "description": "Title for app detail page"
+    },
+    "Make Your Own App": {
+        "message": " अपना खुद का एप्लीकेशन बनाएँ  |",
+        "description": "Title for app templates, starter projects/styles to create new apps"
+    },
+    "Text Box": {
+        "message": "टेक्स्ट बॉक्स",
+        "description": "Type of block"
+    },
+    "App Name & Icon": {
+        "message": "एप्लीकेशन का नाम और चित्र |",
+        "description": "Title within app editor for page where user can change the app name and icon"
+    },
+    "Make your own app at": {
+        "message": "पर अपने अनुप्रयोग बनाएँ",
+        "description": "Text on footer of publish view"
+    },
+    "Share": {
+        "message": "साझा करें",
+        "description": "Share an app"
+    },
+    "Promote your Business": {
+        "message": "अपने व्यवसाय को बढ़ावा दें |",
+        "description": "title for template"
+    },
+    "Show off your products and give customers an easy way to reach you.": {
+        "message": "अपने उत्पादों को दिखाएँ और ग्राहकों को आप तक पहुंचने के लिए एक आसान रास्ता दें।",
+        "description": "description for template"
+    },
+    "same as minimum number": {
+        "message": "न्यूनतम संख्या जितना",
+        "description": "place holder for Initial number field"
+    },
+    "Text": {
+        "message": "पाठ",
+        "description": "Type of block that can be added to the app"
+    },
+    "Link": {
+        "message": "लिंक",
+        "description": "Link label"
+    },
+    "From Scratch": {
+        "message": " खरोंच से ",
+        "description": "Title for a blank app template. 'From Scratch' is an idiom that describes making something from the beginning with basic ingredients."
+    },
+    "error404": {
+        "message": "क्षमा करें, हमें यह पृष्ठ नहीं मिल सका | क्या आप वापस जाकर  <a href='/sign-in'> शुरू करना चाहेगें ?",
+        "description": "Error message for 404"
+    },
+    "toucanspeak": {
+        "message": "शुरुआत करें कुछ शब्दों को जोड़ कर",
+        "description": "Let's start by adding some text."
+    },
+    "Made with Mozilla Webmaker": {
+        "message": "Mozilla Webmaker के साथ बनाया गया",
+        "description": "Text to toggle footer on publish view"
+    },
+    "Menu": {
+        "message": "मेन्यू",
+        "description": "Title on slide-out menu"
+    },
+    "Color": {
+        "message": "रंग",
+        "description": "Color label"
+    },
+    "How To": {
+        "message": "कैसे करने के लिए",
+        "description": "Title for a how-to app"
+    },
+    "Title Text Color": {
+        "message": "शीर्षक पाठ का रंग",
+        "description": "Title Text Color label"
+    }
+}
