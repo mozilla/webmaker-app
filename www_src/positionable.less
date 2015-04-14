@@ -14,93 +14,102 @@ div.positionable {
   display: inline-block;
   z-index: 0;
   background: inherit;
-  padding: 1em;
 
-  background: rgba(0,255,0,0.2);
-  border: 1px dashed rgba(0,0,0,0.4);
-  margin: -1px;
+  .placement-control,
+  .rotation-control,
+  .scale-control,
+  .zindex-controller { display: none; }
 
-  .placement-control {
-    position: absolute;
-    display: block;
-    top: -1.1em;
-    left: -1.0em;
-    cursor: pointer;
-    div {
-      width: 1em;
-      height: 1em;
-      padding: 1em;
-      background: rgba(0,0,0,0.3);
-      border-radius: 3em;
-    }
-    span {
-      position: relative;
-      display: inline-block;
-    }
-    span + span {
-      vertical-align: 0.05em;
-      margin-left: -0.75em;
-    }
-  }
+  &.activated {
+    left: -1em;
+    top: -1em;
+    padding: 1em;
+    background: rgba(0,255,0,0.2);
+    border: 1px dashed rgba(0,0,0,0.4);
+    margin: -1px;
 
-  .rotation-control {
-    position: absolute;
-    display: block;
-    top: 1.6em;
-    right: -1.6em;
-    cursor: pointer;
-    transform-origin: 0.5em 0.5em;
-    transform: rotate(-135deg);
-    div {
-      width: 1em;
-      height: 1em;
-      padding: 1em;
-      background: rgba(0,0,0,0.3);
-      border-radius: 3em;
-    }
-  }
-
-  .scale-control {
-    position: absolute;
-    display: block;
-    bottom: -0.9em;
-    right: -1.3em;
-    cursor: pointer;
-    div {
-      width: 1em;
-      height: 1em;
-      padding: 1em;
-      background: rgba(0,0,0,0.3);
-      border-radius: 3em;
-    }
-  }
-
-  .zindex-controller {
-    position: absolute;
-    display: block;
-    bottom: 0;
-    left: 1em;
-    opacity: 0.7;
-    font-size: 90%;
-    white-space: nowrap;
-
-    .zmod {
-      position: relative;
+    .placement-control {
+      position: absolute;
+      display: block;
+      top: -1.1em;
+      left: -1.0em;
       cursor: pointer;
-      opacity: 0.5;
-      padding: 1em;
-      margin: -1.1em;
-      border-radius: 2em;
-      border: none;
-      background: transparent;
-
-      &.left {
-        padding-right: 0.25em;
-        margin-right: -0.25em;
+      div {
+        width: 1em;
+        height: 1em;
+        padding: 1em;
+        background: rgba(0,0,0,0.3);
+        border-radius: 3em;
       }
-      &.right {
-        padding-left: 0.25em;
-        margin-left: -0.25em;
+      span {
+        position: relative;
+        display: inline-block;
+      }
+      span + span {
+        vertical-align: 0.05em;
+        margin-left: -0.75em;
+      }
+    }
+
+    .rotation-control {
+      position: absolute;
+      display: block;
+      top: 1.6em;
+      right: -1.6em;
+      cursor: pointer;
+      transform-origin: 0.5em 0.5em;
+      transform: rotate(-135deg);
+      div {
+        width: 1em;
+        height: 1em;
+        padding: 1em;
+        background: rgba(0,0,0,0.3);
+        border-radius: 3em;
+      }
+    }
+
+    .scale-control {
+      position: absolute;
+      display: block;
+      bottom: -0.9em;
+      right: -1.3em;
+      cursor: pointer;
+      div {
+        width: 1em;
+        height: 1em;
+        padding: 1em;
+        background: rgba(0,0,0,0.3);
+        border-radius: 3em;
+      }
+    }
+
+    .zindex-controller {
+      position: absolute;
+      display: block;
+      bottom: 0;
+      left: 1em;
+      opacity: 0.7;
+      font-size: 90%;
+      white-space: nowrap;
+
+      .zmod {
+        position: relative;
+        cursor: pointer;
+        opacity: 0.5;
+        padding: 1em;
+        margin: -1.1em;
+        border-radius: 2em;
+        border: none;
+        background: transparent;
+
+        &.left {
+          padding-right: 0.25em;
+          margin-right: -0.25em;
+        }
+        &.right {
+          padding-left: 0.25em;
+          margin-left: -0.25em;
+        }
       }
     }
   }
