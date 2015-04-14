@@ -1,10 +1,7 @@
 var React = require('react');
 var render = require('../../lib/render.jsx');
 var Positionable = require('react-positionable-component');
-
-var Header = require('./Header.jsx');
-var TextField = require('./TextField.jsx');
-var Image = require('./Image.jsx');
+var Generator = require('./blocks/generator.js');
 
 var Three = React.createClass({
   contextTypes: {
@@ -36,10 +33,7 @@ var Three = React.createClass({
 
   formPositionables: function(content) {
     return content.map(m => {
-      var element;
-      if(m.type==="text")  { element = <TextField value={m.value} />; }
-      if(m.type==="header"){ element = <Header value={m.value} />; }
-      if(m.type==="image") { element = <Image src={m.src} alt={m.alt} />; }
+      var element = Generator.generateBlock(m);
       var positionable = <Positionable clickHandler={this.clickHandler}>{element}</Positionable>;
       return <div>{positionable}</div>;
     });
@@ -56,25 +50,22 @@ var Three = React.createClass({
   },
 
   addHeader: function() {
-    this.append({
-      type: "header",
-      value: "This is a header"
-    });
+    this.append(Generator.generateDefinition(Generator.HEADER, {
+      value: "this is a header"
+    }));
   },
 
   addText: function() {
-    this.append({
-      type: "text",
+    this.append(Generator.generateDefinition(Generator.TEXTFIELD, {
       value: "This is text"
-    });
+    }));
   },
 
   addImage: function() {
-    this.append({
-      type: "image",
+    this.append(Generator.generateDefinition(Generator.IMAGE, {
       src: "https://farm4.staticflickr.com/3609/3567927108_8300f83fab_b.jpg",
       alt: "This is an image"
-    });
+    }));
   },
 
   save: function() {
