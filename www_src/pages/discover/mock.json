@@ -1,0 +1,126 @@
+[
+    {
+        "id": 1,
+        "version": "0.0.0",
+        "title": "Yam Fries",
+        "featured": true,
+        "history": {
+            "created_at": "2015-04-20T16:11:13.961Z",
+            "updated_at": "2015-04-20T16:11:13.961Z",
+            "deleted_at": null
+        },
+        "thumbnail": {
+            "480": "https://webmaker-app-mock.s3.amazonaws.com/tucker_000.jpg"
+        },
+        "author": {
+            "id": 1234,
+            "username": "billmurray",
+            "locale": {
+                "language": "en",
+                "country": "US"
+            },
+            "history": {
+                "created_at": "2015-04-20T16:11:13.961Z",
+                "updated_at": "2015-04-20T16:11:13.961Z",
+                "deleted_at": null
+            },
+            "permissions": {
+                "staff": false,
+                "moderator": false
+            }
+        }
+    },
+    {
+        "id": 2,
+        "version": "0.0.0",
+        "title": "Something else",
+        "featured": true,
+        "history": {
+            "created_at": "2015-04-20T16:11:13.961Z",
+            "updated_at": "2015-04-20T16:11:13.961Z",
+            "deleted_at": null
+        },
+        "thumbnail": {
+            "480": "https://webmaker-app-mock.s3.amazonaws.com/tucker_000.jpg"
+        },
+        "author": {
+            "id": 1234,
+            "username": "billmurray",
+            "locale": {
+                "language": "en",
+                "country": "US"
+            },
+            "history": {
+                "created_at": "2015-04-20T16:11:13.961Z",
+                "updated_at": "2015-04-20T16:11:13.961Z",
+                "deleted_at": null
+            },
+            "permissions": {
+                "staff": false,
+                "moderator": false
+            }
+        }
+    },
+    {
+        "id": 3,
+        "version": "0.0.0",
+        "title": "Something else",
+        "featured": true,
+        "history": {
+            "created_at": "2015-04-20T16:11:13.961Z",
+            "updated_at": "2015-04-20T16:11:13.961Z",
+            "deleted_at": null
+        },
+        "thumbnail": {
+            "480": "https://webmaker-app-mock.s3.amazonaws.com/tucker_000.jpg"
+        },
+        "author": {
+            "id": 1234,
+            "username": "billmurray",
+            "locale": {
+                "language": "en",
+                "country": "US"
+            },
+            "history": {
+                "created_at": "2015-04-20T16:11:13.961Z",
+                "updated_at": "2015-04-20T16:11:13.961Z",
+                "deleted_at": null
+            },
+            "permissions": {
+                "staff": false,
+                "moderator": false
+            }
+        }
+    },
+    {
+        "id": 4,
+        "version": "0.0.0",
+        "title": "Something else",
+        "featured": true,
+        "history": {
+            "created_at": "2015-04-20T16:11:13.961Z",
+            "updated_at": "2015-04-20T16:11:13.961Z",
+            "deleted_at": null
+        },
+        "thumbnail": {
+            "480": "https://webmaker-app-mock.s3.amazonaws.com/tucker_000.jpg"
+        },
+        "author": {
+            "id": 1234,
+            "username": "billmurray",
+            "locale": {
+                "language": "en",
+                "country": "US"
+            },
+            "history": {
+                "created_at": "2015-04-20T16:11:13.961Z",
+                "updated_at": "2015-04-20T16:11:13.961Z",
+                "deleted_at": null
+            },
+            "permissions": {
+                "staff": false,
+                "moderator": false
+            }
+        }
+    }
+]
