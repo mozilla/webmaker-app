@@ -19,6 +19,8 @@
   function generator(positionable) {
     var transform = resetTransform();
     var mark = copy(positionable.state);
+    var tstart = 0;
+
     var handlers = {
       /**
        * mark the first touch event so we can perform computation
@@ -29,6 +31,7 @@
         evt.stopPropagation();
         if(!evt.touches || evt.touches.length === 1) {
           mark = copy(positionable.state);
+          tstart = Date.now();
           transform.x1 = evt.clientX || evt.touches[0].pageX;
           transform.y1 = evt.clientY || evt.touches[0].pageY;
           positionable.setState({ touchactive: true });
@@ -60,6 +63,10 @@
         mark = copy(positionable.state);
         transform = resetTransform();
         positionable.setState({ touchactive: false });
+        var diff = Date.now() - tstart;
+        if (positionable.handleTap) {
+          positionable.handleTap(diff);
+        }
       },
 
       /**
