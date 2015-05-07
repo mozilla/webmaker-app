@@ -21,7 +21,7 @@ var Positionable = React.createClass({
 
   componentDidMount: function() {
     if(!this.state.interactive) return;
-    var touchHandler = this.touchhandler = require("./touchhandler")(this);
+    var touchHandler = this.touchhandler = require("../../lib/touchhandler")(this);
     var dnode = this.getDOMNode();
     dnode.addEventListener("mousedown", touchHandler.startmark);
     dnode.addEventListener("mousemove", touchHandler.panmove);
@@ -82,14 +82,22 @@ var Positionable = React.createClass({
       top: this.state.yoffset
     };
 
+    // recreate this element but with a local reference so we can pass events in
+    var el = React.cloneElement(this.props.element, {
+      ref: "generatedElement"
+    });
+
     return (
       <div className="positionableContainer" style={mainstyle} key={this.props.key}>
         <div ref="overlay" className="touchOverlay" hidden={!this.state.touchactive} />
-        <div style={style} className={className}>
-          { this.props.children }
-        </div>
+        <div style={style} className={className}>{el}</div>
       </div>
     );
+  },
+
+  handleTap: function(diff) {
+    var el = this.refs.generatedElement;
+    if (el.handleTap) { el.handleTap(diff); }
   },
 
   handleTranslation: function(x, y) {
