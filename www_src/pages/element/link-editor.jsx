@@ -24,12 +24,12 @@ var LinkEditor = React.createClass({
     });
   },
   onChangeLinkClick: function () {
-    this.refs.notImplementedWarning.show();
+    this.setState({showAlert: true});
   },
   render: function () {
     return (
       <div id="editor">
-        <div className="editor-preview">
+        <div className="editor-preview" onClick={this.editText}>
           <LinkBlock {...this.state} />
         </div>
         <div className="editor-options">
@@ -37,7 +37,7 @@ var LinkEditor = React.createClass({
             <button onClick={this.onChangeLinkClick} className="btn btn-block">
               <img className="icon" src="../../img/change-image.svg" /> Set Link Destination
             </button>
-            <Alert ref="notImplementedWarning">Coming Soon!</Alert>
+            <Alert isVisible={this.state.showAlert} >Coming Soon!</Alert>
           </div>
           <div className="form-group">
             <label>Corners</label>
