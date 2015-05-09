@@ -8,6 +8,9 @@
   @_spacing: 56px;
 
   position: fixed;
+  display: flex;
+  flex-wrap: nowrap;
+
   left: 50%;
   bottom: @_bottomGutter;
   z-index: 999;
@@ -21,6 +24,7 @@
   .primary-btn,
   .secondary-btn {
     display: flex;
+    flex: none;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
@@ -29,18 +33,17 @@
 
     .icon {
       display: block;
+      margin: auto;
     }
   }
 
   .primary-btn {
-    width: @_primarySize;
-    height: @_primarySize;
+    min-width: @_primarySize;
+    min-height: @_primarySize;
+
     background: @blue;
     color: @white;
     box-shadow: 0 4px 3px -2px rgba(0,0,0,0.2);
-    position: absolute;
-    bottom: 0;
-    left: 0;
 
     .icon {
       height: 22px;
@@ -51,21 +54,26 @@
     }
   }
   .secondary-btn {
-    position: absolute;
-    left: 50%;
-    margin-left: -(@_secondarySize/2);
-    bottom: ((@_primarySize - @_secondarySize)/2);
-    width: @_secondarySize;
-    height: @_secondarySize;
+    position: relative;
+    top: ((@_primarySize - @_secondarySize)/2);
+
+    min-width: @_secondarySize;
+    max-height: @_secondarySize;
+
+    margin: 0;
+
     background: @white;
     color: @slate;
     box-shadow: 0 4px 3px -2px rgba(0,0,0,0.2);
+
     &.left {
-      margin-left: -(@_secondarySize/2 + @_spacing);
+      margin-right: (@_secondarySize/4);
     }
+
     &.right {
-      margin-left: -(@_secondarySize/2 - @_spacing);
+      margin-left: (@_secondarySize/4);
     }
+
     &.off {
       transform: translateY(@_bottomGutter + @_secondarySize * 2);
     }

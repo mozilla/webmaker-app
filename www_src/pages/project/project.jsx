@@ -20,7 +20,8 @@ var Map = React.createClass({
   mixins: [router],
   getInitialState: function () {
     return {
-      selectedEl: '',
+      selectedPage: false,
+      selectedPageId: false,
       elements: [],
       camera: {
         x: 0,
@@ -31,7 +32,8 @@ var Map = React.createClass({
   },
 
   componentWillMount: function () {
-
+    // TODO: where are these values coming from? Should these be
+    //       this.props.gutterWidth || 300 etc. at the very least?
     var width = 300;
     var height = 380;
     var gutter = 20;
@@ -57,6 +59,9 @@ var Map = React.createClass({
     var boundingEl = bounding.getDOMNode();
     var startX, startY, startDistance, currentX, currentY, currentZoom;
     var didMove = false;
+
+    // TODO: this needs to become a mixin, and harmonized with the
+    //       touch handler used in page.jsx
 
     el.addEventListener('touchstart', (event) => {
       console.log('start', event.touches.length);
@@ -122,14 +127,6 @@ var Map = React.createClass({
 
     });
   },
-  selectPage: function (el) {
-    return () => {
-      this.setState({
-        camera: this.cartesian.getFocusTransform(el.coords, this.state.zoom),
-        selectedEl: el.id
-      });
-    };
-  },
   zoomOut: function () {
     this.setState({zoom: this.state.zoom / 2});
   },
@@ -147,27 +144,47 @@ var Map = React.createClass({
         this.setState({
           elements: update(this.state.elements, {$push: [newEl]}),
           camera: this.cartesian.getFocusTransform(coords, this.state.zoom),
-          selectedEl: newEl.id
+          selectedPageId: newEl.id
         })
       });
     };
   },
+  selectPage: function (page) {
+    return function pageClicked() {
+      this.setState({
+        camera: this.cartesian.getFocusTransform(page.coords, this.state.zoom),
+        selectedPage: page,
+        selectedPageId: page.id
+      });
+    }.bind(this);
+  },
+  paintPage: function() {
+    var selectedPage = this.state.selectedPage;
+    if(selectedPage) {
+      var test = prompt("New background hexcolor?");
+      var valid = parseInt(test, 16);
+      if(valid.toString(16).toLowerCase() === test.trim().toLowerCase()) {
+        selectedPage.style.backgroundColor = '#' + test;
+        this.setState({
+          selectedPage: selectedPage
+        });
+      }
+    }
+  },
   removePage: function () {
-    var index;
-    this.state.elements.forEach((el, i) => {
-      if (el.id === this.state.selectedEl) index = i;
-    });
-    if (typeof index === 'undefined') return;
-
-    api({method: 'delete', uri:'/users/foo/projects/bar/pages/' + this.state.selectedEl}, (err) => {
+    var selectedPage = this.state.selectedPage;
+    if (selectedPage.id !== this.state.selectedPageId) {
+      return
+    }
+    api({method: 'delete', uri:'/users/foo/projects/bar/pages/' + selectedPage.id}, (err) => {
       this.cartesian.allCoords.splice(index, 1);
       this.setState({
         elements: update(this.state.elements, {$splice: [[index, 1]]}),
         zoom: this.state.zoom >= MAX_ZOOM ? DEFAULT_ZOOM : this.state.zoom,
-        selectedEl: ''
+        selectedPage: false,
+        selectedPageId: false
       });
     });
-
   },
   render: function () {
     var containerStyle = {
@@ -183,7 +200,21 @@ var Map = React.createClass({
     );
 
     var projectId = this.state.params.project || 123;
-    var pageUrl = `projects/${projectId}/pages/${this.state.selectedEl}`;
+    var pageUrl = `projects/${projectId}/pages/${this.state.selectedPageId}`;
+
+    var elements = this.state.elements.map(element => {
+      var isSelected = element.id === this.state.selectedPageId,
+          elClass = classNames({
+            'page-container': true,
+            selected: isSelected,
+            unselected: this.state.selectedPageId && !isSelected
+          }),
+          elStyle = {
+            backgroundColor: element.style.backgroundColor,
+            transform: this.cartesian.getTransform(element.coords)
+          };
+      return <div className={elClass} style={elStyle} onClick={this.selectPage(element)} />;
+    });
 
     return (
       <div id="map">
@@ -194,13 +225,7 @@ var Map = React.createClass({
 
         <div ref="bounding" className="bounding" style={boundingStyle}>
           <div className="test-container" style={containerStyle}>
-          {this.state.elements.map((el) => {
-            var isSelected = el.id === this.state.selectedEl;
-            return (<div className={classNames({'page-container': true, selected: isSelected, unselected: this.state.selectedEl && !isSelected})}
-                style={{backgroundColor: el.style.backgroundColor, transform: this.cartesian.getTransform(el.coords)}}
-                onClick={this.selectPage(el)}>
-            </div>);
-          })}
+          {elements}
           {this.cartesian.edges.map(coords => {
             return (<div className="page-container add" style={{transform: this.cartesian.getTransform(coords)}} onClick={this.addPage(coords)}>
               <img className="icon" src="../../img/plus.svg" />
@@ -210,8 +235,9 @@ var Map = React.createClass({
         </div>
 
         <Menu>
-          <SecondaryButton side="right" off={!this.state.selectedEl} onClick={this.removePage} icon="../../img/trash.svg" />
-          <PrimaryButton url={pageUrl}  off={!this.state.selectedEl} href="/pages/page" icon="../../img/pencil.svg" />
+          <PrimaryButton url={pageUrl}  off={!this.state.selectedPageId} href="/pages/page" icon="../../img/pencil.svg" />
+          <SecondaryButton side="right" off={!this.state.selectedPageId} onClick={this.paintPage}  icon="../../img/page-background.svg" />
+          <SecondaryButton side="right" off={!this.state.selectedPageId} onClick={this.removePage} icon="../../img/trash.svg" />
         </Menu>
       </div>
     );
