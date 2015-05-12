@@ -16,6 +16,16 @@ var Text = React.createClass({
     }
   },
 
+  mixins: [
+    require('react-onclickoutside')
+  ],
+
+  getInitialState: function() {
+    return {
+      innerHTML: this.props.innerHTML
+    };
+  },
+
   getDefaultProps: function () {
     return this.defaults;
   },
@@ -30,7 +40,37 @@ var Text = React.createClass({
       style = assign(style, utils.propsToPosition(props));
     }
 
-    return <p style={style}>{props.innerHTML}</p>;
+    var inputStyle = assign({}, style);
+    inputStyle.background = "transparent";
+    inputStyle.border = "none";
+
+    var content = this.state.innerHTML;
+    if (this.props.editing) {
+      content = <input ref="input" style={inputStyle} value={content} onChange={this.editText}/>;
+    }
+
+    return (
+      <p style={style}>{ content }</p>
+    );
+  },
+
+  componentDidUpdate: function(prevProps, prevState) {
+    if(this.props.editing) {
+      this.refs.input.getDOMNode().focus();
+    }
+  },
+
+  editText: function(evt) {
+    var value = evt.target.value;
+    this.setState({
+      innerHTML: value
+    });
+  },
+
+  handleClickOutside: function(evt) {
+    if (this.props.onTextUpdate) {
+      this.props.onTextUpdate( this.state.innerHTML );
+    }
   }
 });
 

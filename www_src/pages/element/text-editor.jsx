@@ -12,15 +12,26 @@ var TextEditor = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
   getInitialState: function () {
     var props = this.props.element || {};
-    return defaults(props, TextBlock.defaults);
+    var initialState = defaults(props, TextBlock.defaults);
+    console.log(JSON.stringify(initialState));
+    return initialState;
   },
   componentDidUpdate: function () {
     this.props.save(this.state);
   },
   editText: function () {
-    var text = window.prompt('Edit the text');
     this.setState({
-      innerHTML: text
+      editing: true
+    });
+  },
+  commitText: function (text) {
+    this.setState({
+      editing: false,
+      innerHTML: !!text.trim() ? text : this.state.innerHTML
+    }, function() {
+      // ... really?
+      console.log("saving "+JSON.stringify(this.state));
+      this.props.save(this.state)
     });
   },
   render: function () {
@@ -61,7 +72,7 @@ var TextEditor = React.createClass({
     return (
       <div id="editor">
         <div className="editor-preview" onClick={this.editText}>
-          <TextBlock {...this.state} />
+          <TextBlock {...this.state} onTextUpdate={this.commitText}/>
         </div>
         <div className="editor-options">
           <div className="form-group">
