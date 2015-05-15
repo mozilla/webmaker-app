@@ -22,7 +22,7 @@ var Positionable = React.createClass({
 
   componentDidMount: function() {
     if(!this.state.interactive) return;
-    var touchHandler = this.touchhandler = require("./touchhandler")(this);
+    var touchHandler = this.touchhandler = require("../../lib/touchhandler")(this);
     var dnode = this.getDOMNode();
     dnode.addEventListener("mousedown", touchHandler.startmark);
     dnode.addEventListener("mousemove", touchHandler.panmove);
