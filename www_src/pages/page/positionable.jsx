@@ -11,8 +11,6 @@ var Positionable = React.createClass({
       y: this.props.y || 0,
       scale: this.props.scale || 1,
       angle: this.props.angle || 0,
-      xoffset: this.props.parentWidth >>> 1 || 0,
-      yoffset: this.props.parentHeight >>> 1 || 0,
       zIndex: (typeof this.props.zIndex !== "undefined") ? this.props.zIndex : 1,
       interactive: (typeof this.props.interactive !== "undefined") ? this.props.interactive : true,
       touchactive: false
@@ -40,12 +38,6 @@ var Positionable = React.createClass({
     onode.addEventListener("touchstart", touchHandler.secondFinger);
     onode.addEventListener("touchmove", touchHandler.panmove);
     onode.addEventListener("touchend", touchHandler.endmark);
-
-    var dims = dnode.getBoundingClientRect();
-    this.setState({
-      xoffset: (this.props.parentWidth - dims.width)/2,
-      yoffset: (this.props.parentHeight - dims.height)/2
-    });
   },
 
   componentDidUpdate: function(prevProps, prevState) {
@@ -79,8 +71,8 @@ var Positionable = React.createClass({
 
     var mainstyle = {
       position: "absolute",
-      left: this.state.xoffset,
-      top: this.state.yoffset
+      left: 0,
+      top: 0
     };
 
     return (
