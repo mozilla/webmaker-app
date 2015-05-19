@@ -1,5 +1,6 @@
 var getPages = require('./npm_tasks/get-pages');
 var path = require('path');
+var WebpackNotifierPlugin = require('webpack-notifier');
 
 // Prep all entry points
 var entry = {};
@@ -32,5 +33,10 @@ module.exports = {
         include: [path.resolve(__dirname, 'www_src'),  path.resolve(__dirname, 'node_modules')]
       }
     ]
-  }
+  },
+  plugins: [
+    new WebpackNotifierPlugin({
+      error: {sound: true}
+    }),
+  ]
 };
