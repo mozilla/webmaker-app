@@ -22,7 +22,7 @@ var Page = React.createClass({
   getInitialState: function() {
     return {
       loading: true,
-      elements: [],
+      elements: {},
       styles: {},
       currentElement: -1,
       showAddMenu: false,
@@ -76,13 +76,12 @@ var Page = React.createClass({
       <div className="pages-container">
         <div className="page">
           <div className="inner" style={{backgroundColor: this.state.styles.backgroundColor}}>
-            {/*<div ref="container" className="positionables">{ positionables }</div>*/}
             <ElementGroup
               ref="container"
               interactive={true}
               dims={this.state.dims}
               elements={this.state.elements}
-              currentElement={this.state.currentElement}
+              currentElementId={this.state.currentElement}
               onTouchEnd={this.save}
               onUpdate={this.updateElement}
               onDeselect={this.deselectAll} />
@@ -132,16 +131,6 @@ var Page = React.createClass({
     });
   },
 
-  getElementIndexById: function (id) {
-    var index;
-    this.state.elements.forEach((element, i) => {
-      if (element.id === id) {
-        index = i;
-      }
-    });
-    return index;
-  },
-
   addElement: function(type) {
     return () => {
       var json = types[type].spec.generate();
@@ -149,12 +138,14 @@ var Page = React.createClass({
       api({method: 'post', uri: this.uri() + '/elements', json}, (err, data) => {
         var state = {showAddMenu: false};
         if (err) {
-          console.log('There was an error creating an element', err);
+          console.error('There was an error creating an element', err);
         }
         if (data && data.element) {
-          json.id = data.element.id;
-          state.elements = this.state.elements.concat([this.flatten(json)]);
-          state.currentElement = this.state.elements.length;
+          var id = data.element.id
+          json.id = id;
+          state.elements = this.state.elements;
+          state.elements[id] = json;
+          state.currentElement = id;
         }
         this.setState(state);
       });
@@ -163,13 +154,12 @@ var Page = React.createClass({
 
   updateElement: function (id) {
     return (newProps) => {
-      var index = this.getElementIndexById(id);
       var elements = this.state.elements;
-      var element = elements[index];
-      elements[index] = assign(element, newProps);
+      var element = elements[id];
+      elements[id] = assign(element, newProps);
       this.setState({
         elements: elements,
-        currentElement: index
+        currentElement: id
       });
     };
   },
@@ -180,10 +170,11 @@ var Page = React.createClass({
     }
 
     var elements = this.state.elements;
-    var id = elements[this.state.currentElement].id;
+    var id = this.state.currentElement;
 
-    // Don't delete test elements for real;
+    // FIXME: TODO: can we remove this code? This should not have landed in any PR?
     if (parseInt(id, 10) <= 3) {
+      // Don't delete test elements for real;
       return window.alert('this is a test element, not deleting.');
     }
 
@@ -192,15 +183,15 @@ var Page = React.createClass({
         return console.error('There was a problem deleting the element');
       }
 
-      elements[this.state.currentElement] = false;
+      elements[id] = false;
       var currentElement = -1;
-      elements.some(function(e,idx) {
-        currentElement = idx;
+      Object.keys(elements).some(function(e) {
+        if (e.id) { currentElement = e.id; }
         return !!e;
       });
       this.setState({
-        elements: elements,
-        currentElement: -1
+        elements,
+        currentElement
       });
     });
   },
@@ -226,18 +217,24 @@ var Page = React.createClass({
       uri: this.uri()
     }, (err, data) => {
       if (err) {
-        return console.error('There was an error getting the Page', err);
+        return console.error('There was an error getting the page to load', err);
       }
 
       if (!data || !data.page) {
-        return console.log('Could not find the page');
+        return console.error('Could not find the page to load');
       }
 
       var page = data.page;
       var styles = page.styles;
-      var elements = page.elements.map(element => {
-        return this.flatten(element);
-      }).filter(element => element);
+      var elements = {};
+
+      page.elements.forEach(element => {
+        var element = this.flatten(element);
+        if(element) {
+          elements[element.id] = element;
+        }
+      });
+
       this.setState({
         loading: false,
         styles,
@@ -248,7 +245,7 @@ var Page = React.createClass({
 
   save: function (id) {
     return () => {
-      var el = this.expand(this.state.elements[this.getElementIndexById(id)]);
+      var el = this.expand(this.state.elements[id]);
       api({
         method: 'patch',
         uri: this.uri() + '/elements/' + id,
@@ -261,7 +258,7 @@ var Page = React.createClass({
         }
 
         if (!data || !data.element) {
-          console.log('Could not find the element');
+          console.error('Could not find the element to save');
         }
       });
     };
