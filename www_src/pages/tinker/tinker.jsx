@@ -24,7 +24,7 @@ var Tinker = React.createClass({
         <div className='editor-preview'>
           <img src='../../img/toucan.svg' />
         </div>
-        
+
         <div className='color-preview'>
           <code>color: {this.generateColorString()};</code>
           <div className='color-preview-right'>
@@ -61,7 +61,7 @@ var Tinker = React.createClass({
     if (this.state.alpha < 1) {
       return color.rgbaToCss(this.state.red, this.state.green, this.state.blue, this.state.alpha);
     }
-    
+
     return color.rgbToHex(this.state.red, this.state.green, this.state.blue);
   }
 });
