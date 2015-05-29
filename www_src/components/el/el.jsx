@@ -2,6 +2,7 @@ var React = require('react');
 var classes = require('classnames');
 var Spec = require('../../lib/spec');
 var touchhandler = require("../../lib/touchhandler");
+var dispatcher = require('../../lib/dispatcher');
 
 var El = React.createClass({
 
@@ -89,10 +90,12 @@ var El = React.createClass({
     elButton.style.transform = Spec.propsToPosition(buttonStyle).transform;
   },
 
+  setLinkDestination: function () {
+    dispatcher.fire('linkDestinationClicked', this.props);
+  },
+
   render: function() {
     var state = this.getInitialState();
-
-    // state.angle = Math.random() * 100; // TODO / TEMP : For test purposes
 
     var className = classes('el', 'el-' + this.props.type, {
       touchactive: this.state.touchactive,
@@ -106,7 +109,12 @@ var El = React.createClass({
     if (this.props.type === 'link') {
       setDestinationButton = (
         <div className="el-container" key={this.props.key + '-2'}>
-          <button className="btn meta-button">Set destination</button>
+          {/* using onTouchEnd because onClick doesn't work for some reason...touchhandler.js preventing it? */}
+          <button
+            className="btn meta-button"
+            onTouchEnd={this.setLinkDestination}>
+              Set destination
+          </button>
         </div>
       );
     }

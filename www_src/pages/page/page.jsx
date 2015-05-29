@@ -5,6 +5,7 @@ var render = require('../../lib/render.jsx');
 var router = require('../../lib/router.jsx');
 var api = require('../../lib/api.js');
 var types = require('../../components/el/el.jsx').types;
+var dispatcher = require('../../lib/dispatcher');
 
 var Link = require('../../components/link/link.jsx');
 var Loading = require('../../components/loading/loading.jsx');
@@ -120,6 +121,11 @@ var Page = React.createClass({
         dims: bbox
       });
     }
+
+    dispatcher.on('linkDestinationClicked', function (e) {
+      console.log('page', e);
+      // TODO : Switch to Project activity and pass necessary metadata
+    });
   },
 
   toggleAddMenu: function () {
