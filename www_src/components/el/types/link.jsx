@@ -9,6 +9,16 @@ var spec = new Spec('link', assign({
     validation: React.PropTypes.string,
     default: 'Tap me'
   },
+  targetPageId: {
+    category: 'attributes',
+    validation: React.PropTypes.string,
+    default: ''
+  },
+  targetProjectId: {
+    category: 'attributes',
+    validation: React.PropTypes.string,
+    default: ''
+  },
   href: {
     category: 'attributes',
     validation: React.PropTypes.string,
