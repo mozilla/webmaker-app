@@ -84,7 +84,7 @@ var Page = React.createClass({
               dims={this.state.dims}
               elements={this.state.elements}
               currentElementId={this.state.currentElementId}
-              onTouchEnd={this.save}
+              onTouchEnd={this.onTouchEnd}
               onUpdate={this.updateElement}
               onDeselect={this.deselectAll} />
           </div>
@@ -180,6 +180,21 @@ var Page = React.createClass({
           state.currentElementId = id;
         }
         this.setState(state);
+      });
+    };
+  },
+
+  onTouchEnd: function(elementId) {
+    return (modified) => {
+      var elements = this.state.elements;
+      // plain tap with modifications means we need to raise this
+      // element's z-index to "the highest nubmer".
+      if(!modified) {
+        var element = elements[elementId];
+        element.zIndex = this.getHighestIndex() + 1;
+      }
+      this.setState({ elements }, function() {
+        this.save(elementId)
       });
     };
   },
