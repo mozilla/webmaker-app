@@ -185,17 +185,19 @@ var Page = React.createClass({
   },
 
   onTouchEnd: function(elementId) {
+    // A plain tap without positional modificationss means we need
+    // to raise this element's z-index to "the highest number".
     return (modified) => {
-      var elements = this.state.elements;
-      // plain tap with modifications means we need to raise this
-      // element's z-index to "the highest nubmer".
       if(!modified) {
+        var elements = this.state.elements;
         var element = elements[elementId];
         element.zIndex = this.getHighestIndex() + 1;
+        this.setState({ elements }, function() {
+          this.save(elementId);
+        });
+      } else {
+        this.save(elementId);
       }
-      this.setState({ elements }, function() {
-        this.save(elementId)
-      });
     };
   },
 
