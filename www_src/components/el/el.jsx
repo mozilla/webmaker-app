@@ -113,7 +113,7 @@ var El = React.createClass({
           <button
             className="btn meta-button"
             onTouchEnd={this.setLinkDestination}>
-              Set destination
+              {this.props.targetPageId ? 'Change destination' : 'Set destination'}
           </button>
         </div>
       );

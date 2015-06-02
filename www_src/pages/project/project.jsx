@@ -437,6 +437,29 @@ var Project = React.createClass({
     }
   },
 
+  setDestination: function () {
+    var pageUrl = `/projects/${this.state.params.project}/pages/${this.state.routeData.pageID}`;
+
+    api({
+      method: 'patch',
+      uri: `/users/1/projects/${this.state.params.project}/pages/${this.state.routeData.pageID}/elements/${this.state.routeData.elementID}`,
+      json: {
+        attributes: {
+          targetPageId: this.state.selectedEl,
+          targetProjectId: 1
+        }
+      }
+    }, (err, data) => {
+      if (err) {
+        console.error('There was an error updating the element', err);
+      }
+
+      if (window.Android) {
+        window.Android.setView(pageUrl);
+      }
+    });
+  },
+
   render: function () {
     // Prevent pull to refresh
     document.body.style.overflowY = 'hidden';
@@ -475,7 +498,7 @@ var Project = React.createClass({
 
     return (
       <div id="map">
-
+        <button onClick={this.setDestination} style={{position: 'absolute', right: 0, zIndex: 999999, padding: '10px'}}>✓</button>
         <div ref="bounding" className="bounding" style={boundingStyle}>
           <div className="test-container" style={containerStyle}>
           {this.state.pages.map((page) => {
