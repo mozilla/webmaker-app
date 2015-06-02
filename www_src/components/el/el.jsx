@@ -132,9 +132,9 @@ var El = React.createClass({
     );
   },
 
-  onTouchEnd: function () {
+  onTouchEnd: function (modified) {
     if (this.props.onTouchEnd) {
-      this.props.onTouchEnd();
+      this.props.onTouchEnd(modified);
     }
   },
 

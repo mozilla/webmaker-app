@@ -7,6 +7,7 @@
 
   function resetTransform() {
     return {
+      modified: false,
       x1: false,
       y1: false,
       x2: false,
@@ -49,6 +50,7 @@
         }
         var x = evt.clientX || evt.touches[0].pageX,
             y = evt.clientY || evt.touches[0].pageY;
+        transform.modified = true;
         positionable.handleTranslation(x - transform.x1 + mark.x, y - transform.y1 + mark.y);
       },
 
@@ -63,7 +65,7 @@
         transform = resetTransform();
         positionable.setState({ touchactive: false });
         if (positionable.onTouchEnd) {
-          positionable.onTouchEnd();
+          positionable.onTouchEnd(transform.modified);
         }
       },
 
@@ -114,6 +116,7 @@
             a = Math.atan2(dy,dx),
             da = a - transform.angle + mark.angle,
             s = d/transform.distance * mark.scale;
+        transform.modified = true;
         positionable.handleRotationAndScale(da, s);
       },
 
