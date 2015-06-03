@@ -19,26 +19,7 @@ var MIN_ZOOM = 0.18;
 var DEFAULT_ZOOM = 0.5;
 var ZOOM_SENSITIVITY = 300;
 
-var Page = React.createClass({
-  render: function () {
-    var classes = classNames('page-container', {
-      selected: this.props.selected,
-      unselected: this.props.unselected,
-      source: this.props.source,
-      target: this.props.target
-    });
-    var style = {
-      backgroundColor: this.props.page.styles.backgroundColor,
-      transform: this.props.transform
-    };
-    return (<div className={classes} style={style} onClick={this.props.onClick}>
-      <div className="shim">
-        <div className="indicator"/>
-      </div>
-      <ElementGroup elements={this.props.page.elements} />
-    </div>);
-  }
-});
+var PageBlock = require("./pageblock.jsx");
 
 var Project = React.createClass({
   mixins: [router],
@@ -275,6 +256,7 @@ var Project = React.createClass({
   zoomOut: function () {
     this.setState({zoom: this.state.zoom / 2});
   },
+
   zoomIn: function () {
     this.setState({zoom: this.state.zoom * 2});
   },
@@ -330,12 +312,11 @@ var Project = React.createClass({
             y: 0
           }
         }, (err, data) => {
-          console.log(err, data);
           if (err) {
             console.error('Error creating first page', err);
             this.setState({loading: false});
           } else if (!data || !data.page) {
-            console.log('No page id was returned');
+            console.error('No page id was returned');
             this.setState({loading: false});
           } else {
             this.loadPages([{
@@ -369,11 +350,11 @@ var Project = React.createClass({
       }, (err, data) => {
         this.setState({loading: false});
         if (err) {
-          return console.log('Error loading project', err);
+          return console.error('Error loading project', err);
         }
 
         if (!data || !data.page) {
-          return console.log('No page id returned');
+          return console.error('No page id returned');
         }
 
         json.id = data.page.id;
@@ -487,7 +468,7 @@ var Project = React.createClass({
               transform: this.cartesian.getTransform(page.coords),
               onClick: this.onPageClick.bind(this, page)
             };
-            return (<Page {...props} />);
+            return (<PageBlock {...props} />);
           })}
           { generateAddContainers() }
           </div>

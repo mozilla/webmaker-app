@@ -160,6 +160,24 @@ var Page = React.createClass({
                  .reduce((a,b) => a > b ? a : b, 1);
   },
 
+  onTouchEnd: function(elementId) {
+    // A plain tap without positional modificationss means we need
+    // to raise this element's z-index to "the highest number".
+    var save = this.save(elementId);
+    return (modified) => {
+      if(!modified) {
+        var elements = this.state.elements;
+        var element = elements[elementId];
+        element.zIndex = this.getHighestIndex() + 1;
+        this.setState({ elements }, function() {
+          save();
+        });
+      } else {
+        save();
+      }
+    };
+  },
+
   addElement: function(type) {
     var highestIndex = this.getHighestIndex();
 
@@ -170,34 +188,21 @@ var Page = React.createClass({
       api({method: 'post', uri: this.uri() + '/elements', json}, (err, data) => {
         var state = {showAddMenu: false};
         if (err) {
-          console.log('There was an error creating an element', err);
+          console.error('There was an error creating an element', err);
         }
+        var save = function(){};
         if (data && data.element) {
-          var id = data.element.id;
-          json.id = id;
+          var elementId = data.element.id;
+          json.id = elementId;
           state.elements = this.state.elements;
-          state.elements[id] = this.flatten(json);
-          state.currentElementId = id;
+          state.elements[elementId] = this.flatten(json);
+          state.currentElementId = elementId;
+          save = this.save(elementId);
         }
-        this.setState(state);
-      });
-    };
-  },
-
-  onTouchEnd: function(elementId) {
-    // A plain tap without positional modificationss means we need
-    // to raise this element's z-index to "the highest number".
-    return (modified) => {
-      if(!modified) {
-        var elements = this.state.elements;
-        var element = elements[elementId];
-        element.zIndex = this.getHighestIndex() + 1;
-        this.setState({ elements }, function() {
-          this.save(elementId);
+        this.setState(state, function() {
+          save();
         });
-      } else {
-        this.save(elementId);
-      }
+      });
     };
   },
 
