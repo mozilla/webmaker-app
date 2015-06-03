@@ -1,7 +1,6 @@
 var React = require('react/addons');
 var update = React.addons.update;
 var assign = require('react/lib/Object.assign');
-var classNames = require('classnames');
 
 var render = require('../../lib/render.jsx');
 var router = require('../../lib/router.jsx');
@@ -9,7 +8,6 @@ var Cartesian = require('../../lib/cartesian');
 var Loading = require('../../components/loading/loading.jsx');
 var {Menu, PrimaryButton, SecondaryButton} = require('../../components/action-menu/action-menu.jsx');
 var types = require('../../components/el/el.jsx').types;
-var ElementGroup = require('../../components/element-group/element-group.jsx');
 
 var api = require('../../lib/api');
 var calculateSwipe = require('../../lib/swipe.js');
