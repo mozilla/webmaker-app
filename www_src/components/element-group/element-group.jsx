@@ -10,6 +10,12 @@ var ElementGroup = React.createClass({
       interactive: false
     };
   },
+  /**
+   * Generate the JSX for the element
+   * @param {id} elementId the element's id in the this.props-passed `elements` dictionary
+   * @param {object} elProps The element property sheet from which to build the JSX representation
+   * @return {JSX} an element's JSX representation
+   */
   formElement: function(elementId, elProps) {
     return (
       <div className={'el-wrapper' + (elProps.isCurrent ? ' current' : '')}>
@@ -17,6 +23,12 @@ var ElementGroup = React.createClass({
       </div>
     );
   },
+  /**
+   * Process an element's property sheet, transforming it into
+   * a JSX object for use by React,
+   * @param {id} elementId the element's id in the this.props-passed `elements` dictionary
+   * @return {JSX} an element's JSX representation
+   */
   processProperties: function(elementId) {
     var elProps = this.props.elements[elementId];
 
@@ -40,6 +52,10 @@ var ElementGroup = React.createClass({
 
     return this.formElement(elementId, elProps);
   },
+  /**
+   * Convert all passed element property sheets into JSX elemenets
+   * @return {JSX[]} And array of JSX representations of each element in this.props.elemeents
+   */
   formElements: function () {
     return Object.keys(this.props.elements).map(this.processProperties);
   },

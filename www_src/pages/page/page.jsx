@@ -149,6 +149,11 @@ var Page = React.createClass({
     });
   },
 
+  /**
+   * Find the highest in-use zindex on the page, so that we can assign
+   * elements added to the page a sensible zindex value.
+   * @return {int} the highest in-use zindex on the page.
+   */
   getHighestIndex: function() {
     return Object.keys(this.state.elements)
                  .map(e => this.state.elements[e].zIndex)
