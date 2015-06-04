@@ -14,7 +14,7 @@ var Snackbar = React.createClass({
     }
     return <div className={className}>{ this.state.message }</div>;
   },
-  rehide: function() {
+  hide: function() {
     this.setState({
       hidden: true
     });
@@ -25,11 +25,7 @@ var Snackbar = React.createClass({
       hidden: false
     }, function() {
       // TODO: ideally this is an event, but CSS can't inform
-      setTimeout(() => {
-        this.setState({
-          hidden: true
-        });
-      }, 3000);
+      setTimeout(_ => this.hide(), 3000);
     });
   }
 });
