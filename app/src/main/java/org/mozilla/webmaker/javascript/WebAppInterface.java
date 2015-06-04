@@ -183,7 +183,7 @@ public class WebAppInterface {
 
     /**
      * ----------------------------------------
-     * Google Analytics Event Trigger
+     * Google Analytics
      * ----------------------------------------
      */
 
