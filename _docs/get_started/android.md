@@ -10,8 +10,6 @@
     * This will help you start debugging our app using the Chrome developer tools
 * [Manually install adb and Android SDK](#install-android-19-4.4-sdk-platform)
     * Only do this if you're unable to use adb after install Android Studio, or you want to manually install other SDKs
-* [Google Analytics Event Firing](#google-analytics-event-firing)
-    * Exposed methods created by the WebAppInterface within the Android wrapper, to provide a set of useful methods that can be used to send a event that is fired on the JS side, to Google Analytics.
 
 ## Install Android Studio
 
@@ -90,18 +88,3 @@ If you installed Android Studio, you can probably **skip this step**.
 To run our app we'll need to download Android 19. To do this we'll download the SDK manager from [developer.android.com](https://developer.android.com/sdk/index.html).
 
 We'll also need to make sure Java and Java Development Kit are installed in order to run the `Android` command.
-
-### Google Analytics Event Firing
-
-Currently, there are two helpful events for sending event data to Google Analytics, using JavaScript.
-
-Here is what these would look like, as you can see the top doesn't have the value parameter. This is a optional parameter that basically allows you to provide a numeric value (int) along with your GA event.
-
- You can read more about the parameters and what they do here: https://developers.google.com/analytics/devguides/collection/android/v4/events
-
-```js
-if (window.Android) {
-    window.Android.trackEvent('category', 'action', 'label');
-    window.Android.trackEvent('category', 'action', 'label', 'value'); // optional value
-}
-```

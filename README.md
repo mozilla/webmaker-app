@@ -139,3 +139,16 @@ if (window.Android) {
 ```js
 window.Android.getMemStorage('state', true);
 ```
+
+#### Google Analytics Event Firing
+
+This function allows you to send event data to Google Analytics by calling the ```trackEvent()``` method. Optionally you can specify a numeric value (int) to pass along in your event, however this isn't required. Please see the below code for example implementation.
+
+You can read more about the parameters and what they do here: https://developers.google.com/analytics/devguides/collection/android/v4/events
+
+```js
+if (window.Android) {
+    window.Android.trackEvent('category', 'action', 'label');
+    window.Android.trackEvent('category', 'action', 'label', 'value'); // optional value
+}
+```
