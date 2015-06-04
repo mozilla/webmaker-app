@@ -97,7 +97,7 @@ render(React.createClass({
     if (this.refs.snackbar) {
       this.refs.snackbar.showMessage(errorMsg);
     } else {
-      this.pendingError = errorMsg
+      this.pendingError = errorMsg;
     }
     console.error(errorMsg, details);
   },
