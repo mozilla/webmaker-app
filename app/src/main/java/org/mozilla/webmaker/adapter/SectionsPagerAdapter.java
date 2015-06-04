@@ -5,10 +5,10 @@ import android.app.FragmentManager;
 import android.content.Context;
 import android.support.v13.app.FragmentPagerAdapter;
 
-import java.util.Locale;
-
 import org.mozilla.webmaker.R;
 import org.mozilla.webmaker.fragment.WebviewFragment;
+
+import java.util.Locale;
 
 /**
  * A {@link android.support.v13.app.FragmentPagerAdapter} that returns a fragment corresponding to one of the sections/tabs/pages.

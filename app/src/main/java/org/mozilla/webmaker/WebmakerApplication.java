@@ -6,18 +6,24 @@ import android.content.res.Resources;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.Tracker;
 
-import org.mozilla.webmaker.activity.*;
+import org.mozilla.webmaker.activity.Element;
+import org.mozilla.webmaker.activity.Link;
+import org.mozilla.webmaker.activity.Page;
+import org.mozilla.webmaker.activity.Play;
+import org.mozilla.webmaker.activity.Project;
+import org.mozilla.webmaker.activity.ProjectSettings;
+import org.mozilla.webmaker.activity.Tinker;
 import org.mozilla.webmaker.router.Router;
 
 public class WebmakerApplication extends Application {
 
     private WebmakerApplication singleton;
-    private GoogleAnalytics analytics;
-    private Tracker tracker;
+    private static GoogleAnalytics analytics;
+    private static Tracker tracker;
 
     public WebmakerApplication getInstance() { return singleton; }
-    public GoogleAnalytics getAnalytics() { return analytics; }
-    public Tracker getTracker() { return tracker; }
+    public static GoogleAnalytics getAnalytics() { return analytics; }
+    public static Tracker getTracker() { return tracker; }
 
     @Override
     public void onCreate() {

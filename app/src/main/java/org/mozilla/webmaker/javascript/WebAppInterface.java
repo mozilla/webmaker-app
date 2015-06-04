@@ -3,17 +3,18 @@ package org.mozilla.webmaker.javascript;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.util.Log;
 
-import org.mozilla.webmaker.BuildConfig;
-import org.json.JSONObject;
-import org.xwalk.core.JavascriptInterface;
+import com.google.android.gms.analytics.HitBuilders;
 
+import org.json.JSONObject;
 import org.mozilla.webmaker.BaseActivity;
+import org.mozilla.webmaker.BuildConfig;
+import org.mozilla.webmaker.WebmakerApplication;
 import org.mozilla.webmaker.activity.Element;
 import org.mozilla.webmaker.router.Router;
 import org.mozilla.webmaker.storage.MemStorage;
+import org.xwalk.core.JavascriptInterface;
 
 public class WebAppInterface {
 
@@ -78,23 +79,23 @@ public class WebAppInterface {
      */
 
     @JavascriptInterface
-    public String getMemStorage (String key) {
+    public String getMemStorage(String key) {
         return getMemStorage(key, false);
     }
 
     @JavascriptInterface
-    public String getMemStorage (String key, final boolean global) {
+    public String getMemStorage(String key, final boolean global) {
         if (!global) key = key.concat(mPrefKey);
         return MemStorage.sharedStorage().get(key);
     }
 
     @JavascriptInterface
-    public void setMemStorage (String key, final String value) {
+    public void setMemStorage(String key, final String value) {
         setMemStorage(key, value, false);
     }
 
     @JavascriptInterface
-    public void setMemStorage (String key, final String value, final boolean global) {
+    public void setMemStorage(String key, final String value, final boolean global) {
         if (!global) key = key.concat(mPrefKey);
         MemStorage.sharedStorage().put(key, value);
     }
@@ -178,5 +179,36 @@ public class WebAppInterface {
     @JavascriptInterface
     public String getRouteData() {
         return MemStorage.sharedStorage().get(ROUTE_KEY);
+    }
+
+    /**
+     * ----------------------------------------
+     * Google Analytics Event Trigger
+     * ----------------------------------------
+     */
+
+    /**
+     * Sends a event to Google Analytics without the optional value param
+     * @param category The name you supply for the group of objects you want to track.
+     * @param action Used to define the type of user interaction for the web object.
+     * @param label Used to provide additional information about the event that was fired.
+     */
+    @JavascriptInterface
+    public void trackEvent(String category, String action, String label) {
+        WebmakerApplication.getTracker().send(new HitBuilders.EventBuilder()
+                .setCategory(category).setAction(action).setLabel(label).build());
+    }
+
+    /**
+     * Sends a event to Google Analytics with the optional value param
+     * @param category The name you supply for the group of objects you want to track.
+     * @param action Used to define the type of user interaction for the web object.
+     * @param label Used to provide additional information about the event that was fired.
+     * @param value Allows you to provide numerical data about the user event that was fired.
+     */
+    @JavascriptInterface
+    public void trackEvent(String category, String action, String label, long value) {
+        WebmakerApplication.getTracker().send(new HitBuilders.EventBuilder()
+                .setCategory(category).setAction(action).setLabel(label).setValue(value).build());
     }
 }
