@@ -5,12 +5,12 @@ import android.graphics.Bitmap;
 import android.os.Environment;
 import android.util.Log;
 
+import java.io.File;
+import java.util.UUID;
+
 import org.mozilla.webmaker.R;
 import org.mozilla.webmaker.WebmakerActivity;
 import org.mozilla.webmaker.util.Image;
-
-import java.io.File;
-import java.util.UUID;
 
 public class Element extends WebmakerActivity {
 

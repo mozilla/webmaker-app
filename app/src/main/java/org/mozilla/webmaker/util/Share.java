@@ -2,7 +2,6 @@ package org.mozilla.webmaker.util;
 
 import android.app.Activity;
 import android.content.Intent;
-
 import org.mozilla.webmaker.R;
 
 public class Share {
