@@ -7,14 +7,15 @@ import android.util.Log;
 
 import com.google.android.gms.analytics.HitBuilders;
 
-import org.json.JSONObject;
-import org.mozilla.webmaker.BaseActivity;
 import org.mozilla.webmaker.BuildConfig;
+import org.json.JSONObject;
 import org.mozilla.webmaker.WebmakerApplication;
+import org.xwalk.core.JavascriptInterface;
+
+import org.mozilla.webmaker.BaseActivity;
 import org.mozilla.webmaker.activity.Element;
 import org.mozilla.webmaker.router.Router;
 import org.mozilla.webmaker.storage.MemStorage;
-import org.xwalk.core.JavascriptInterface;
 
 public class WebAppInterface {
 
@@ -79,23 +80,23 @@ public class WebAppInterface {
      */
 
     @JavascriptInterface
-    public String getMemStorage(String key) {
+    public String getMemStorage (String key) {
         return getMemStorage(key, false);
     }
 
     @JavascriptInterface
-    public String getMemStorage(String key, final boolean global) {
+    public String getMemStorage (String key, final boolean global) {
         if (!global) key = key.concat(mPrefKey);
         return MemStorage.sharedStorage().get(key);
     }
 
     @JavascriptInterface
-    public void setMemStorage(String key, final String value) {
+    public void setMemStorage (String key, final String value) {
         setMemStorage(key, value, false);
     }
 
     @JavascriptInterface
-    public void setMemStorage(String key, final String value, final boolean global) {
+    public void setMemStorage (String key, final String value, final boolean global) {
         if (!global) key = key.concat(mPrefKey);
         MemStorage.sharedStorage().put(key, value);
     }
