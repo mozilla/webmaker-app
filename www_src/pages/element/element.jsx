@@ -1,6 +1,5 @@
 var React = require('react/addons');
 var render = require('../../lib/render.jsx');
-var router = require('../../lib/router.jsx');
 var api = require('../../lib/api.js');
 var Loading = require('../../components/loading/loading.jsx');
 
@@ -21,7 +20,7 @@ var testIds = {
 
 render(React.createClass({
   mixins: [
-    router,
+    require('../../lib/router.jsx'),
     require('../../lib/snackbar-mixin')
   ],
   uri: function () {

@@ -1,3 +1,5 @@
+// TODO: rename this file to .js, since it's a Mixin, not a react component
+
 module.exports = {
   android: window.Android,
   getRouteParams: function () {
