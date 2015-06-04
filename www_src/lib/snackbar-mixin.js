@@ -46,9 +46,11 @@ module.exports = {
    * @return {JSX} JSX objects for the Snackbar component, and a testing button.
    */
   generateSnackbarTest: function() {
-    return <div>
-      <button onClick={ this.testSnackbar }>generate error</button>
-      { this.generateSnackbar() }
-    </div>
+    return (
+      <div>
+        <button onClick={ this.testSnackbar }>generate error</button>
+        { this.generateSnackbar() }
+      </div>
+    );
   }
 };
