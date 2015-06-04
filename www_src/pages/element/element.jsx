@@ -19,10 +19,11 @@ var testIds = {
   link: 3
 };
 
-var Snackbar = require('../../components/snackbar/snackbar.jsx');
-
 render(React.createClass({
-  mixins: [router],
+  mixins: [
+    router,
+    require('../../lib/snackbar-mixin')
+  ],
   uri: function () {
     var params = this.state.params;
     var element = params.element;
@@ -88,20 +89,6 @@ render(React.createClass({
       this.setState({element: data.element});
     });
   },
-
-  testSnackbar: function() {
-    this.recordError("Oh dear someone pressed the button");
-  },
-
-  recordError: function(errorMsg, details) {
-    if (this.refs.snackbar) {
-      this.refs.snackbar.showMessage(errorMsg);
-    } else {
-      this.pendingError = errorMsg;
-    }
-    console.error(errorMsg, details);
-  },
-
   render: function () {
     var Editor;
     var {params, element} = this.state;
@@ -119,8 +106,7 @@ render(React.createClass({
 
     return (<div>
       <Editor {...props} />
-      <button onClick={ this.testSnackbar }>generate error</button>
-      <Snackbar ref="snackbar" message={this.pendingError}/>
+      { this.generateSnackbarTest() }
     </div>);
   }
 }));
