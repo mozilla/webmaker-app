@@ -19,6 +19,8 @@ var testIds = {
   link: 3
 };
 
+var Snackbar = require('../../components/snackbar/snackbar.jsx');
+
 render(React.createClass({
   mixins: [router],
   uri: function () {
@@ -59,20 +61,17 @@ render(React.createClass({
   save: function (postSave) {
     var edits = this.edits;
     var json = types[edits.type].spec.expand(edits);
-
     api({method: 'patch', uri: this.uri(), json: {
       styles: json.styles,
       attributes: json.attributes
     }}, (err, data) => {
       if (err) {
-        console.error('There was an error updating the element', err);
+        return this.recordError('There was an error updating the element', err);
       }
-
       this.setState({
         elements: edits
       });
       this.edits = false;
-
       if (postSave) {
         postSave();
       }
@@ -81,17 +80,28 @@ render(React.createClass({
   load: function () {
     api({uri: this.uri()}, (err, data) => {
       if (err) {
-        return console.error('Error loading element', err);
+        return this.recordError('Error loading element', err);
       }
-
       if (!data || !data.element) {
-        return console.log('No element found');
+        return this.recordError('No element found');
       }
-
       this.setState({element: data.element});
-
     });
   },
+
+  testSnackbar: function() {
+    this.recordError("Oh dear someone pressed the button");
+  },
+
+  recordError: function(errorMsg, details) {
+    if (this.refs.snackbar) {
+      this.refs.snackbar.showMessage(errorMsg);
+    } else {
+      this.pendingError = errorMsg
+    }
+    console.error(errorMsg, details);
+  },
+
   render: function () {
     var Editor;
     var {params, element} = this.state;
@@ -107,6 +117,10 @@ render(React.createClass({
       props.element = element;
     }
 
-    return (<Editor {...props} />);
+    return (<div>
+      <Editor {...props} />
+      <button onClick={ this.testSnackbar }>generate error</button>
+      <Snackbar ref="snackbar" message={this.pendingError}/>
+    </div>);
   }
 }));
