@@ -51,4 +51,4 @@ module.exports = {
       { this.generateSnackbar() }
     </div>
   }
-}
+};
