@@ -31,8 +31,8 @@
   },
   "homepage": "https://github.com/mozilla/webmaker-android",
   "devDependencies": {
-    "autoless": "^0.1.7",
     "babel": "^5.3.3",
+    "autoless": "git://github.com/k88hudson/autoless.git#notify",
     "babel-core": "^4.7.16",
     "babel-loader": "^4.3.0",
     "colors": "^1.1.0",
@@ -47,14 +47,15 @@
     "mofo-style": "latest",
     "ncp": "^2.0.0",
     "npm": "^2.7.4",
-    "npm-run-all": "^1.2.2",
+    "npm-run-all": "git://github.com/k88hudson/npm-run-all.git#colors",
     "parallelshell": "^1.1.1",
     "proxyquire": "^1.4.0",
     "rimraf": "^2.3.2",
     "should": "^5.2.0",
     "tmp": "^0.0.25",
     "watch": "^0.14.0",
-    "webpack": "^1.7.3"
+    "webpack": "^1.7.3",
+    "webpack-notifier": "git://github.com/k88hudson/webpack-notifier.git#more-options"
   },
   "dependencies": {
     "classnames": "1.2.1",
