@@ -65,6 +65,7 @@
     "react": "0.13.1",
     "react-hammerjs": "0.2.2",
     "react-imageloader": "1.2.0",
+    "react-intl": "^1.2.0",
     "xhr": "2.0.1"
   }
 }

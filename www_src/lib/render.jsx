@@ -4,7 +4,18 @@ var ModalConfirm = require('../components/modal-confirm/modal-confirm.jsx');
 var ModalSwitch = require('../components/modal-switch/modal-switch.jsx');
 var Snackbar = require('../components/snackbar/snackbar.jsx');
 
+var intlData = {
+  locales: ['en-US'],
+  messages: {
+    sign_in: 'Sign In',
+    sign_in_error: 'Looks like there might be a problem with your username or password.',
+    dont_have_account: 'Don\'t have an account?',
+    join_webmaker: 'Join Webmaker'
+  }
+};
+
 var Base = React.createClass({
+  mixins: [require('react-intl').IntlMixin],
   onResume: function () {
     this.setState({isVisible: true});
   },
@@ -47,5 +58,5 @@ var Base = React.createClass({
 });
 
 module.exports = function (Route) {
-  React.render(<Base route={Route} />, document.getElementById('app'));
+  React.render(<Base route={Route} {...intlData} />, document.getElementById('app'));
 };
