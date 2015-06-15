@@ -4,7 +4,6 @@ var assign = require('react/lib/Object.assign');
 var {parseJSON} = require('../../lib/jsonUtils');
 
 var render = require('../../lib/render.jsx');
-var router = require('../../lib/router');
 var Cartesian = require('../../lib/cartesian');
 var Loading = require('../../components/loading/loading.jsx');
 
@@ -37,7 +36,11 @@ var Project = React.createClass({
       return result || pages[0];
     }
   },
-  mixins: [router],
+  mixins: [
+    require('../../lib/router'),
+    require('./transforms'),
+    require('./remix')
+  ],
   getInitialState: function () {
     return {
       loading: true,
@@ -54,16 +57,6 @@ var Project = React.createClass({
   },
 
   componentWillMount: function () {
-    var width = 320;
-    var height = 440;
-    var gutter = 20;
-
-    this.cartesian = new Cartesian({
-      allCoords: [],
-      width,
-      height,
-      gutter
-    });
     this.load();
   },
 
@@ -78,12 +71,6 @@ var Project = React.createClass({
   },
 
   componentDidMount: function () {
-    var el = this.getDOMNode();
-    var bounding = this.refs.bounding;
-    var boundingEl = bounding.getDOMNode();
-    var startX, startY, endX, endY, startDistance, currentX, currentY, currentZoom;
-    var didMove = false;
-
     if (window.Android) {
       var state = window.Android.getMemStorage('state');
       if (this.state.params.mode === 'edit') {
@@ -98,112 +85,6 @@ var Project = React.createClass({
       }
     }
 
-    el.addEventListener('touchstart', (event) => {
-      didMove = false;
-
-      if (event.touches.length > 1) {
-        var dx = event.touches[1].clientX - event.touches[0].clientX;
-        var dy = event.touches[1].clientY - event.touches[0].clientY;
-        startDistance = Math.sqrt(dx*dx + dy*dy);
-      } else {
-        startX = event.touches[0].clientX;
-        startY = event.touches[0].clientY;
-        boundingEl.style.transition = 'none';
-      }
-
-    });
-
-    el.addEventListener('touchmove', (event) => {
-      didMove = true;
-      var translateStr = 'translate(' + this.state.camera.x + 'px, ' + this.state.camera.y + 'px)';
-      var scaleStr = 'scale(' + this.state.zoom + ')';
-      if (event.touches.length > 1) {
-        currentZoom = this.state.zoom;
-        var dx = event.touches[1].clientX - event.touches[0].clientX;
-        var dy = event.touches[1].clientY - event.touches[0].clientY;
-        var distance = Math.sqrt(dx*dx + dy*dy);
-
-        currentZoom = currentZoom + ((distance - startDistance) / ZOOM_SENSITIVITY);
-        currentZoom = Math.min(Math.max(currentZoom, MIN_ZOOM), MAX_ZOOM);
-        scaleStr = 'scale(' + currentZoom + ')';
-      }
-
-      var x = this.state.camera.x;
-      var y = this.state.camera.y;
-      currentX = x + (event.touches[0].clientX - startX);
-      currentY = y + (event.touches[0].clientY - startY);
-      translateStr = 'translate(' + currentX + 'px, ' + currentY + 'px)';
-
-      endX = event.touches[0].clientX;
-      endY = event.touches[0].clientY;
-
-      // Only pan the bounding box if you're not zoomed in on a page
-      if (!this.state.isPageZoomed) {
-        boundingEl.style.transform = translateStr + ' ' + scaleStr;
-      }
-    });
-
-    el.addEventListener('touchend', (event) => {
-      if (event.touches.length === 0) {
-        boundingEl.style.transition = '';
-        if (!didMove) {
-          return;
-        }
-
-        if (!this.state.isPageZoomed) {
-          var state = {camera: {
-            x: currentX,
-            y: currentY
-          }};
-
-          if (typeof currentZoom !== 'undefined') {
-            state.zoom = currentZoom;
-          }
-          this.setState(state);
-
-          startX = undefined;
-          startY = undefined;
-          startDistance = undefined;
-          currentX = undefined;
-          currentY = undefined;
-          currentZoom = undefined;
-        } else {
-          // Handle swipe
-          var swipeDirection = calculateSwipe(startX, startY, endX, endY);
-
-          if (swipeDirection) {
-            var panTargets = {
-              LEFT: {x: this.state.zoomedPageCoords.x + 1, y: this.state.zoomedPageCoords.y},
-              RIGHT: {x: this.state.zoomedPageCoords.x - 1, y: this.state.zoomedPageCoords.y},
-              UP: {x: this.state.zoomedPageCoords.x, y: this.state.zoomedPageCoords.y + 1},
-              DOWN: {x: this.state.zoomedPageCoords.x, y: this.state.zoomedPageCoords.y - 1}
-            };
-
-            // Determine if an adjacent page exists
-            var isAdjacentPage = false;
-            var target = panTargets[swipeDirection];
-
-            this.state.pages.forEach(function (page) {
-              if (page.coords.x === target.x && page.coords.y === target.y) {
-                isAdjacentPage = true;
-              }
-            });
-
-            if (isAdjacentPage) {
-              this.zoomToPage(target);
-            }
-          }
-        }
-      } else {
-        startX = event.touches[0].clientX;
-        startY = event.touches[0].clientY;
-        this.state.camera.x = currentX;
-        this.state.camera.y = currentY;
-        this.state.zoom = currentZoom;
-      }
-
-    });
-
     // Handle button actions
     dispatcher.on('linkClicked', (event) => {
       if (event.targetPageId && this.state.isPageZoomed) {
@@ -212,78 +93,6 @@ var Project = React.createClass({
         this.highlightPage(event.targetPageId, 'selected');
       }
     });
-
-    // Handle remix calls from Android wrapper
-    window.createRemix = () => {
-      var uri = `/users/${this.state.params.user}/projects/${this.state.params.project}/remixes`;
-
-      // Duplicate project via API call
-      api({
-        method: 'post',
-        uri: uri
-      }, (err, data) => {
-        if (err) {
-          return console.error('Error remixing project', err);
-        }
-
-        var projectID = data.project.id;
-        var projectTitle = data.project.title;
-
-        // Get author's username
-        api({
-          method: 'GET',
-          uri: `/users/${this.state.params.user}/projects/${this.state.params.project}`
-        }, (err, moreData) => {
-          if (err) {
-            return console.error('Error remixing project', err);
-          }
-
-          if (window.Android) {
-            window.Android.setView(
-              `/users/${this.state.user.id}/projects/${projectID}`,
-              JSON.stringify({
-                isFreshRemix: true,
-                title: projectTitle,
-                originalAuthor: moreData.project.author.username
-              })
-            );
-          }
-        });
-      });
-    };
-
-    if (this.android && this.state.routeData.isFreshRemix) {
-      // Notify user that THIS IS A REEEEEEMIXXXXX
-      dispatcher.fire('modal-confirm:show', {
-        config: {
-          header: 'Project Remix',
-          body: `This is your copy of ${this.state.routeData.title}. You can add or change anything. The original will stay the same. Have fun!`,
-          attribution: this.state.routeData.originalAuthor,
-          icon: 'tinker.png',
-          buttonText: 'OK, got it!'
-        }
-      });
-
-      // Prepend "Remix of..." to project name
-
-      var remixTitle = this.state.routeData.title;
-
-      if (!remixTitle.match(/^Remix of/)) {
-        remixTitle = 'Remix of ' + remixTitle;
-      }
-
-      api({
-        method: 'PATCH',
-        uri: `/users/${this.state.user.id}/projects/${this.state.params.project}`,
-        json: {
-          title: remixTitle
-        }
-      }, function (err, body) {
-        if (err) {
-          console.error('Could not update project settings.');
-        }
-      });
-    }
   },
 
   /**
