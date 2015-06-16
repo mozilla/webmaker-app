@@ -6,8 +6,6 @@ var {Menu, PrimaryButton, FullWidthButton} = require('../../components/action-me
 var dispatcher = require('../../lib/dispatcher');
 var PageBlock = require("./pageblock.jsx");
 
-var DEFAULT_ZOOM = 0.5;
-
 var Project = React.createClass({
   mixins: [
     require('../../lib/router'),
@@ -26,7 +24,7 @@ var Project = React.createClass({
       selectedEl: '',
       pages: [],
       camera: {},
-      zoom: DEFAULT_ZOOM,
+      zoom: Project.DEFAULT_ZOOM,
       isPageZoomed: false
     };
   },
@@ -59,14 +57,19 @@ var Project = React.createClass({
         }
       }
     }
+  },
 
-    // Handle button actions
-    dispatcher.on('linkClicked', (event) => {
-      if (event.targetPageId && this.state.isPageZoomed) {
-        this.zoomToPage( this.pageIdToCoords(event.targetPageId) );
-      } else {
-        this.highlightPage(event.targetPageId, 'selected');
-      }
+  formPages: function() {
+    return this.state.pages.map((page) => {
+      var props = {
+        page,
+        selected: page.id === this.state.selectedEl,
+        source: page.id === this.state.sourcePageID,
+        target: page.id === this.state.selectedEl && this.state.params.mode === 'link',
+        transform: this.cartesian.getTransform(page.coords),
+        onClick: this.onPageClick.bind(this, page)
+      };
+      return <PageBlock {...props} />;
     });
   },
 
@@ -74,25 +77,13 @@ var Project = React.createClass({
     // Prevent pull to refresh
     // FIXME: TODO: This should be done by preventDefaulting the touch event, not via CSS.
     document.body.style.overflowY = 'hidden';
-
     var mode = this.state.params.mode;
     var isPlayOnly = (mode === 'play' || mode === 'link');
-
     return (
       <div id="map">
         <div ref="bounding" className="bounding" style={ this.getBoundingStyle() }>
           <div className="test-container" style={ this.getContainerStyle() }>
-          {this.state.pages.map((page) => {
-            var props = {
-              page,
-              selected: page.id === this.state.selectedEl,
-              source: page.id === this.state.sourcePageID,
-              target: page.id === this.state.selectedEl && this.state.params.mode === 'link',
-              transform: this.cartesian.getTransform(page.coords),
-              onClick: this.onPageClick.bind(this, page)
-            };
-            return (<PageBlock {...props} />);
-          })}
+          { this.formPages() }
           { this.generateAddContainers(isPlayOnly) }
           </div>
         </div>

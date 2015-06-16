@@ -2,7 +2,18 @@ var types = require('../../components/basic-element/basic-element.jsx').types;
 var api = require('../../lib/api');
 
 module.exports = {
-    setDestination: function () {
+  componentDidMount: function () {
+    // Handle button actions
+    dispatcher.on('linkClicked', (event) => {
+      if (event.targetPageId && this.state.isPageZoomed) {
+        this.zoomToPage( this.pageIdToCoords(event.targetPageId) );
+      } else {
+        this.highlightPage(event.targetPageId, 'selected');
+      }
+    });
+  },
+
+  setDestination: function () {
     var patchedState = this.state.routeData.linkState;
 
     patchedState = types.link.spec.expand(patchedState);

@@ -3,6 +3,9 @@ var Cartesian = require('../../lib/cartesian');
 var DEFAULT_ZOOM = 0.5;
 
 module.exports = {
+  statics: {
+    DEFAULT_ZOOM: DEFAULT_ZOOM
+  },
 
   componentWillMount: function () {
     var width = 320;
