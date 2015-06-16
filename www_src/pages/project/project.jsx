@@ -3,7 +3,6 @@ var {parseJSON} = require('../../lib/jsonUtils');
 var render = require('../../lib/render.jsx');
 var Loading = require('../../components/loading/loading.jsx');
 var {Menu, PrimaryButton, FullWidthButton} = require('../../components/action-menu/action-menu.jsx');
-var dispatcher = require('../../lib/dispatcher');
 var PageBlock = require("./pageblock.jsx");
 
 var Project = React.createClass({

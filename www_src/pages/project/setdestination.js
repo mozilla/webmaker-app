@@ -1,5 +1,6 @@
 var types = require('../../components/basic-element/basic-element.jsx').types;
 var api = require('../../lib/api');
+var dispatcher = require('../../lib/dispatcher');
 
 module.exports = {
   componentDidMount: function () {
