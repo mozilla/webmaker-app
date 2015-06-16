@@ -1,3 +1,6 @@
+var dispatcher = require('../../lib/dispatcher');
+var api = require('../../lib/api');
+
 module.exports = {
   componentDidMount: function() {
     // Handle remix calls from Android wrapper

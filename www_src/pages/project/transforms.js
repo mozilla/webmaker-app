@@ -1,17 +1,10 @@
+var calculateSwipe = require('../../lib/swipe.js');
+
+var MAX_ZOOM = 0.8;
+var MIN_ZOOM = 0.18;
+var ZOOM_SENSITIVITY = 300;
+
 module.exports = {
-  componentWillMount: function () {
-    var width = 320;
-    var height = 440;
-    var gutter = 20;
-
-    this.cartesian = new Cartesian({
-      allCoords: [],
-      width,
-      height,
-      gutter
-    });
-  },
-
   componentDidMount: function () {
     var el = this.getDOMNode();
     var bounding = this.refs.bounding;
@@ -19,8 +12,6 @@ module.exports = {
     var startX, startY, endX, endY, startDistance, currentX, currentY, currentZoom;
     var didMove = false;
 
-    // FIXME: TODO: all these things need to be done via render, not via
-    //              style manipulation post-render.
 
     el.addEventListener('touchstart', (event) => {
       didMove = false;
@@ -41,15 +32,11 @@ module.exports = {
       didMove = true;
       var translateStr = 'translate(' + this.state.camera.x + 'px, ' + this.state.camera.y + 'px)';
       var scaleStr = 'scale(' + this.state.zoom + ')';
-
       if (event.touches.length > 1) {
         currentZoom = this.state.zoom;
         var dx = event.touches[1].clientX - event.touches[0].clientX;
         var dy = event.touches[1].clientY - event.touches[0].clientY;
         var distance = Math.sqrt(dx*dx + dy*dy);
-
-        // We know that we actually need to transform the target such that we maintain the
-        // translation already in effect, but scale
 
         currentZoom = currentZoom + ((distance - startDistance) / ZOOM_SENSITIVITY);
         currentZoom = Math.min(Math.max(currentZoom, MIN_ZOOM), MAX_ZOOM);
