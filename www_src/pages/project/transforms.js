@@ -12,11 +12,21 @@ function dangerouslySetStyle(element, style) {
   assign(element.style, style);
 }
 
+/**
+ * utility function for constraining a value
+ */
+function constrain(v,min,max) {
+  return v<min ? min : v>max ? max : v;
+}
 
+/**
+ * Touch handler for projects
+ */
 var handleTouches = function(component) {
   var node = component.getDOMNode();
   var master = component.refs.bounding.getDOMNode();
 
+  // administrative values:
   var didMove = false,
       startX,
       startY,
@@ -27,6 +37,7 @@ var handleTouches = function(component) {
       currentY,
       currentZoom;
 
+  // partial reset, used by handleTouchEnd
   var resetValues = function() {
     startX = undefined;
     startY = undefined;
@@ -36,6 +47,34 @@ var handleTouches = function(component) {
     currentZoom = undefined;
   };
 
+  // Swipe handling is supposed to kick in for... something...
+  var handleSwipe = () => {
+    // FIXME: TODO: turned off for now, in part because of Laura's comments, in
+    //              part because it makes reimplementing transform handling easier.
+    return;
+
+    // --- original code ---
+    var swipeDirection = calculateSwipe(startX, startY, endX, endY);
+    if (swipeDirection) {
+      var coords = component.state.zoomedPageCoords,
+          cx = coords.x,
+          cy = coords.y;
+      var panTargets = {
+        LEFT:  { x: cx + 1, y: cy     },
+        RIGHT: { x: cx - 1, y: cy     },
+        UP:    { x: cx,     y: cy + 1 },
+        DOWN:  { x: cx,     y: cy - 1 }
+      };
+      var target = panTargets[swipeDirection];
+      // Determine if the desired adjacent page exists
+      var pages = component.state.pages;
+      if (pages.some(p => p.coords.x === target.x && p.coords.y === target.y)) {
+        component.zoomToPage(target);
+      }
+    }
+  };
+
+
   /**
    * [description]
    * @param  {[type]} event [description]
@@ -43,17 +82,21 @@ var handleTouches = function(component) {
    */
   var handleTouchStart = (event) => {
     didMove = false;
-    if (event.touches.length > 1) {
-      var dx = event.touches[1].clientX - event.touches[0].clientX;
-      var dy = event.touches[1].clientY - event.touches[0].clientY;
+    var touches = event.touches,
+        t0 = { x: touches[0].clientX, y: touches[0].clientY };
+    // multiple fingers
+    if (touches.length > 1) {
+      var dx = touches[1].clientX - t0.x;
+      var dy = touches[1].clientY - t0.y;
       startDistance = Math.sqrt(dx*dx + dy*dy);
-    } else {
-      startX = event.touches[0].clientX;
-      startY = event.touches[0].clientY;
-      dangerouslySetStyle(master, {
-        transition: "none"
-      });
     }
+    // single finger
+    else {
+      startX = t0.x;
+      startY = t0.y;
+      dangerouslySetStyle(master, { transition: "none" });
+    }
+    // interaction continues in handleTouchMove
   };
 
   /**
@@ -63,61 +106,32 @@ var handleTouches = function(component) {
    */
   var handleTouchMove = (event) => {
     didMove = true;
-    var translateStr = 'translate(' + component.state.camera.x + 'px, ' + component.state.camera.y + 'px)';
-    var scaleStr = 'scale(' + component.state.zoom + ')';
-    if (event.touches.length > 1) {
-      currentZoom = component.state.zoom;
-      var dx = event.touches[1].clientX - event.touches[0].clientX;
-      var dy = event.touches[1].clientY - event.touches[0].clientY;
-      var distance = Math.sqrt(dx*dx + dy*dy);
-
-      currentZoom = currentZoom + ((distance - startDistance) / ZOOM_SENSITIVITY);
-      currentZoom = Math.min(Math.max(currentZoom, MIN_ZOOM), MAX_ZOOM);
-      scaleStr = 'scale(' + currentZoom + ')';
+    var touches = event.touches,
+        t0 = { x: touches[0].clientX, y: touches[0].clientY },
+        zoom = component.state.zoom,
+        camera = component.state.camera,
+        cx = camera.x,
+        cy = camera.y,
+        dx, dy, d;
+    // update scale, due to multiple finger input
+    if (touches.length > 1) {
+      dx = touches[1].clientX - t0.x;
+      dy = touches[1].clientY - t0.y;
+      d  = Math.sqrt(dx*dx + dy*dy);
+      currentZoom = constrain( zoom + (d-startDistance)/ZOOM_SENSITIVITY, MIN_ZOOM, MAX_ZOOM);
+      zoom = currentZoom
     }
-
-    var x = component.state.camera.x;
-    var y = component.state.camera.y;
-    currentX = x + (event.touches[0].clientX - startX);
-    currentY = y + (event.touches[0].clientY - startY);
-    translateStr = 'translate(' + currentX + 'px, ' + currentY + 'px)';
-
-    endX = event.touches[0].clientX;
-    endY = event.touches[0].clientY;
-
-    // Only pan the bounding box if you're not zoomed in on a page
-    if (!component.state.isPageZoomed) {
-      dangerouslySetStyle(master, {
-        transform: translateStr + ' ' + scaleStr
-      });
-    }
-  };
-
-  var handleSwipe = () => {
-    var swipeDirection = calculateSwipe(startX, startY, endX, endY);
-
-    if (swipeDirection) {
-      var panTargets = {
-        LEFT:  { x: component.state.zoomedPageCoords.x + 1, y: component.state.zoomedPageCoords.y     },
-        RIGHT: { x: component.state.zoomedPageCoords.x - 1, y: component.state.zoomedPageCoords.y     },
-        UP:    { x: component.state.zoomedPageCoords.x,     y: component.state.zoomedPageCoords.y + 1 },
-        DOWN:  { x: component.state.zoomedPageCoords.x,     y: component.state.zoomedPageCoords.y - 1 }
-      };
-
-      // Determine if an adjacent page exists
-      var isAdjacentPage = false;
-      var target = panTargets[swipeDirection];
-
-      component.state.pages.forEach(function (page) {
-        if (page.coords.x === target.x && page.coords.y === target.y) {
-          isAdjacentPage = true;
-        }
-      });
-
-      if (isAdjacentPage) {
-        component.zoomToPage(target);
-      }
-    }
+    // update translation
+    currentX = cx + (t0.x - startX);
+    currentY = cy + (t0.y - startY);
+    // update tracking value
+    endX = t0.x;
+    endY = t0.y;
+    // and finally, bind the transform
+    var translation = 'translate(' + currentX + 'px, ' + currentY + 'px)',
+        scale = 'scale(' + zoom + ')',
+        transform = [translation, scale].join(' ');
+    dangerouslySetStyle(master, { transform: transform });
   };
 
   /**
@@ -126,42 +140,37 @@ var handleTouches = function(component) {
    * @return {[type]}       [description]
    */
   var handleTouchEnd = (event) => {
-    if (event.touches.length === 0) {
-      dangerouslySetStyle(master, {
-        trasition: ""
-      });
-      if (!didMove) {
-        return;
-      }
-
+    var touches = event.touches;
+    // there are no more fingers on the screen
+    if (touches.length === 0) {
+      dangerouslySetStyle(master, { transition: "" });
+      if (!didMove) { return; }
       if (!component.state.isPageZoomed) {
-        var cameraUpdate = {camera: {
-          x: currentX,
-          y: currentYcameraUpdate
-        }};
-
-        if (typeof currentZoom !== 'undefined') {
-          cameraUpdate.zoom = currentZoom;
-        }
+        var cameraUpdate = {
+          camera: { x: currentX, y: currentY },
+          zoom: currentZoom ? currentZoom : component.state.zoom
+        };
         component.setState(cameraUpdate);
-
         resetValues();
       }
-
-      // Can this trigger?
+      // This kicks in when we're at the zoomest level of zoom.
+      // On a phone: page view. On a Nexus 7: nothing like page view.
       else { handleSwipe(); }
     }
-
+    // there fingers left on the screen
     else {
-      startX = event.touches[0].clientX;
-      startY = event.touches[0].clientY;
+      startX = touches[0].clientX;
+      startY = touches[0].clientY;
+      // FIXME: TODO: we should not do this. We cannot modify "state" unless we intend
+      //              for that to immediately cause a render(), which means setting them
+      //              through setState() instead. The following code overloads state
+      //              as a local variable, even though anything can at anytime invalidate
+      //              its content because of an async render() trigger from somewhere else.
       component.state.camera.x = currentX;
       component.state.camera.y = currentY;
       component.state.zoom = currentZoom;
     }
-
   };
-
 
   node.addEventListener('touchstart', handleTouchStart);
   node.addEventListener('touchmove', handleTouchMove);
