@@ -30,6 +30,8 @@ var handleTouches = function(component) {
   var didMove = false,
       startX,
       startY,
+      startDX = 0,
+      startDY = 0,
       startDistance,
       endX,
       endY,
@@ -41,6 +43,8 @@ var handleTouches = function(component) {
   var resetValues = function() {
     startX = undefined;
     startY = undefined;
+    startDX = 0;
+    startDY = 0;
     startDistance = undefined;
     currentX = undefined;
     currentY = undefined;
@@ -86,9 +90,9 @@ var handleTouches = function(component) {
         t0 = { x: touches[0].clientX, y: touches[0].clientY };
     // multiple fingers
     if (touches.length > 1) {
-      var dx = touches[1].clientX - t0.x;
-      var dy = touches[1].clientY - t0.y;
-      startDistance = Math.sqrt(dx*dx + dy*dy);
+      startDX = touches[1].clientX - t0.x;
+      startDY = touches[1].clientY - t0.y;
+      startDistance = Math.sqrt(startDX*startDX + startDY*startDY);
     }
     // single finger
     else {
@@ -112,21 +116,26 @@ var handleTouches = function(component) {
         camera = component.state.camera,
         cx = camera.x,
         cy = camera.y,
-        dx, dy, d;
+        dx = 0, dy = 0, d = false;
+
     // update scale, due to multiple finger input
     if (touches.length > 1) {
       dx = touches[1].clientX - t0.x;
       dy = touches[1].clientY - t0.y;
+
       d  = Math.sqrt(dx*dx + dy*dy);
       currentZoom = constrain( zoom + (d-startDistance)/ZOOM_SENSITIVITY, MIN_ZOOM, MAX_ZOOM);
       zoom = currentZoom
     }
-    // update translation
-    currentX = cx + (t0.x - startX);
-    currentY = cy + (t0.y - startY);
+
+    // update translation, corrected for our zoom center
+    currentX = cx + (t0.x - startX) + (dx - startDX);
+    currentY = cy + (t0.y - startY) + (dy - startDY);
+
     // update tracking value
     endX = t0.x;
     endY = t0.y;
+
     // and finally, bind the transform
     var translation = 'translate(' + currentX + 'px, ' + currentY + 'px)',
         scale = 'scale(' + zoom + ')',
@@ -141,13 +150,17 @@ var handleTouches = function(component) {
    */
   var handleTouchEnd = (event) => {
     var touches = event.touches;
+
     // there are no more fingers on the screen
     if (touches.length === 0) {
       dangerouslySetStyle(master, { transition: "" });
       if (!didMove) { return; }
       if (!component.state.isPageZoomed) {
         var cameraUpdate = {
-          camera: { x: currentX, y: currentY },
+          camera: {
+            x: currentX,
+            y: currentY
+          },
           zoom: currentZoom ? currentZoom : component.state.zoom
         };
         component.setState(cameraUpdate);
@@ -161,6 +174,8 @@ var handleTouches = function(component) {
     else {
       startX = touches[0].clientX;
       startY = touches[0].clientY;
+      startDX = 0;
+      startDY = 0;
       // FIXME: TODO: we should not do this. We cannot modify "state" unless we intend
       //              for that to immediately cause a render(), which means setting them
       //              through setState() instead. The following code overloads state
