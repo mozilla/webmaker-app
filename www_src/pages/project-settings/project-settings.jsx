@@ -111,7 +111,7 @@ var ProjectSettings = React.createClass({
       this.setState({loading: false});
       if (err) {
         // @todo Handle error state (GH-1922)
-        console.error('Could not update project settings.');
+        console.error(this.getIntlMessage('error_project_settings_update'));
       }
       if (typeof onSaveComplete === 'function') {
         onSaveComplete();

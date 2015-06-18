@@ -230,7 +230,7 @@ var Project = React.createClass({
         uri: uri
       }, (err, data) => {
         if (err) {
-          return console.error('Error remixing project', err);
+          return console.error(this.getIntlMessage('error_remix'), err);
         }
 
         var projectID = data.project.id;
@@ -242,7 +242,7 @@ var Project = React.createClass({
           uri: `/users/${this.state.params.user}/projects/${this.state.params.project}`
         }, (err, moreData) => {
           if (err) {
-            return console.error('Error remixing project', err);
+            return console.error(this.getIntlMessage('error_remix'), err);
           }
 
           if (window.Android) {
@@ -287,7 +287,7 @@ var Project = React.createClass({
         }
       }, function (err, body) {
         if (err) {
-          console.error('Could not update project settings.');
+          console.error(this.getIntlMessage('error_project_settings_update'));
         }
       });
     }
@@ -327,7 +327,7 @@ var Project = React.createClass({
       });
 
       if (!selectedPage) {
-        console.warn('Page not found.');
+        console.warn(this.getIntlMessage('error_page_404'));
         return;
       }
 
@@ -412,9 +412,9 @@ var Project = React.createClass({
       this.setState({loading: false});
 
       if (err) {
-        reportError('Error loading project', err);
+        reportError(this.getIntlMessage('error_project'), err);
       } else if (!data || !data.pages) {
-        reportError('No project found...');
+        reportError(this.getIntlMessage('error_project_404'));
       } else {
         var state = {};
         var pages = this.formatPages(data.pages);
@@ -461,11 +461,11 @@ var Project = React.createClass({
       }, (err, data) => {
         this.setState({loading: false});
         if (err) {
-          return reportError('Error loading project', err);
+          return reportError(this.getIntlMessage('error_project'), err);
         }
 
         if (!data || !data.page) {
-          return reportError('No page id returned');
+          return reportError(this.getIntlMessage('error_project_404'));
         }
 
         json.id = data.page.id;
@@ -506,7 +506,7 @@ var Project = React.createClass({
     }, (err) => {
       this.setState({loading: false});
       if (err) {
-        return reportError('There was an error deleting the page', err);
+        return reportError(this.getIntlMessage('error_delete_page'), err);
       }
 
       this.cartesian.allCoords.splice(index, 1);
@@ -553,7 +553,7 @@ var Project = React.createClass({
     }, (err, data) => {
       this.setState({loading: false});
       if (err) {
-        reportError('There was an error updating the element', err);
+        reportError(this.getIntlMessage('error_update_element'), err);
       }
 
       if (window.Android) {

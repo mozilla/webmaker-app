@@ -45,6 +45,7 @@ var SignIn = React.createClass({
   },
 
   // FIXME: TODO: move to statics?
+  // Todo: localization
   fields: [
     {
       name: 'username',
@@ -91,7 +92,7 @@ var SignIn = React.createClass({
           window.Android.trackEvent('Login', 'Sign In', 'Sign In Error');
         }
         this.setState({globalError: true});
-        return reportError("Error while trying to log in", err);
+        return reportError(this.getIntlMessage('error_sign_in'), err);
       }
 
       this.replaceState(this.getInitialState());
@@ -134,7 +135,7 @@ var SignIn = React.createClass({
          {this.getIntlMessage('sign_in')}
         </button>
         <div className="error" hidden={!this.state.globalError}>
-          {this.getIntlMessage('sign_in_error')}
+          {this.getIntlMessage('error_sign_in')}
         </div>
       </div>
       <div className="form-group text-center text-larger">

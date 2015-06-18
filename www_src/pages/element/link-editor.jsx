@@ -51,7 +51,7 @@ var LinkEditor = React.createClass({
       }
     }, (err, data) => {
       if (err) {
-        console.error('There was an error updating the element', err);
+        console.error(this.getIntlMessage('error_update_element'), err);
       }
 
       if (window.Android) {

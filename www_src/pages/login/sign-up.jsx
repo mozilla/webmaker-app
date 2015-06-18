@@ -10,7 +10,11 @@ var Link = require('../../components/link/link.jsx');
 // Component for the Sign Up/Create user form. See Login view for usage.
 var SignUp = React.createClass({
 
-  mixins: [React.addons.LinkedStateMixin, require('../../lib/validators')],
+  mixins: [
+    React.addons.LinkedStateMixin,
+    require('../../lib/validators'),
+    require('react-intl').IntlMixin
+  ],
 
   // Props:
   //   show
@@ -49,6 +53,7 @@ var SignUp = React.createClass({
   // Consumed by validationMixin
   // and used to generate form fields
   // FIXME: TODO: move to statics?
+  // todo: localize
   fields: [
     {
       name: 'username',
@@ -106,8 +111,8 @@ var SignUp = React.createClass({
         if (window.Android) {
           window.Android.trackEvent('Login', 'Sign Up', 'Sign Up Error');
         }
-        this.setState({globalError: err.message || 'Something went wrong.' });
-        return reportError("Error while trying to sign up", err);
+        this.setState({globalError: err.message || this.getIntlMessage('error_general') });
+        return reportError(this.getIntlMessage('error_sign_up'), err);
       }
 
       this.replaceState(this.getInitialState());
@@ -161,20 +166,21 @@ var SignUp = React.createClass({
         <label className="checkbox">
           <input type="checkbox" checked={this.state.feedback} onChange={this.toggleState('feedback')} />
           <span className="checkbox-ui" />
-          <span>Email me updates about Webmaker</span>
+          <span>{this.getIntlMessage('email_updates')}</span>
         </label>
       </div>
       <div className="form-group">
         <button className="btn btn-block" onClick={this.onSubmit} disabled={!isValid}>
-          Join Webmaker
+          {this.getIntlMessage('join_webmaker')}
         </button>
         <div className="error" hidden={!this.state.globalError}>
           {this.state.globalError}
         </div>
+        {/* TODO: localize, do we need legal to sign off on translations? */}
         <p className="by-joining">By joining, I agree to Mozilla Webmaker&rsquo;s <Link external="https://webmaker.org/en-US/terms">Terms</Link> and <Link external="https://webmaker.org/en-US/privacy">Privacy Policy</Link></p>
       </div>
       <div className="form-group text-center text-larger already-joined">
-        Already joined? <a href="#" onClick={this.changeMode}>Sign in</a>
+        {this.getIntlMessage('already_joined')} <a href="#" onClick={this.changeMode}>{this.getIntlMessage('sign_in')}</a>
       </div>
     </form>);
   }

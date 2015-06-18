@@ -25,10 +25,10 @@
 
     <!-- Login -->
     <string name="sign_in">Sign In</string>
-    <string name="sign_in_error">Looks like there might be a problem with your username or password.</string>
     <string name="dont_have_account">Don't have an account?</string>
     <string name="join_webmaker">Join Webmaker</string>
-
+    <string name="already_joined">Already joined?</string>
+    <string name="email_updates">Email me updates about Webmaker</string>
     <!-- Make -->
     <string name="log_out">Log out</string>
     <string name="create_a_project">Create a Project</string>
@@ -65,6 +65,25 @@
 
     <!-- Project Settings -->
     <string name="title">Title</string>
+
+    <!-- Errors -->
+    <string name="error_general">Something went wrong.</string>
+    <string name="error_sign_in">Looks like there might be a problem with your username or password.</string>
+    <string name="error_sign_up">There was a problem creating your account.</string>
+    <string name="error_featured">Error getting featured projects</string>
+    <string name="error_featured_404">No featured projects found</string>
+    <string name="error_update_element">There was an error updating the element</string>
+    <string name="error_element">Error loading element</string>
+    <string name="error_element_404">No element found</string>
+    <string name="error_create_element">There was a problem creating an element</string>
+    <string name="error_delete_element">There was a problem deleting the element</string>
+    <string name="error_page">Error loading page</string>
+    <string name="error_page_404">No page found</string>
+    <string name="error_delete_page">There was a problem deleting the page</string>
+    <string name="error_remix">Error remixing project</string>
+    <string name="error_project_settings_update">There was an error updating the project settings</string>
+    <string name="error_project">Error loading project</string>
+    <string name="error_project_404">No project found</string>
 
     <!-- Google Analytics App Name & Id -->
     <string name="ga_appName">Mobile App</string>
