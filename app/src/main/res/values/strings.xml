@@ -1,4 +1,5 @@
 <resources>
+    <!-- Titles -->
     <string name="app_name">Webmaker</string>
     <string name="title_section1">Discover</string>
     <string name="title_section2">Make</string>
@@ -20,6 +21,13 @@
     <string name="share_subject">Webmaker</string>
     <string name="share_body">Check out this project on Webmaker!</string>
     <string name="share_url">https://beta.webmaker.org</string>
+    <string name="hello">Hello world!</string>
+
+    <!-- Main Content -->
+    <string name="sign_in">Sign In</string>
+    <string name="sign_in_error">Looks like there might be a problem with your username or password.</string>
+    <string name="dont_have_account">Don't have an account?</string>
+    <string name="join_webmaker">Join Webmaker</string>
 
     <!-- Google Analytics App Name & Id -->
     <string name="ga_appName">Mobile App</string>

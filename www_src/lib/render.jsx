@@ -6,14 +6,8 @@ var Snackbar = require('../components/snackbar/snackbar.jsx');
 
 var intlData = {
   locales: ['en-US'],
-  messages: {
-    sign_in: 'Sign In',
-    sign_in_error: 'Looks like there might be a problem with your username or password.',
-    dont_have_account: 'Don\'t have an account?',
-    join_webmaker: 'Join Webmaker'
-  }
+  messages: require('../compiled/strings/en/strings.json')
 };
-
 var Base = React.createClass({
   mixins: [require('react-intl').IntlMixin],
   onResume: function () {

@@ -7,6 +7,7 @@
 node_modules/
 app/src/main/assets/www/
 www_src/config.js
+www_src/compiled/
 .idea
 webmaker-*.iml
 npm-debug.log*
