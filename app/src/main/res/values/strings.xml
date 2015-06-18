@@ -23,11 +23,20 @@
     <string name="share_url">https://beta.webmaker.org</string>
     <string name="hello">Hello world!</string>
 
-    <!-- Main Content -->
+    <!-- Login -->
     <string name="sign_in">Sign In</string>
     <string name="sign_in_error">Looks like there might be a problem with your username or password.</string>
     <string name="dont_have_account">Don't have an account?</string>
     <string name="join_webmaker">Join Webmaker</string>
+
+    <!-- Make -->
+    <string name="log_out">Log out</string>
+    <string name="create_a_project">Create a Project</string>
+    <!-- Share and Delete are part of the menu on each card -->
+    <string name="share">Share</string>
+    <string name="delete">Delete</string>
+
+    
 
     <!-- Google Analytics App Name & Id -->
     <string name="ga_appName">Mobile App</string>
