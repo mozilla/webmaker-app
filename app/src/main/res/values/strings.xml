@@ -63,6 +63,9 @@
     <string name="green">Green</string>
     <string name="blue">Blue</string>
 
+    <!-- Project Settings -->
+    <string name="title">Title</string>
+
     <!-- Google Analytics App Name & Id -->
     <string name="ga_appName">Mobile App</string>
     <string name="ga_appId">97402987</string>

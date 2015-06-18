@@ -10,7 +10,8 @@ var ProjectSettings = React.createClass({
 
   mixins: [
     React.addons.LinkedStateMixin,
-    require('../../lib/router')
+    require('../../lib/router'),
+    require('react-intl').IntlMixin
   ],
 
   getInitialState: function () {
@@ -47,7 +48,7 @@ var ProjectSettings = React.createClass({
     return (
       <div id="projectSettings">
         <div>
-          <TextInput id="title" ref="title" label="Title" maxlength={25} minlength={4} linkState={this.linkState} />
+          <TextInput id="title" ref="title" label={this.getIntlMessage('title')} maxlength={25} minlength={4} linkState={this.linkState} />
           <button hidden={window.Android} onClick={this.save}>DEBUG:Save</button>
         </div>
 
