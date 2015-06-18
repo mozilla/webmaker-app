@@ -67,6 +67,9 @@ var Alpha = React.createClass({
 });
 
 var RGB = React.createClass({
+  mixins: [
+    require('react-intl').IntlMixin
+  ],
   generateOnChangeCallback: function (label) {
     return (value) => {
       var color = this.props.color;
@@ -76,11 +79,12 @@ var RGB = React.createClass({
   },
   render: function () {
     return (<div>
-      {['Red', 'Green', 'Blue'].map((label, i) => {
+      {/* Note: 'red', 'green', 'blue' are localized strings. If you are changing them, you must update strings.xml */}
+      {['red', 'green', 'blue'].map((label, i) => {
         var lowercaseLabel = label.toLowerCase();
         var currentValue = this.props.color[lowercaseLabel]();
         return (<div key={label} className="form-group">
-          <label>{label}</label>
+          <label>{this.getIntlMessage(label)}</label>
           <Slider value={currentValue} max={255} onChange={this.generateOnChangeCallback(lowercaseLabel)} />
         </div>);
       })}
@@ -106,7 +110,7 @@ var ColorSpectrum = React.createClass({
         <RGB color={color} onChange={this.updateColor} />
       </div>
       <div className="form-group" hidden={!this.props.Alpha}>
-        <label>Opacity</label>
+        <label>this.getIntlMessage('opacity')</label>
         <Alpha color={color} onChange={this.updateColor} />
       </div>
     </div>);

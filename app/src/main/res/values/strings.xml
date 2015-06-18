@@ -57,7 +57,12 @@
     <string name="change_link_destination">Change Link Destination</string>
     <string name="set_link_destination">Set Link Destination</string>
     <string name="background_color">Background Color</string>
-    
+
+    <!-- Color Spectrum (Tinker Mode) -->
+    <string name="red">Red</string>
+    <string name="green">Green</string>
+    <string name="blue">Blue</string>
+
     <!-- Google Analytics App Name & Id -->
     <string name="ga_appName">Mobile App</string>
     <string name="ga_appId">97402987</string>
