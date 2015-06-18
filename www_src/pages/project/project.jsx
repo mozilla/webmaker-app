@@ -37,7 +37,7 @@ var Project = React.createClass({
       return result || pages[0];
     }
   },
-  mixins: [router],
+  mixins: [router, require('react-intl').IntlMixin],
   getInitialState: function () {
     return {
       loading: true,
@@ -625,7 +625,7 @@ var Project = React.createClass({
           {removePageButton}
           <PrimaryButton url={pageUrl} off={isPlayOnly || !this.state.selectedEl} href="/pages/page" icon="../../img/pencil.svg" />
           <PrimaryButton onClick={this.zoomFromPage} off={!this.state.isPageZoomed} icon="../../img/zoom-out.svg" />
-          <FullWidthButton onClick={this.setDestination} off={this.state.params.mode !== 'link' || !this.state.selectedEl}>Set Destination</FullWidthButton>
+          <FullWidthButton onClick={this.setDestination} off={this.state.params.mode !== 'link' || !this.state.selectedEl}>{this.getIntlMessage('set_destination')}</FullWidthButton>
         </Menu>
 
         <Loading on={this.state.loading} />

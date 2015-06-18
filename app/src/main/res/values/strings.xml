@@ -36,7 +36,8 @@
     <string name="share">Share</string>
     <string name="delete">Delete</string>
 
-    
+    <!-- Project -->
+    <string name="set_destination">Set Destination</string>
 
     <!-- Google Analytics App Name & Id -->
     <string name="ga_appName">Mobile App</string>
