@@ -39,7 +39,8 @@ var TextEditor = React.createClass({
   mixins: [
     React.addons.LinkedStateMixin,
     require('./witheditable'),
-    require('./font-selector')
+    require('./font-selector'),
+    require('react-intl').IntlMixin
   ],
   getInitialState: function () {
     return TextBlock.spec.flatten(this.props.element, {defaults: true});
@@ -63,23 +64,23 @@ var TextEditor = React.createClass({
           </div>
           <div className="editor-options">
             <div className="form-group">
-              <button className="btn btn-block" onClick={this.editText}>{ this.state.editing? "Done" : "Edit text"}</button>
+              <button className="btn btn-block" onClick={this.editText}>{ this.state.editing? this.getIntlMessage('done') : this.getIntlMessage('edit_text')}</button>
             </div>
             <div className="form-group">
-              <label>Font</label>
+              <label>{this.getIntlMessage('font')}</label>
               { this.generateFontSelector() }
             </div>
             <div className="form-group">
-              <label>Color</label>
+              <label>{this.getIntlMessage('color')}</label>
               <ColorGroup id="color" linkState={this.linkState} colors={colorChoices} params={this.props.params} onLaunchTinker={this.props.save} />
             </div>
             <div className="form-group">
-              <label>Text Style</label>
+              <label>{this.getIntlMessage('text_style')}</label>
               <CheckboxSet options={textStyleOptions} linkState={this.linkState} />
             </div>
             {/* Hide the text alignment editor until multi-line text is added.*/}
             <div className="form-group" style={{display: 'none'}}>
-              <label>Text Alignment</label>
+              <label>{this.getIntlMessage('text_alignment')}</label>
               <Radio id="textAlign" options={textAlignOptions} linkState={this.linkState} />
             </div>
           </div>

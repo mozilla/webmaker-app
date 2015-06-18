@@ -39,6 +39,25 @@
     <!-- Project -->
     <string name="set_destination">Set Destination</string>
 
+    <!-- Editors -->
+    <string name="done">Done</string>
+    <string name="edit_text">Edit text</string>
+    <string name="font">Font</string>
+    <string name="color">Color</string>
+    <string name="text_style">Text Style</string>
+    <string name="text_alignment">Text Alignment</string>
+    <string name="change_image">Change Image</string>
+    <string name="opacity">Opacity</string>
+    <string name="border_color">Border Color</string>
+    <string name="border_width">Border Width</string>
+    <string name="corner_radius">Corner Radius</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="camera_gallery">Camera Gallery</string>
+    <string name="edit_label">Edit Label</string>
+    <string name="change_link_destination">Change Link Destination</string>
+    <string name="set_link_destination">Set Link Destination</string>
+    <string name="background_color">Background Color</string>
+    
     <!-- Google Analytics App Name & Id -->
     <string name="ga_appName">Mobile App</string>
     <string name="ga_appId">97402987</string>
