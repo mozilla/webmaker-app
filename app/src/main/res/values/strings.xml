@@ -40,19 +40,19 @@
     <string name="share">Share</string>
     <string name="delete">Delete</string>
 
-    <!-- Project -->
-    <string name="set_destination">Set Destination</string>
+    <!-- Project Settings -->
+    <string name="title">Title</string>
 
-    <!-- Page -->
-    <string name="follow_link">Follow Link</string>
 
-    <!-- Editors -->
+    <!-- Text Editor -->
     <string name="done">Done</string>
     <string name="edit_text">Edit text</string>
     <string name="font">Font</string>
     <string name="color">Color</string>
     <string name="text_style">Text Style</string>
     <string name="text_alignment">Text Alignment</string>
+
+    <!-- Image Editor -->
     <string name="change_image">Change Image</string>
     <string name="opacity">Opacity</string>
     <string name="border_color">Border Color</string>
@@ -60,18 +60,20 @@
     <string name="corner_radius">Corner Radius</string>
     <string name="take_photo">Take Photo</string>
     <string name="camera_gallery">Camera Gallery</string>
+
+    <!-- Link Editor -->
     <string name="edit_label">Edit Label</string>
     <string name="change_link_destination">Change Link Destination</string>
     <string name="set_link_destination">Set Link Destination</string>
     <string name="background_color">Background Color</string>
+    <!-- Page -->
+    <string name="set_destination">Set Destination</string>
+    <string name="follow_link">Follow Link</string>
 
     <!-- Color Spectrum (Tinker Mode) -->
     <string name="red">Red</string>
     <string name="green">Green</string>
     <string name="blue">Blue</string>
-
-    <!-- Project Settings -->
-    <string name="title">Title</string>
 
     <!-- Loading -->
     <string name="loading">Loading</string>
