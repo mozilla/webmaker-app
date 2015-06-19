@@ -80,6 +80,10 @@
     <string name="error_general">Something went wrong.</string>
     <string name="error_sign_in">Looks like there might be a problem with your username or password.</string>
     <string name="error_sign_up">There was a problem creating your account.</string>
+    <string name="error_invalid_email">Please use a valid email address</string>
+    <string name="error_invalid_password">Your password must be at least 8 characters and contain at least 1 number and 1 letter</string>
+    <string name="error_invalid_username">Must be 1-20 characters long and use only "-" and alphanumeric symbols</string>
+
     <string name="error_featured">Error getting featured projects</string>
     <string name="error_featured_404">No featured projects found</string>
     <string name="error_update_element">There was an error updating the element</string>
