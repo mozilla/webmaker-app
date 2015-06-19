@@ -29,6 +29,10 @@
     <string name="join_webmaker">Join Webmaker</string>
     <string name="already_joined">Already joined?</string>
     <string name="email_updates">Email me updates about Webmaker</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+
     <!-- Make -->
     <string name="log_out">Log out</string>
     <string name="create_a_project">Create a Project</string>
