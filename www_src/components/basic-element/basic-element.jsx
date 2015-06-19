@@ -11,6 +11,10 @@ var touchhandler = require("../../lib/touchhandler");
 var dispatcher = require('../../lib/dispatcher');
 
 var BasicElement = React.createClass({
+  mixins: [
+    require('react-intl').IntlMixin
+  ],
+
   statics: {
     types: {
       image: require('./types/image.jsx'),
@@ -157,7 +161,7 @@ var BasicElement = React.createClass({
           className="btn meta-button"
           onTouchEnd={this.onLinkDestClick}>
             <img className="icon" src="../../img/flag.svg" />
-            {this.props.targetPageId ? 'Follow Link' : 'Set Destination'}
+            {this.props.targetPageId ? this.getIntlMessage('follow_link') : this.getIntlMessage('set_destination')}
         </button>
       </div>
     );

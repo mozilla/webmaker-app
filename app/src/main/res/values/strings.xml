@@ -39,6 +39,9 @@
     <!-- Project -->
     <string name="set_destination">Set Destination</string>
 
+    <!-- Page -->
+    <string name="follow_link">Follow Link</string>
+
     <!-- Editors -->
     <string name="done">Done</string>
     <string name="edit_text">Edit text</string>
@@ -65,6 +68,9 @@
 
     <!-- Project Settings -->
     <string name="title">Title</string>
+
+    <!-- Loading -->
+    <string name="loading">Loading</string>
 
     <!-- Errors -->
     <string name="error_general">Something went wrong.</string>
