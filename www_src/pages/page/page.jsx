@@ -16,7 +16,8 @@ var PageControls = require('./page-controls.jsx');
 var Page = React.createClass({
   mixins: [
     require('../../lib/router'),
-    require('./flattening')
+    require('./flattening'),
+    require('react-intl').IntlMixin
   ],
 
   /**
@@ -248,7 +249,7 @@ var Page = React.createClass({
       api({spinOnLag: false, method: 'post', uri: this.uri() + '/elements', json}, (err, data) => {
         var state = {showAddMenu: false, loading: false};
         if (err) {
-          reportError('There was an error creating an element', err);
+          reportError(this.getIntlMessage('error_create_element'), err);
         }
         var localSave = function(){};
         if (data && data.element) {
@@ -286,7 +287,7 @@ var Page = React.createClass({
     api({spinOnLag: false, method: 'delete', uri: this.uri() + '/elements/' + id}, (err, data) => {
       this.setState({loading: false});
       if (err) {
-        return reportError('There was a problem deleting the element');
+        return reportError(this.getIntlMessage('error_delete_element'));
       }
 
       elements[id] = false;
@@ -315,11 +316,11 @@ var Page = React.createClass({
     }, (err, data) => {
       this.setState({loading: false});
       if (err) {
-        return reportError('There was an error getting the page to load', err);
+        return reportError(this.getIntlMessage('error_page'), err);
       }
 
       if (!data || !data.page) {
-        return reportError('Could not find the page to load');
+        return reportError(this.getIntlMessage('error_page_404'));
       }
 
       var page = data.page;
@@ -354,11 +355,11 @@ var Page = React.createClass({
         }
       }, (err, data) => {
         if (err) {
-          return reportError('There was an error updating the element', err);
+          return reportError(this.getIntlMessage('error_update_element'), err);
         }
 
         if (!data || !data.element) {
-          reportError('Could not find the element to save');
+          reportError(this.getIntlMessage('error_element_404'));
         }
       });
     }.bind(this);

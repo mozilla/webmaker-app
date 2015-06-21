@@ -10,7 +10,8 @@ var ProjectSettings = React.createClass({
 
   mixins: [
     React.addons.LinkedStateMixin,
-    require('../../lib/router')
+    require('../../lib/router'),
+    require('react-intl').IntlMixin
   ],
 
   getInitialState: function () {
@@ -47,7 +48,7 @@ var ProjectSettings = React.createClass({
     return (
       <div id="projectSettings">
         <div>
-          <TextInput id="title" ref="title" label="Title" maxlength={25} minlength={4} linkState={this.linkState} />
+          <TextInput id="title" ref="title" label={this.getIntlMessage('title')} maxlength={25} minlength={4} linkState={this.linkState} />
           <button hidden={window.Android} onClick={this.save}>DEBUG:Save</button>
         </div>
 
@@ -110,7 +111,7 @@ var ProjectSettings = React.createClass({
       this.setState({loading: false});
       if (err) {
         // @todo Handle error state (GH-1922)
-        console.error('Could not update project settings.');
+        console.error(this.getIntlMessage('error_project_settings_update'));
       }
       if (typeof onSaveComplete === 'function') {
         onSaveComplete();

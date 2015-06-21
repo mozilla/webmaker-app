@@ -8,7 +8,10 @@ var colorChoices = ColorGroup.defaultColors.slice();
 colorChoices[0] = '#444444';
 
 var ImageEditor = React.createClass({
-  mixins: [React.addons.LinkedStateMixin],
+  mixins: [
+    React.addons.LinkedStateMixin,
+    require('react-intl').IntlMixin
+  ],
   getInitialState: function () {
     // Expose image handler to Android
     window.imageReady = this.imageReady;
@@ -39,23 +42,23 @@ var ImageEditor = React.createClass({
         <div className="editor-options">
           <div className="form-group">
             <button onClick={this.toggleMenu} className="btn btn-block">
-              <img className="icon" src="../../img/change-image.svg" /> Change Image
+              <img className="icon" src="../../img/change-image.svg" /> {this.getIntlMessage('change_image')}
             </button>
           </div>
           <div className="form-group">
-            <label>Opacity</label>
+            <label>{this.getIntlMessage('opacity')}</label>
             <Slider id="opacity" min={0} max={1} step={0.01} percentage={true} linkState={this.linkState} />
           </div>
           <div className="form-group">
-            <label>Border Color</label>
+            <label>{this.getIntlMessage('border_color')}</label>
             <ColorGroup id="borderColor" colors={colorChoices} onChange={this.onChangeColor} linkState={this.linkState} params={this.props.params} onLaunchTinker={this.props.save} />
           </div>
           <div className="form-group">
-            <label>Border Width</label>
+            <label>{this.getIntlMessage('border_width')}</label>
             <Slider id="borderWidth" max={10} unit="px" linkState={this.linkState} />
           </div>
           <div className="form-group">
-            <label>Corner Radius</label>
+            <label>{this.getIntlMessage('corner_radius')}</label>
             <Slider id="borderRadius" min={0} value={this.state.borderRadius} max={32} unit="px" linkState={this.linkState} />
           </div>
         </div>
@@ -64,11 +67,11 @@ var ImageEditor = React.createClass({
         <div className={classNames({controls: true, active: this.state.showMenu})}>
           <button onClick={this.onCameraClick}>
             <img className="icon" src="../../img/take-photo.svg" />
-            <p>Take Photo</p>
+            <p>{this.getIntlMessage('take_photo')}</p>
           </button>
           <button onClick={this.onMediaClick}>
             <img className="icon" src="../../img/camera-gallery.svg" />
-            <p>Camera Gallery</p>
+            <p>{this.getIntlMessage('camera_gallery')}</p>
           </button>
         </div>
       </div>

@@ -1,4 +1,5 @@
 <resources>
+    <!-- Titles -->
     <string name="app_name">Webmaker</string>
     <string name="title_section1">Discover</string>
     <string name="title_section2">Make</string>
@@ -20,6 +21,85 @@
     <string name="share_subject">Webmaker</string>
     <string name="share_body">Check out this project on Webmaker!</string>
     <string name="share_url">https://beta.webmaker.org</string>
+    <string name="hello">Hello world!</string>
+
+    <!-- Login -->
+    <string name="sign_in">Sign In</string>
+    <string name="dont_have_account">Don't have an account?</string>
+    <string name="join_webmaker">Join Webmaker</string>
+    <string name="already_joined">Already joined?</string>
+    <string name="email_updates">Email me updates about Webmaker</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+
+    <!-- Make -->
+    <string name="log_out">Log out</string>
+    <string name="create_a_project">Create a Project</string>
+    <!-- Share and Delete are part of the menu on each card -->
+    <string name="share">Share</string>
+    <string name="delete">Delete</string>
+
+    <!-- Project Settings -->
+    <string name="title">Title</string>
+
+
+    <!-- Text Editor -->
+    <string name="done">Done</string>
+    <string name="edit_text">Edit text</string>
+    <string name="font">Font</string>
+    <string name="color">Color</string>
+    <string name="text_style">Text Style</string>
+    <string name="text_alignment">Text Alignment</string>
+
+    <!-- Image Editor -->
+    <string name="change_image">Change Image</string>
+    <string name="opacity">Opacity</string>
+    <string name="border_color">Border Color</string>
+    <string name="border_width">Border Width</string>
+    <string name="corner_radius">Corner Radius</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="camera_gallery">Camera Gallery</string>
+
+    <!-- Link Editor -->
+    <string name="edit_label">Edit Label</string>
+    <string name="change_link_destination">Change Link Destination</string>
+    <string name="set_link_destination">Set Link Destination</string>
+    <string name="background_color">Background Color</string>
+    <!-- Page -->
+    <string name="set_destination">Set Destination</string>
+    <string name="follow_link">Follow Link</string>
+
+    <!-- Color Spectrum (Tinker Mode) -->
+    <string name="red">Red</string>
+    <string name="green">Green</string>
+    <string name="blue">Blue</string>
+
+    <!-- Loading -->
+    <string name="loading">Loading</string>
+
+    <!-- Errors -->
+    <string name="error_general">Something went wrong.</string>
+    <string name="error_sign_in">Looks like there might be a problem with your username or password.</string>
+    <string name="error_sign_up">There was a problem creating your account.</string>
+    <string name="error_invalid_email">Please use a valid email address</string>
+    <string name="error_invalid_password">Your password must be at least 8 characters and contain at least 1 number and 1 letter</string>
+    <string name="error_invalid_username">Must be 1-20 characters long and use only "-" and alphanumeric symbols</string>
+
+    <string name="error_featured">Error getting featured projects</string>
+    <string name="error_featured_404">No featured projects found</string>
+    <string name="error_update_element">There was an error updating the element</string>
+    <string name="error_element">Error loading element</string>
+    <string name="error_element_404">No element found</string>
+    <string name="error_create_element">There was a problem creating an element</string>
+    <string name="error_delete_element">There was a problem deleting the element</string>
+    <string name="error_page">Error loading page</string>
+    <string name="error_page_404">No page found</string>
+    <string name="error_delete_page">There was a problem deleting the page</string>
+    <string name="error_remix">Error remixing project</string>
+    <string name="error_project_settings_update">There was an error updating the project settings</string>
+    <string name="error_project">Error loading project</string>
+    <string name="error_project_404">No project found</string>
 
     <!-- Google Analytics App Name & Id -->
     <string name="ga_appName">Mobile App</string>

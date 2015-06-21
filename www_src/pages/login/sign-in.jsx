@@ -12,7 +12,8 @@ var SignIn = React.createClass({
 
   mixins: [
     React.addons.LinkedStateMixin,
-    require('../../lib/validators')
+    require('../../lib/validators'),
+    require('react-intl').IntlMixin
   ],
 
   // Props:
@@ -44,6 +45,7 @@ var SignIn = React.createClass({
   },
 
   // FIXME: TODO: move to statics?
+  // Todo: localization
   fields: [
     {
       name: 'username',
@@ -90,7 +92,7 @@ var SignIn = React.createClass({
           window.Android.trackEvent('Login', 'Sign In', 'Sign In Error');
         }
         this.setState({globalError: true});
-        return reportError("Error while trying to log in", err);
+        return reportError(this.getIntlMessage('error_sign_in'), err);
       }
 
       this.replaceState(this.getInitialState());
@@ -130,14 +132,14 @@ var SignIn = React.createClass({
       })}
       <div className="form-group">
         <button className="btn btn-block" disabled={!isValid} onClick={this.onSubmit}>
-          Sign In
+         {this.getIntlMessage('sign_in')}
         </button>
         <div className="error" hidden={!this.state.globalError}>
-          Looks like there might be a problem with your username or password.
+          {this.getIntlMessage('error_sign_in')}
         </div>
       </div>
       <div className="form-group text-center text-larger">
-        Don&rsquo;t have an account? <a href="#" onClick={this.changeMode}>Join Webmaker</a>
+        {this.getIntlMessage('dont_have_account')} <a href="#" onClick={this.changeMode}>{this.getIntlMessage('join_webmaker')}</a>
       </div>
     </form>);
   }

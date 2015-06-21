@@ -4,7 +4,12 @@ var ModalConfirm = require('../components/modal-confirm/modal-confirm.jsx');
 var ModalSwitch = require('../components/modal-switch/modal-switch.jsx');
 var Snackbar = require('../components/snackbar/snackbar.jsx');
 
+var intlData = {
+  locales: ['en-US'],
+  messages: require('../compiled/strings/en/strings.json')
+};
 var Base = React.createClass({
+  mixins: [require('react-intl').IntlMixin],
   onResume: function () {
     this.setState({isVisible: true});
   },
@@ -47,5 +52,5 @@ var Base = React.createClass({
 });
 
 module.exports = function (Route) {
-  React.render(<Base route={Route} />, document.getElementById('app'));
+  React.render(<Base route={Route} {...intlData} />, document.getElementById('app'));
 };

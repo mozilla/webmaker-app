@@ -6,9 +6,10 @@ var render = require('../../lib/render.jsx');
 var Card = require('../../components/card/card.jsx');
 var Loading = require('../../components/loading/loading.jsx');
 
-
 var Discover = React.createClass({
-  mixins: [],
+  mixins: [
+    require('react-intl').IntlMixin
+  ],
   getInitialState: function () {
     return {
       projects: [],
@@ -23,11 +24,11 @@ var Discover = React.createClass({
     }, (err, body) => {
       this.setState({loading: false});
       if (err) {
-        return reportError('Error getting discovery projects', err);
+        return reportError(this.getIntlMessage('error_featured'), err);
       }
 
       if (!body || !body.projects || !body.projects.length) {
-        return reportError('No discovery projects found');
+        return reportError(this.getIntlMessage('error_featured_404'));
       }
 
       this.setState({

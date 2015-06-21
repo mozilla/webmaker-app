@@ -10,7 +10,7 @@ var Loading = require('../../components/loading/loading.jsx');
 var Link = require('../../components/link/link.jsx');
 
 var Make = React.createClass({
-  mixins: [router],
+  mixins: [router, require('react-intl').IntlMixin],
   getInitialState: function () {
     return {
       projects: [],
@@ -155,10 +155,10 @@ var Make = React.createClass({
       <div id="make">
         <div className="profile-card">
           <h3>{this.state.user.username}</h3>
-          <p><button className="btn" onClick={this.logout}>Log out</button></p>
+          <p><button className="btn" onClick={this.logout}>{this.getIntlMessage('log_out')}</button></p>
         </div>
         <button onClick={this.addProject} className="btn btn-create btn-block btn-teal">
-          + Create a Project
+          {'+ ' + this.getIntlMessage('create_a_project')}
         </button>
         {cards}
         <Loading on={this.state.loading} />

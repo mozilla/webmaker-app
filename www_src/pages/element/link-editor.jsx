@@ -10,7 +10,8 @@ var LinkEditor = React.createClass({
   mixins: [
     React.addons.LinkedStateMixin,
     require('./witheditable'),
-    require('./font-selector')
+    require('./font-selector'),
+    require('react-intl').IntlMixin
   ],
   getInitialState: function () {
     return LinkBlock.spec.flatten(this.props.element, {defaults: true});
@@ -50,7 +51,7 @@ var LinkEditor = React.createClass({
       }
     }, (err, data) => {
       if (err) {
-        console.error('There was an error updating the element', err);
+        console.error(this.getIntlMessage('error_update_element'), err);
       }
 
       if (window.Android) {
@@ -69,23 +70,23 @@ var LinkEditor = React.createClass({
         </div>
         <div className="editor-options">
           <div className="form-group">
-            <button className="btn btn-block" onClick={this.editText}>{ this.state.editing? "Done" : "Edit Label"}</button>
+            <button className="btn btn-block" onClick={this.editText}>{ this.state.editing? this.getIntlMessage('done') : this.getIntlMessage('edit_label')}</button>
           </div>
           <div className="form-group">
             <button onClick={this.onDestClick} className="btn btn-block">
-              <img className="icon" src="../../img/flag.svg" /> {this.state.targetPageId ? 'Change Link Destination' : 'Set Link Destination'}
+              <img className="icon" src="../../img/flag.svg" /> {this.state.targetPageId ? this.getIntlMessage('change_link_destination') : this.getIntlMessage('set_link_destination')}
             </button>
           </div>
           <div className="form-group">
-            <label>Corner Radius</label>
+            <label>{this.getIntlMessage('corner_radius')}</label>
             <Slider id="borderRadius" min={0} value={this.state.borderRadius} max={32} unit="px" linkState={this.linkState} />
           </div>
           <div className="form-group">
-            <label>Font</label>
+            <label>{this.getIntlMessage('font')}</label>
             { this.generateFontSelector() }
           </div>
           <div className="form-group">
-            <label>Background Color</label>
+            <label>{this.getIntlMessage('background_color')}</label>
             <ColorGroup id="backgroundColor" linkState={this.linkState} params={this.props.params} onLaunchTinker={this.props.save}/>
           </div>
         </div>

@@ -22,7 +22,10 @@ var testIds = {
 };
 
 render(React.createClass({
-  mixins: [router],
+  mixins: [
+    router,
+    require('react-intl').IntlMixin
+  ],
 
   uri: function () {
     var params = this.state.params;
@@ -101,7 +104,7 @@ render(React.createClass({
     }}, (err, data) => {
       this.setState({loading: false});
       if (err) {
-        reportError('There was an error updating the element', err);
+        reportError(this.getIntlMessage('error_update_element'), err);
       }
 
       this.setState({
@@ -120,11 +123,11 @@ render(React.createClass({
     api({uri: this.uri()}, (err, data) => {
       this.setState({loading: false});
       if (err) {
-        return reportError('Error loading element', err);
+        return reportError(this.getIntlMessage('error_element'), err);
       }
 
       if (!data || !data.element) {
-        return reportError('No element found');
+        return reportError(this.getIntlMessage('error_element_404'));
       }
 
       this.setState({element: data.element});
