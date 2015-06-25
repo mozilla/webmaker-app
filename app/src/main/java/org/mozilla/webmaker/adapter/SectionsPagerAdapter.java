@@ -52,9 +52,9 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         Locale l = Locale.getDefault();
         switch (position) {
             case 0:
-                return context.getString(R.string.title_section1).toUpperCase(l);
+                return context.getString(R.string.title_section_discover).toUpperCase(l);
             case 1:
-                return context.getString(R.string.title_section2).toUpperCase(l);
+                return context.getString(R.string.title_section_make).toUpperCase(l);
         }
         return null;
     }
