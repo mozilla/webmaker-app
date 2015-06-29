@@ -7,7 +7,7 @@ require('colors');
 module.exports = function (options) {
   options = options || {};
   var baseDir = options.baseDir || './app/src/main/assets/www/pages/';
-  var template = options.template || fs.readFileSync('./www_src/html/index.html', {encoding: 'utf-8'});
+  var template = options.template || fs.readFileSync('./node_modules/webmaker-core/html/index.html', {encoding: 'utf-8'});
   var pages = getPages();
   pages.forEach(function (page) {
     var html = template.replace('{{ js_src }}', '../../js/' + page + '.bundle.js');
