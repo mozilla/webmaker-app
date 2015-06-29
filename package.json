@@ -38,6 +38,7 @@
     "babel-loader": "^4.3.0",
     "colors": "^1.1.0",
     "fs-extra": "^0.18.0",
+    "git-rev-sync": "^1.1.0",
     "habitat": "^3.1.2",
     "json-loader": "^0.5.1",
     "jsx-loader": "^0.12.2",
@@ -65,6 +66,7 @@
     "react": "0.13.1",
     "react-hammerjs": "0.2.2",
     "react-imageloader": "1.2.0",
-    "xhr": "2.0.1"
+    "xhr": "2.0.1",
+    "git-rev-sync": "1.1.0"
   }
 }

@@ -1,6 +1,7 @@
 var React = require('react');
 var render = require('../../lib/render.jsx');
 var dispatcher = require('../../lib/dispatcher');
+var config = require('../../config');
 
 // Components
 var ColorGroup = require('../../components/color-group/color-group.jsx');
@@ -62,6 +63,7 @@ var StyleGuide = React.createClass({
   render: function () {
     return (
       <div id="style-guide">
+        <Alert>Git Revision: {config.GIT_REVISION}</Alert>
         <h1>Style Guide</h1>
 
         <h2>Typography</h2>
