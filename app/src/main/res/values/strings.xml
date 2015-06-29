@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Webmaker</string>
-    <string name="title_section1">Discover</string>
-    <string name="title_section2">Make</string>
+    <string name="title_section_discover">Discover</string>
+    <string name="title_section_make">Make</string>
     <string name="title_activity_project">Project</string>
     <string name="title_activity_play">Play</string>
     <string name="title_activity_link">Set Destination</string>
