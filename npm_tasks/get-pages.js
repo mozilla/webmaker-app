@@ -1,5 +1,5 @@
 var fs = require('fs-extra');
-var PAGES_DIR = './www_src/pages/';
+var PAGES_DIR = './node_modules/webmaker-core/pages/';
 var path = require('path');
 
 module.exports = function (pagesDir) {

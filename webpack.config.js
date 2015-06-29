@@ -4,7 +4,7 @@ var path = require('path');
 // Prep all entry points
 var entry = {};
 getPages().forEach(function (page) {
-  entry[page] = './www_src/pages/' + page + '/' + page + '.jsx';
+  entry[page] = './node_modules/webmaker-core/pages/' + page + '/' + page + '.jsx';
 });
 
 module.exports = {
@@ -19,17 +19,17 @@ module.exports = {
       {
         test: /\.js$/,
         loaders:  ['babel-loader'],
-        include: path.resolve(__dirname, 'www_src')
+        include: path.resolve(__dirname, 'node_modules/webmaker-core')
       },
       {
         test: /\.jsx$/,
         loaders:  ['babel-loader', 'jsx-loader'],
-        include: path.resolve(__dirname, 'www_src')
+        include: path.resolve(__dirname, 'node_modules/webmaker-core')
       },
       {
         test: /\.json$/,
         loader: 'json-loader',
-        include: [path.resolve(__dirname, 'www_src'),  path.resolve(__dirname, 'node_modules')]
+        include: [path.resolve(__dirname, 'node_modules/webmaker-core'),  path.resolve(__dirname, 'node_modules')]
       }
     ]
   }
