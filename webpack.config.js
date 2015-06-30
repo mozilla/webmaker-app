@@ -1,5 +1,7 @@
 var getPages = require('./npm_tasks/get-pages');
 var path = require('path');
+var webpack = require('webpack');
+var config = require('./www_src/config');
 
 // Prep all entry points
 var entry = {};
@@ -32,5 +34,10 @@ module.exports = {
         include: [path.resolve(__dirname, 'www_src'),  path.resolve(__dirname, 'node_modules')]
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      '__WEBPACK_CONFIG': config
+    })
+  ]
 };
