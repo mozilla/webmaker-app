@@ -1,25 +1,10 @@
 {
   "name": "webmaker-android",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Webmaker for Android.",
   "scripts": {
-    "start": "npm run build && npm-run-all --parallel webserver watch:**",
-    "config": "node ./npm_tasks/build-config.js > www_src/config.js",
-    "build": "npm-run-all build:**",
-    "build:clean": "rimraf app/src/main/assets/www/ && mkdirp app/src/main/assets/www/",
-    "build:static": "mkdirp www_src/static/ && mkdirp app/src/main/assets/ && ncp www_src/static/ app/src/main/assets/www/",
-    "build:js": "npm run config && webpack",
-    "build:css": "npm run watch:css -- --no-watch",
-    "build:html": "node ./npm_tasks/bin/build-html",
-    "test": "npm run config && npm-run-all test:**",
-    "test:mocha": "mocha -R spec --compilers js:babel/register \"./{www_src,npm_tasks}/**/*.test.js\"",
-    "test:lint": "jsxhint --harmony \"www_src/{components,html,lib,pages,static}/{**,.}/*.{js,jsx}\"",
-    "watch:static": "watch \"npm run build:static\" www_src/static",
-    "watch:js": "npm run build:js -- -d --watch",
-    "watch:css": "autoless --source-map --autoprefix \"last 2 versions, android >= 4.2\" www_src app/src/main/assets/www",
-    "watch:html": "watch \"npm run build:html\" www_src/html",
-    "webserver": "live-server ./app/src/main/assets/www --port=4242"
+    "build": "",
+    "start": ""
   },
   "repository": {
     "type": "git",
@@ -30,42 +15,8 @@
   "bugs": {
     "url": "https://github.com/mozilla/webmaker-android/issues"
   },
-  "homepage": "https://github.com/mozilla/webmaker-android",
-  "devDependencies": {
-    "autoless": "^0.1.7",
-    "babel": "^5.3.3",
-    "babel-core": "^4.7.16",
-    "babel-loader": "^4.3.0",
-    "colors": "^1.1.0",
-    "fs-extra": "^0.18.0",
-    "git-rev-sync": "^1.1.0",
-    "habitat": "^3.1.2",
-    "json-loader": "^0.5.1",
-    "jsx-loader": "^0.12.2",
-    "jsxhint": "^0.15.0",
-    "live-server": "^0.7.1",
-    "minimist": "^1.1.1",
-    "mkdirp": "^0.5.0",
-    "mocha": "^2.2.1",
-    "ncp": "^2.0.0",
-    "npm": "^2.7.4",
-    "npm-run-all": "^1.2.2",
-    "parallelshell": "^1.1.1",
-    "proxyquire": "^1.4.0",
-    "rimraf": "^2.3.2",
-    "should": "^5.2.0",
-    "tmp": "^0.0.25",
-    "watch": "^0.14.0",
-    "webpack": "^1.7.3"
-  },
   "dependencies": {
-    "classnames": "1.2.1",
-    "color": "0.8.0",
-    "lodash.defaults": "3.1.1",
-    "owasp-password-strength-test": "1.2.2",
-    "react": "0.13.1",
-    "react-hammerjs": "0.2.2",
-    "react-imageloader": "1.2.0",
-    "xhr": "2.0.1"
-  }
+    "webmaker-core": "https://github.com/mozilla/webmaker-core.git"
+  },
+  "homepage": "https://github.com/mozilla/webmaker-android"
 }
