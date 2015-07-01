@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Webmaker for Android.",
   "scripts": {
-    "build": "",
+    "build": "rimraf app/src/main/assets/www/ && ncp node_modules/webmaker-core/dest/ app/src/main/assets/www/",
     "start": ""
   },
   "repository": {
@@ -18,5 +18,9 @@
   "dependencies": {
     "webmaker-core": "https://github.com/mozilla/webmaker-core.git"
   },
-  "homepage": "https://github.com/mozilla/webmaker-android"
+  "homepage": "https://github.com/mozilla/webmaker-android",
+  "devDependencies": {
+    "ncp": "^2.0.0",
+    "rimraf": "^2.4.1"
+  }
 }
