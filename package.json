@@ -18,7 +18,7 @@
     "url": "https://github.com/mozilla/webmaker-android/issues"
   },
   "dependencies": {
-    "webmaker-core": "https://github.com/mozilla/webmaker-core.git"
+    "webmaker-core": "git+https://github.com/mozilla/webmaker-core.git"
   },
   "homepage": "https://github.com/mozilla/webmaker-android",
   "devDependencies": {
