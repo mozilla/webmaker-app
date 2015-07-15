@@ -303,4 +303,14 @@ public class WebAppInterface {
         // Change underscores to dashes (The browser uses dashes instead)
         return Locale.getDefault().toString().replace("_", "-");
     }
+
+    /**
+     * ----------------------------------------
+     * Get a instance of Webmaker API
+     * ----------------------------------------
+     */
+    @JavascriptInterface
+    public WebmakerAPI getAPI() {
+        return new WebmakerAPI();
+    }
 }
