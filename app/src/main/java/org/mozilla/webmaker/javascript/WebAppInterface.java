@@ -33,6 +33,7 @@ public class WebAppInterface {
     protected JSONObject mRoute;
     protected String mPrefKey;
     protected String mPageState;
+    protected WebmakerAPI api = new WebmakerAPI();
 
     public static final String SHARED_PREFIX = "prefs::".concat(BuildConfig.VERSION_NAME);
     public static final String ROUTE_KEY = "route::data";
@@ -311,6 +312,6 @@ public class WebAppInterface {
      */
     @JavascriptInterface
     public WebmakerAPI getAPI() {
-        return new WebmakerAPI();
+        return api;
     }
 }
