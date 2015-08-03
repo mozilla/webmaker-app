@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.moowork.node'
 
 android {
     compileSdkVersion 22
@@ -28,14 +29,14 @@ android {
 
     productFlavors {
         x86 {
-            flavorDimension "abi"
+            dimension "abi"
             ndk {
                 abiFilters "x86", ""
             }
             versionCode = 3
         }
         armv7 {
-            flavorDimension "abi"
+            dimension "abi"
             ndk {
                 abiFilters "armeabi-v7a", ""
             }
@@ -52,6 +53,10 @@ android {
     }
 }
 
+task npmRunBuild (type: NpmTask, dependsOn: ['npmInstall']) {
+    args = ['run', 'build']
+}
+
 repositories {
     mavenCentral()
     maven {
@@ -62,7 +67,16 @@ repositories {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:support-v13:22.1.1'
-    compile 'com.android.support:appcompat-v7:22.1.1'
-    compile 'com.google.android.gms:play-services-analytics:7.3.0'
+    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.google.android.gms:play-services-analytics:7.5.0'
     compile 'org.xwalk:xwalk_core_library:13.42.319.12'
 }
+
+node {
+    version = '0.12.2'
+    npmVersion = '2.7.4'
+    distBaseUrl = 'http://nodejs.org/dist'
+    download = true
+}
+
+preBuild.dependsOn npmRunBuild
