@@ -14,4 +14,4 @@ tasks:
       command:
         - "/bin/bash"
         - "-c"
-        - "echo 'I only run on pushes'"
+        - "echo 'I only run on pushes. Test two!'"
