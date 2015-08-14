@@ -10,6 +10,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.util.Log;
+import android.view.inputmethod.InputMethodManager;
 
 import com.google.android.gms.analytics.HitBuilders;
 
@@ -333,4 +334,15 @@ public class WebAppInterface {
         return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
     }
 
+
+    /**
+     * ----------------------------------------
+     * Closes the Android keyboard
+     * ----------------------------------------
+     */
+    @JavascriptInterface
+    public void closeKeyboard() {
+        InputMethodManager inputMethodManager = (InputMethodManager) mContext.getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(((Activity) mContext).getCurrentFocus().getWindowToken(), 0);
+    }
 }
