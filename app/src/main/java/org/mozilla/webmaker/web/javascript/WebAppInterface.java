@@ -219,19 +219,17 @@ public class WebAppInterface {
      */
 
     @JavascriptInterface
-    public void setView(final String url) {
-        setView(url, null);
+    public void changeViewImmediately(final String url) {
+        changeViewWithRouteData(url, null);
     }
 
     @JavascriptInterface
-    public void setView(final String url, final String routeData) {
+    public void changeViewWithRouteData(final String url, final String routeData) {
         Activity activity = (Activity) mContext;
         if (activity == null) return;
-
         if (routeData != null) {
             MemStorage.sharedStorage().put(ROUTE_KEY, routeData);
         }
-
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -239,6 +237,13 @@ public class WebAppInterface {
             }
         });
     }
+
+    @JavascriptInterface
+    public void changeViewWithCaching(final String url, final String cacheKey, final String payload) {
+        getAPI().queue(cacheKey, payload);
+        changeViewWithRouteData(url, null);
+    }
+
 
     /**
      * ---------------------------------------
