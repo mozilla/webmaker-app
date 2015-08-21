@@ -205,6 +205,12 @@ public class WebAppInterface {
     }
 
     @JavascriptInterface
+    public void goBackWithCaching(final String cacheKey, final String payload) {
+        getAPI().queue(cacheKey, payload);
+        goBack();
+    }
+
+    @JavascriptInterface
     public void goToHomeScreen() {
         Intent startMain = new Intent(Intent.ACTION_MAIN);
         startMain.addCategory(Intent.CATEGORY_HOME);
@@ -220,28 +226,35 @@ public class WebAppInterface {
 
     @JavascriptInterface
     public void changeViewImmediately(final String url) {
-        changeViewWithRouteData(url, null);
+        changeView(url);
     }
 
     @JavascriptInterface
     public void changeViewWithRouteData(final String url, final String routeData) {
-        Activity activity = (Activity) mContext;
-        if (activity == null) return;
+        if (mContext == null) return;
         if (routeData != null) {
             MemStorage.sharedStorage().put(ROUTE_KEY, routeData);
         }
+        changeView(url);
+    }
+
+    @JavascriptInterface
+    public void changeViewWithCaching(final String url, final String cacheKey, final String payload) {
+        getAPI().queue(cacheKey, payload);
+        changeView(url);
+    }
+
+    // This method is NOT exposed to JavaScript, to force you to be explicit about what kind
+    // of view change you intended to have happen.
+    protected void changeView(final String url) {
+        if (mContext == null) return;
+        Activity activity = (Activity) mContext;
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 Router.sharedRouter().open(url);
             }
         });
-    }
-
-    @JavascriptInterface
-    public void changeViewWithCaching(final String url, final String cacheKey, final String payload) {
-        getAPI().queue(cacheKey, payload);
-        changeViewWithRouteData(url, null);
     }
 
 
