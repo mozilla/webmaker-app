@@ -3,8 +3,8 @@ package org.mozilla.webmaker.web.javascript;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -13,17 +13,15 @@ import android.util.Log;
 
 import com.google.android.gms.analytics.HitBuilders;
 
-import org.mozilla.webmaker.BuildConfig;
 import org.json.JSONObject;
+import org.mozilla.webmaker.BaseActivity;
+import org.mozilla.webmaker.BuildConfig;
 import org.mozilla.webmaker.WebmakerApplication;
+import org.mozilla.webmaker.activity.Element;
+import org.mozilla.webmaker.router.Router;
 import org.mozilla.webmaker.util.Share;
 import org.mozilla.webmaker.view.WebmakerWebView;
 import org.xwalk.core.JavascriptInterface;
-
-import org.mozilla.webmaker.BaseActivity;
-import org.mozilla.webmaker.activity.Element;
-import org.mozilla.webmaker.router.Router;
-import org.mozilla.webmaker.storage.MemStorage;
 
 import java.util.Locale;
 
@@ -129,7 +127,8 @@ public class WebAppInterface {
     @JavascriptInterface
     public String getMemStorage(String key, final boolean global) {
         if (!global) key = key.concat(mPrefKey);
-        return MemStorage.sharedStorage().get(key);
+        //return MemStorage.sharedStorage().get(key);
+        return WebmakerAPI.instance.getPayloads(key);
     }
 
     @JavascriptInterface
@@ -140,7 +139,8 @@ public class WebAppInterface {
     @JavascriptInterface
     public void setMemStorage(String key, final String value, final boolean global) {
         if (!global) key = key.concat(mPrefKey);
-        MemStorage.sharedStorage().put(key, value);
+        //MemStorage.sharedStorage().put(key, value);
+        WebmakerAPI.instance.queue(key, value);
     }
 
     /**
@@ -185,8 +185,8 @@ public class WebAppInterface {
      * ---------------------------------------
      */
     @JavascriptInterface
-    public void shareProject(String userId, String id) {
-        Share.launchShareIntent(userId, id, mActivity);
+    public void shareProject(String userId, String projectId) {
+        Share.launchShareIntent(userId, projectId, mActivity);
     }
 
     /**
@@ -229,7 +229,8 @@ public class WebAppInterface {
         if (activity == null) return;
 
         if (routeData != null) {
-            MemStorage.sharedStorage().put(ROUTE_KEY, routeData);
+            //MemStorage.sharedStorage().put(ROUTE_KEY, routeData);
+            WebmakerAPI.instance.queue(ROUTE_KEY, routeData);
         }
 
         activity.runOnUiThread(new Runnable() {
@@ -254,12 +255,14 @@ public class WebAppInterface {
 
     @JavascriptInterface
     public String getRouteData() {
-        return MemStorage.sharedStorage().get(ROUTE_KEY);
+        //return MemStorage.sharedStorage().get(ROUTE_KEY);
+        return WebmakerAPI.instance.getPayloads(ROUTE_KEY);
     }
 
     @JavascriptInterface
     public void clearRouteData() {
-        MemStorage.sharedStorage().put(ROUTE_KEY, "");
+        //MemStorage.sharedStorage().put(ROUTE_KEY, "");
+        WebmakerAPI.instance.queue(ROUTE_KEY, "");
     }
 
     /**

@@ -1,22 +1,21 @@
 package org.mozilla.webmaker.web.javascript;
 
-import android.util.Log;
-
 import org.mozilla.webmaker.BaseActivity;
-import org.mozilla.webmaker.WebmakerActivity;
 import org.mozilla.webmaker.view.WebmakerWebView;
 import org.xwalk.core.JavascriptInterface;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * ...
- */
 public class WebmakerAPI {
 
-    // Static behaviour
+    // used for triggering JS on the main UI thread
+    protected WebmakerWebView currentView = null;
+    protected BaseActivity currentActivity = null;
 
+    protected Queue queue;
+
+    // Static behaviour
     protected static WebmakerAPI instance = new WebmakerAPI();
 
     @JavascriptInterface
@@ -36,24 +35,21 @@ public class WebmakerAPI {
             }
             this.get(origin).add(payload);
         }
+
         public int getQueueSize(String origin) {
             ArrayList<String> queue = this.get(origin);
             if (queue == null) return -1;
             return queue.size();
         }
+
         public String getPayload(String origin, int idx) {
             return this.get(origin).get(idx);
         }
+
         public void dequeue(String origin, int idx) {
             this.get(origin).remove(idx);
         }
     }
-
-    // used for triggering JS on the main UI thread
-    protected WebmakerWebView currentView = null;
-    protected BaseActivity currentActivity = null;
-
-    protected Queue queue;
 
     public WebmakerAPI() {
         queue = new Queue();

@@ -5,7 +5,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import org.json.JSONException;
-
 import org.mozilla.webmaker.R;
 import org.mozilla.webmaker.WebmakerActivity;
 import org.mozilla.webmaker.router.Router;

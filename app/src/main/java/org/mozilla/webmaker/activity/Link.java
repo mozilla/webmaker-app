@@ -1,6 +1,7 @@
 package org.mozilla.webmaker.activity;
 
 import android.os.Bundle;
+
 import org.json.JSONException;
 import org.mozilla.webmaker.R;
 import org.mozilla.webmaker.WebmakerActivity;

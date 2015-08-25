@@ -8,7 +8,6 @@ import android.widget.RelativeLayout;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import org.mozilla.webmaker.view.WebmakerWebView;
 
 import java.lang.reflect.Field;

@@ -10,9 +10,9 @@ public class MemStorage {
     /**
      * A globally accessible instance of this cache, that can be accessed anywhere.
      */
-    public static Cache sharedStorage() {
-        return cache;
-    }
+    //public static Cache sharedStorage() {
+    //    return cache;
+    //}
 
     /**
      * The actual cache class that is being wrapped around and provided with the maxSize.
