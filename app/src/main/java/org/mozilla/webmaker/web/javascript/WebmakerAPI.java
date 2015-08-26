@@ -9,13 +9,9 @@ import java.util.HashMap;
 
 public class WebmakerAPI {
 
-    // used for triggering JS on the main UI thread
-    protected WebmakerWebView currentView = null;
-    protected BaseActivity currentActivity = null;
-
-    protected Queue queue;
-
-    // Static behaviour
+    /**
+     * Static instance behaviour
+     */
     protected static WebmakerAPI instance = new WebmakerAPI();
 
     @JavascriptInterface
@@ -23,7 +19,26 @@ public class WebmakerAPI {
         return WebmakerAPI.instance;
     }
 
-    // Instance behaviour
+    /**
+     * Instance behaviour
+     */
+    protected BaseActivity currentActivity = null;
+    protected Queue queue;
+
+    // used for triggering JS on the main UI thread
+    protected WebmakerWebView currentView = null;
+
+    public WebmakerAPI() {
+        queue = new Queue();
+    }
+
+    public void setView(WebmakerWebView view) {
+        currentView = view;
+    }
+
+    public void setActivity(BaseActivity activity) {
+        currentActivity = activity;
+    }
 
     /**
      * Dictionary class for storing arrays of String data tied to specific keys.
@@ -49,18 +64,6 @@ public class WebmakerAPI {
         public void dequeue(String origin, int idx) {
             this.get(origin).remove(idx);
         }
-    }
-
-    public WebmakerAPI() {
-        queue = new Queue();
-    }
-
-    public void setView(WebmakerWebView view) {
-        currentView = view;
-    }
-
-    public void setActivity(BaseActivity activity) {
-        currentActivity = activity;
     }
 
     @JavascriptInterface
