@@ -23,7 +23,6 @@ import org.xwalk.core.JavascriptInterface;
 import org.mozilla.webmaker.BaseActivity;
 import org.mozilla.webmaker.activity.Element;
 import org.mozilla.webmaker.router.Router;
-import org.mozilla.webmaker.storage.MemStorage;
 
 import java.util.Locale;
 
@@ -129,7 +128,7 @@ public class WebAppInterface {
     @JavascriptInterface
     public String getMemStorage(String key, final boolean global) {
         if (!global) key = key.concat(mPrefKey);
-        return MemStorage.sharedStorage().get(key);
+        return api.getPayloads(key);
     }
 
     @JavascriptInterface
@@ -140,7 +139,7 @@ public class WebAppInterface {
     @JavascriptInterface
     public void setMemStorage(String key, final String value, final boolean global) {
         if (!global) key = key.concat(mPrefKey);
-        MemStorage.sharedStorage().put(key, value);
+        api.queue(key, value);
     }
 
     /**
@@ -185,8 +184,8 @@ public class WebAppInterface {
      * ---------------------------------------
      */
     @JavascriptInterface
-    public void shareProject(String userId, String id) {
-        Share.launchShareIntent(userId, id, mActivity);
+    public void shareProject(String userId, String projectId) {
+        Share.launchShareIntent(userId, projectId, mActivity);
     }
 
     /**
@@ -229,7 +228,7 @@ public class WebAppInterface {
         if (activity == null) return;
 
         if (routeData != null) {
-            MemStorage.sharedStorage().put(ROUTE_KEY, routeData);
+            api.queue(ROUTE_KEY, routeData);
         }
 
         activity.runOnUiThread(new Runnable() {
@@ -254,12 +253,12 @@ public class WebAppInterface {
 
     @JavascriptInterface
     public String getRouteData() {
-        return MemStorage.sharedStorage().get(ROUTE_KEY);
+        return api.getPayloads(ROUTE_KEY);
     }
 
     @JavascriptInterface
     public void clearRouteData() {
-        MemStorage.sharedStorage().put(ROUTE_KEY, "");
+        api.queue(ROUTE_KEY, "");
     }
 
     /**
