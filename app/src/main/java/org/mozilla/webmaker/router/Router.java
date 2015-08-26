@@ -33,15 +33,15 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
 import org.mozilla.webmaker.router.exception.NoContextProvidedException;
 import org.mozilla.webmaker.router.exception.RouteNotFoundException;
 import org.mozilla.webmaker.router.helper.RouterCallback;
 import org.mozilla.webmaker.router.helper.RouterOptions;
 import org.mozilla.webmaker.router.helper.RouterParams;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
 
 public class Router {
 

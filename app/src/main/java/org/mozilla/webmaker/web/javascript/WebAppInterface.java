@@ -3,8 +3,8 @@ package org.mozilla.webmaker.web.javascript;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -13,15 +13,16 @@ import android.util.Log;
 
 import com.google.android.gms.analytics.HitBuilders;
 
-import org.json.JSONObject;
-import org.mozilla.webmaker.BaseActivity;
 import org.mozilla.webmaker.BuildConfig;
+import org.json.JSONObject;
 import org.mozilla.webmaker.WebmakerApplication;
-import org.mozilla.webmaker.activity.Element;
-import org.mozilla.webmaker.router.Router;
 import org.mozilla.webmaker.util.Share;
 import org.mozilla.webmaker.view.WebmakerWebView;
 import org.xwalk.core.JavascriptInterface;
+
+import org.mozilla.webmaker.BaseActivity;
+import org.mozilla.webmaker.activity.Element;
+import org.mozilla.webmaker.router.Router;
 
 import java.util.Locale;
 

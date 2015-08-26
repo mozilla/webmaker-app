@@ -1,10 +1,8 @@
 package org.mozilla.webmaker.util;
 
+import com.google.android.gms.analytics.HitBuilders;
 import android.app.Activity;
 import android.content.Intent;
-
-import com.google.android.gms.analytics.HitBuilders;
-
 import org.mozilla.webmaker.R;
 import org.mozilla.webmaker.WebmakerApplication;
 

@@ -6,14 +6,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.mozilla.webmaker.R;
 import org.mozilla.webmaker.WebmakerActivity;
+import org.mozilla.webmaker.web.javascript.WebAppInterface;
 import org.mozilla.webmaker.router.Router;
 import org.mozilla.webmaker.util.Share;
-import org.mozilla.webmaker.web.javascript.WebAppInterface;
 
 public class Play extends WebmakerActivity {
     public Play() {

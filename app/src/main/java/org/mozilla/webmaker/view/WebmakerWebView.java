@@ -5,11 +5,12 @@ import android.content.Context;
 import android.view.ViewGroup;
 
 import org.json.JSONObject;
+import org.xwalk.core.XWalkPreferences;
+import org.xwalk.core.XWalkView;
+
 import org.mozilla.webmaker.R;
 import org.mozilla.webmaker.client.WebClient;
 import org.mozilla.webmaker.web.javascript.WebAppInterface;
-import org.xwalk.core.XWalkPreferences;
-import org.xwalk.core.XWalkView;
 
 public class WebmakerWebView extends XWalkView {
 
