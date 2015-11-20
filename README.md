@@ -14,8 +14,8 @@ Mozilla Webmaker's mission is to help enable a new generation of digital creator
 Before you jump into the code you'll want to download, install, and configure the following:
 
 - [Android Studio](http://developer.android.com/sdk)
-- [Node 0.12+](https://nodejs.org/) w/ ES6 ("harmony") features enabled
-- [NPM 2.11+](https://www.npmjs.com/) (comes bundled with node)
+- [Node 4](https://nodejs.org/)
+- [NPM 2.14.4+](https://www.npmjs.com/) (comes bundled with node)
 
 #### Clone & Install Dependencies
 ```bash
