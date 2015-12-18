@@ -18,8 +18,7 @@
     "build": "node npm_tasks/explore.js webmaker-core -- npm install && npm run copy:env && npm run build:core && npm run copy:core",
     "build:core": "node npm_tasks/explore.js webmaker-core -- npm run build",
     "copy:core": "rimraf app/src/main/assets/www/ && mkdirp app/src/main/assets/www/ && ncp node_modules/webmaker-core/dest/ app/src/main/assets/www/",
-    "copy:env": "node npm_tasks/copy-env.js",
-    "test": "echo \"Test in webmaker-core\""
+    "copy:env": "node npm_tasks/copy-env.js"
   },
   "dependencies": {
     "webmaker-core": "https://github.com/mozilla/webmaker-core.git#6c1b8afbe0c1c02af750c667f7bafcf6215c085a"
