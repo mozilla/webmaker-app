@@ -17,7 +17,6 @@
     <string name="action_settings">Project Details</string>
     <string name="action_share">Share</string>
     <string name="action_remix">Remix</string>
-
     <string name="share_subject">Webmaker</string>
-    <string name="share_body">Check out this project on Webmaker!</string>
+    <string name="share_body" formatted="false">Check out %s by %s.</string>
 </resources>

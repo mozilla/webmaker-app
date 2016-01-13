@@ -1,5 +1,6 @@
 package org.mozilla.webmaker.web.javascript;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -91,11 +92,13 @@ public class WebAppInterface {
         editor.apply();
     }
 
+    @SuppressLint("CommitPrefEdits")
     @JavascriptInterface
     public void resetSharedPreferences() {
         mPrefs.edit().clear().commit();
     }
 
+    @SuppressLint("CommitPrefEdits")
     @JavascriptInterface
     public void setUserSession(String userData) {
         SharedPreferences.Editor editor = mUserPrefs.edit();
@@ -103,6 +106,7 @@ public class WebAppInterface {
         editor.commit();
     }
 
+    @SuppressLint("CommitPrefEdits")
     @JavascriptInterface
     public void clearUserSession() {
         SharedPreferences.Editor editor = mUserPrefs.edit();
@@ -185,16 +189,14 @@ public class WebAppInterface {
      * ---------------------------------------
      */
     @JavascriptInterface
-    public void shareProject(String userId, String id) {
-        Share.launchShareIntent(userId, id, mActivity);
+    public void shareProject(String userId, String projectId, String projectAuthor, String projectTitle) {
+        Share.launchIntent(userId, projectId, projectAuthor, projectTitle, mActivity);
     }
-
     /**
      * ---------------------------------------
      * Back Button
      * ---------------------------------------
      */
-
     @JavascriptInterface
     public void goBack() {
         mActivity.runOnUiThread(new Runnable() {
@@ -217,7 +219,6 @@ public class WebAppInterface {
      * Setting the activity action bar title.
      * ---------------------------------------
      */
-
     @JavascriptInterface
     public void setTitle(final String title) {
         final Activity activity = mActivity;
@@ -235,7 +236,6 @@ public class WebAppInterface {
      * Router
      * ---------------------------------------
      */
-
     @JavascriptInterface
     public void setView(final String url) {
         setView(url, null);
@@ -263,7 +263,6 @@ public class WebAppInterface {
      * Router Bindings
      * ---------------------------------------
      */
-
     @JavascriptInterface
     public String getRouteParams() {
         if (mRoute == null) return "";
@@ -285,7 +284,6 @@ public class WebAppInterface {
      * Google Analytics
      * ----------------------------------------
      */
-
     @JavascriptInterface
     public void trackEvent(String category, String action, String label) {
         WebmakerApplication.getTracker().send(new HitBuilders.EventBuilder()
@@ -347,8 +345,6 @@ public class WebAppInterface {
     public boolean isNetworkAvailable() {
         ConnectivityManager cm = (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-
         return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
     }
-
 }

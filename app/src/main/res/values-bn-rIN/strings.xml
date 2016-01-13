@@ -1,23 +1,23 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-<string name="app_name">ওয়েবমেকার</string>
-<string name="title_section1">আবিষ্কার করুন </string>
-<string name="title_section2">তৈরী করুন</string>
-<string name="title_activity_project">প্রকল্প</string>
-<string name="title_activity_play">চালাও</string>
-<string name="title_activity_link">গন্তব্য নির্ধারণ</string>
-<string name="title_activity_project_settings">প্রকল্প সেটিংস</string>
-<string name="title_activity_page">পাতা</string>
-<string name="title_activity_element">অপশনস</string>
-<string name="title_activity_tinker">অপশনস</string>
-<string name="title_activity_login">লগ ইন</string>
-<string name="title_activity_style_guide">স্টাইল গাইড</string>
-<string name="action_play">চালান</string>
-<string name="action_settings">সেটিংস</string>
-<string name="action_share">শেয়ার করুন</string>
-<string name="action_remix">রিমিক্স</string>
-<string name="share_subject">ওয়েবমেকার</string>
-<string name="share_body">এই প্রকল্প ওয়েবমেকারে দেখুন!</string>
-<string name="title_activity_user_projects">User Projects</string>
-<string name="title_activity_web_link">Link to Web</string>
+    <string name="app_name">ওয়েবমেকার</string>
+    <string name="title_section1">আবিষ্কার করুন</string>
+    <string name="title_section2">তৈরী করুন</string>
+    <string name="title_activity_project">প্রকল্প</string>
+    <string name="title_activity_play">চালাও</string>
+    <string name="title_activity_link">গন্তব্য নির্ধারণ</string>
+    <string name="title_activity_project_settings">প্রকল্প সেটিংস</string>
+    <string name="title_activity_page">পাতা</string>
+    <string name="title_activity_element">অপশনস</string>
+    <string name="title_activity_tinker">অপশনস</string>
+    <string name="title_activity_login">লগ ইন</string>
+    <string name="title_activity_style_guide">স্টাইল গাইড</string>
+    <string name="title_activity_user_projects">User Projects</string>
+    <string name="title_activity_web_link">Link to Web</string>
+    <string name="action_play">চালান</string>
+    <string name="action_settings">সেটিংস</string>
+    <string name="action_share">শেয়ার করুন</string>
+    <string name="action_remix">রিমিক্স</string>
+    <string name="share_subject">ওয়েবমেকার</string>
+    <string name="share_body" formatted="false">Check out %s by %s.</string>
 </resources>
