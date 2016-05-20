@@ -2,24 +2,22 @@
   "name": "webmaker-android",
   "version": "1.6.1",
   "description": "Webmaker for Android.",
-  "homepage": "https://github.com/mozilla/webmaker-android",
-  "author": "",
-  "license": "MPL-2.0",
-  "bugs": {
-    "url": "https://github.com/mozilla/webmaker-android/issues"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/mozilla/webmaker-android.git"
   },
-  "scripts": {
-    "postinstall": "npm start",
-    "start": "npm run build",
-    "build": "node npm_tasks/explore.js webmaker-core -- npm install && npm run copy:env && npm run build:core && npm run copy:core",
-    "build:core": "node npm_tasks/explore.js webmaker-core -- npm run build",
-    "copy:core": "rimraf app/src/main/assets/www/ && mkdirp app/src/main/assets/www/ && ncp node_modules/webmaker-core/dest/ app/src/main/assets/www/",
-    "copy:env": "node npm_tasks/copy-env.js",
-    "test": "echo \"Test in webmaker-core\""
+  "bugs": {
+    "url": "https://github.com/mozilla/webmaker-core/issues"
+  },
+  "keywords": [
+    "mozilla",
+    "webmaker"
+  ],
+  "author": "Mozilla",
+  "license": "MPL-2.0",
+  "homepage": "https://github.com/mozilla/webmaker-android",
+  "engines": {
+    "node": "4.4.x"
   },
   "dependencies": {
     "webmaker-core": "https://github.com/mozilla/webmaker-core.git#f02273763bc6170e83c5c5aaffe325d9e417d282"
@@ -27,10 +25,14 @@
   "devDependencies": {
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
-    "rimraf": "^2.4.1"
+    "rimraf": "^2.5.2"
   },
-  "engines": {
-    "node": "^4.1.0",
-    "npm": "^2.14.4"
+  "scripts": {
+    "postinstall": "npm start",
+    "start": "npm run build",
+    "build": "node npm_tasks/explore.js webmaker-core -- npm install && npm run copy:env && npm run build:core && npm run copy:core",
+    "build:core": "node npm_tasks/explore.js webmaker-core -- npm run build",
+    "copy:core": "rimraf app/src/main/assets/www/ && mkdirp app/src/main/assets/www/ && ncp node_modules/webmaker-core/dest/ app/src/main/assets/www/",
+    "copy:env": "node npm_tasks/copy-env.js"
   }
 }
