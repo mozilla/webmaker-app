@@ -1,12 +1,14 @@
+# Webmaker
+
+Learn more about [Webmaker](https://webmaker.org/) and its development in the [webmaker-core readme](https://github.com/mozilla/webmaker-core/blob/develop/README.md). 
+
 ## Webmaker for Android
 
-#### Please file all issues related to Webmaker Android at https://github.com/mozilla/webmaker-core/issues. You can use the android tag if your issue applies specifically to this repo or the Android platform.
+> **Please file all issues related to Webmaker** at https://github.com/mozilla/webmaker-core/issues. You can use the android tag if your issue applies specifically to this repo or the Android platform.
+
+webmaker-android is an Android wrapper dependent on [webmaker-core](https://github.com/mozilla/webmaker-core/)
 
 [![Build Status](https://travis-ci.org/mozilla/webmaker-android.svg?branch=develop)](https://travis-ci.org/mozilla/webmaker-android)
-
-Mozilla Webmaker's mission is to help enable a new generation of digital creators and webmakers, giving people the tools and skills they need to move from using the Web to actively making the Web. To this end, the Webmaker App is an entry point to the Webmaker community that provides a radically simple interface for creating mobile applications directly on device.
-
-![Webmaker for Android](https://cloud.githubusercontent.com/assets/747641/7551523/6e866ae2-f640-11e4-8606-2e7f890b438e.jpg)
 
 ## Getting Started
 
