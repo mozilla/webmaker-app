@@ -1,6 +1,6 @@
 ## Webmaker for Android
 
-#### Please file all issues related to Webmaker Android at https://github.com/mozilla/webmaker-core/issues. You can use the android tag if your issue applies specifically to this repo or the Android platform.
+#### New documentation coming soon, in the mean time if you have any questions, please reach out to us on IRC.
 
 [![Build Status](https://travis-ci.org/mozilla/webmaker-android.svg?branch=develop)](https://travis-ci.org/mozilla/webmaker-android)
 
