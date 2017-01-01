@@ -1,23 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="app_name">Webmaker</string>
-    <string name="action_play">Play</string>
-    <string name="action_remix">Remix</string>
-    <string name="action_settings">Project Details</string>
-    <string name="action_share">Share</string>
-    <string name="share_body">Check out this project on Webmaker!</string>
-    <string name="share_subject">Webmaker</string>
-    <string name="title_activity_element">Options</string>
-    <string name="title_activity_link">Pick Destination</string>
-    <string name="title_activity_login">Login</string>
-    <string name="title_activity_page">Edit Page</string>
-    <string name="title_activity_play">Play</string>
-    <string name="title_activity_project">Edit Project</string>
-    <string name="title_activity_project_settings">Project Settings</string>
-    <string name="title_activity_user_projects">User Projects</string>
-    <string name="title_activity_style_guide">Style Guide</string>
-    <string name="title_activity_tinker">Options</string>
     <string name="title_section1">Discover</string>
     <string name="title_section2">Make</string>
+    <string name="title_activity_project">Edit Project</string>
+    <string name="title_activity_play">Play</string>
+    <string name="title_activity_link">Pick Destination</string>
+    <string name="title_activity_project_settings">Project Settings</string>
+    <string name="title_activity_page">Edit Page</string>
+    <string name="title_activity_element">Options</string>
+    <string name="title_activity_tinker">Options</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_style_guide">Style Guide</string>
+    <string name="title_activity_user_projects">User Projects</string>
     <string name="title_activity_web_link">Link to Web</string>
+    <string name="action_play">Play</string>
+    <string name="action_settings">Project Details</string>
+    <string name="action_share">Share</string>
+    <string name="action_remix">Remix</string>
+    <string name="share_subject">Webmaker</string>
+    <string name="share_body" formatted="false">Check out %s by %s.</string>
 </resources>

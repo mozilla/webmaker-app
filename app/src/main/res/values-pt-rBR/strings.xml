@@ -1,23 +1,23 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
-  <string name="app_name">Webmaker</string>
-  <string name="title_section1">Descubra</string>
-  <string name="title_section2">Faça</string>
-  <string name="title_activity_project">Projeto</string>
-  <string name="title_activity_play">Iniciar</string>
-  <string name="title_activity_link">Definir destino</string>
-  <string name="title_activity_project_settings">Configurações do projeto</string>
-  <string name="title_activity_page">Página</string>
-  <string name="title_activity_element">Opções</string>
-  <string name="title_activity_tinker">Opções</string>
-  <string name="title_activity_login">Entrar</string>
-  <string name="title_activity_style_guide">Guia de estilo</string>
-  <string name="action_play">Iniciar</string>
-  <string name="action_settings">Configurações</string>
-  <string name="action_share">Compartilhe</string>
-  <string name="action_remix">Remixe</string>
-  <string name="share_subject">Webmaker</string>
-  <string name="share_body">Veja esse projeto no Webmaker!</string>
-  <string name="title_activity_user_projects">User Projects</string>
-  <string name="title_activity_web_link">Link to Web</string>
+    <string name="app_name">Webmaker</string>
+    <string name="title_section1">Descubra</string>
+    <string name="title_section2">Faça</string>
+    <string name="title_activity_project">Projeto</string>
+    <string name="title_activity_play">Iniciar</string>
+    <string name="title_activity_link">Definir destino</string>
+    <string name="title_activity_project_settings">Configurações do projeto</string>
+    <string name="title_activity_page">Página</string>
+    <string name="title_activity_element">Opções</string>
+    <string name="title_activity_tinker">Opções</string>
+    <string name="title_activity_login">Entrar</string>
+    <string name="title_activity_style_guide">Guia de estilo</string>
+    <string name="title_activity_user_projects">User Projects</string>
+    <string name="title_activity_web_link">Link to Web</string>
+    <string name="action_play">Iniciar</string>
+    <string name="action_settings">Configurações</string>
+    <string name="action_share">Compartilhe</string>
+    <string name="action_remix">Remixe</string>
+    <string name="share_subject">Webmaker</string>
+    <string name="share_body" formatted="false">Check out %s by %s.</string>
 </resources>

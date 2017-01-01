@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="app_name">Webmaker</string>
     <string name="title_section1">Descubrir</string>
@@ -11,14 +12,12 @@
     <string name="title_activity_tinker">Opciones</string>
     <string name="title_activity_login">Entrar</string>
     <string name="title_activity_style_guide">Guía de estilo</string>
-
+    <string name="title_activity_user_projects">User Projects</string>
+    <string name="title_activity_web_link">Link to Web</string>
     <string name="action_play">Iniciar</string>
     <string name="action_settings">Configuración</string>
     <string name="action_share">Compartir</string>
     <string name="action_remix">Mezclar</string>
-
     <string name="share_subject">Webmaker</string>
-    <string name="share_body">Checa este proyecto en Webmaker</string>
-    <string name="title_activity_user_projects">User Projects</string>
-    <string name="title_activity_web_link">Link to Web</string>
+    <string name="share_body" formatted="false">Check out %s by %s.</string>
 </resources>

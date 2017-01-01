@@ -53,7 +53,7 @@ public class Project extends WebmakerActivity {
                 SimpleRouter.getSharedRouter().call("/users/" + userId + "/projects/" + id + "/settings");
                 return true;
             case R.id.action_share:
-                Share.launchShareIntent(userId, id, this);
+                //Share.launchShareIntent(userId, id, this);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
